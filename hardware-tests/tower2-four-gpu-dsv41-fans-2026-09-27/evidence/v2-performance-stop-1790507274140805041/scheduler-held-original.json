@@ -1,0 +1,17 @@
+{
+  "status": "scheduler-held-noninferiority-impossible",
+  "utc": "2026-09-27T11:07:54.127363+00:00",
+  "schedulerPid": 2602204,
+  "completedPair": [
+    "v2-matched-cycle30-lower2-p1-ref85",
+    "v2-matched-cycle30-lower2-p1-candidate"
+  ],
+  "endToEndRatio": 0.9600350927199127,
+  "threshold": 0.97,
+  "reason": "For n=3, a two-sided95% Student-t log-ratio lower limit with t=4.30265 is at or below the minimum observed pair ratio. One completed ratio below0.97 therefore rules out qualification regardless of the remaining two pairs. This is a prospective stop after observing this pair, not a relabeling of historical runs.",
+  "originalSpecSha256": "4b03d555f977d1e8183e5e2976bbf91dbc92975b2775d7acd4e1a855b844f3ab",
+  "driverSourceSha256": "6a602bbedf462cf1a84a0c9dd3fe241cbd69b199fc3bb20cfbb15279fca7e877",
+  "GPUControllersSignalled": false,
+  "ownedWorkloadStateMustBeVerifiedSeparately": true,
+  "sourceSha256": "26ee12c96f797c1058008cb75da5eaa0b64142e04ecc8b5cb000a39e66154022"
+}

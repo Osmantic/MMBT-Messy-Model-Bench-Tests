@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "task": "codex-01a0dfd8-b03d-7622-b24f-23e65ad1c861-fan-management-execution",
+  "startedAt": "2026-09-27T05:06:46.2367856+00:00",
+  "measuredAt": "2026-09-27T15:22:43.0613723+00:00",
+  "target": {
+    "metric": "freshTokenLocalSharePercent",
+    "minimumPercent": 90,
+    "compliant": true
+  },
+  "local": {
+    "freshTokens": 82411166,
+    "grossTokens": 82411234,
+    "unknownGrossTokens": 68,
+    "totalTokens": 82411234,
+    "records": 8049,
+    "workers": {
+      "tower2": {
+        "calls": 8049,
+        "promptTokens": 65934119,
+        "completionTokens": 16477115,
+        "totalTokens": 82411234,
+        "freshTokens": 82411166,
+        "grossTokens": 82411234,
+        "unknownGrossTokens": 68
+      }
+    }
+  },
+  "codex": {
+    "grossTokens": 150471599,
+    "inputTokens": 149605102,
+    "cachedInputTokens": 146770816,
+    "freshInputTokens": 2834286,
+    "outputTokens": 866497,
+    "freshTokens": 3700783,
+    "counterSchema": "input includes cached input; total equals input plus output; reasoning is a subset of output"
+  },
+  "ratios": {
+    "freshTokenLocalSharePercent": 95.7,
+    "grossTokenLocalSharePercent": 35.39
+  },
+  "accountingNote": "Fresh share excludes cached reads on both local and Codex sides; local cache writes remain fresh. Gross share includes cached input. Legacy local receipts without cache components are reported as unknown and excluded from fresh. Neither ratio is an OpenAI subscription-usage conversion.",
+  "evidence": {
+    "codexSession": "C:\\Users\\conta\\.codex\\sessions\\2026\\09\\26\\rollout-2026-09-26T18-31-55-01a0dfd8-b03d-7622-b24f-23e65ad1c861.jsonl",
+    "tower2Ledger": "/home/michael/.local/state/dream-fleet/local-work-ledger.jsonl"
+  }
+}

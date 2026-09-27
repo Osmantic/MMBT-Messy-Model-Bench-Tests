@@ -1,0 +1,44 @@
+{
+  "status": "pass",
+  "utc": "2026-09-27T15:22:21.945110+00:00",
+  "task": "codex-01a0dfd8-b03d-7622-b24f-23e65ad1c861-fan-management-execution",
+  "pixelUtcStart": "2026-09-27T15:19:05.685183Z",
+  "pixelUtcEnd": "2026-09-27T15:19:20.991383Z",
+  "actualPixelBackend": "tower2/deepseek-v4.1-flash",
+  "routerWitness": {
+    "tower2Completed": 3,
+    "alternateCompleted": 0,
+    "nativeModelId": "deepseek-v4.1-flash"
+  },
+  "allPixelCallsImported": {
+    "imported": 0,
+    "enriched": 0,
+    "scanned": 1,
+    "replayed": 0,
+    "skipped": 1,
+    "excludedStop": 0,
+    "promptTokens": 0,
+    "completionTokens": 0,
+    "totalTokens": 0,
+    "freshTokens": 0,
+    "grossTokens": 0,
+    "state": "/home/michael/.local/state/dream-fleet/local-work-ledger.jsonl"
+  },
+  "functionalChatCallsImported": {
+    "imported": 2,
+    "skipped": 0,
+    "enriched": 0,
+    "known": 0,
+    "unknown": 2,
+    "promptTokens": 48,
+    "completionTokens": 20,
+    "totalTokens": 68,
+    "freshTokens": 0,
+    "grossTokens": 68,
+    "unknownGrossTokens": 68,
+    "state": "/home/michael/.local/state/dream-fleet/local-work-ledger.jsonl"
+  },
+  "privateSessionExported": false,
+  "unknownUnreceiptedCalls": 2,
+  "unknownCallReason": "Initial functional-proof attempt completed two calls but failed before saving receipts; they are not counted as known fresh usage."
+}

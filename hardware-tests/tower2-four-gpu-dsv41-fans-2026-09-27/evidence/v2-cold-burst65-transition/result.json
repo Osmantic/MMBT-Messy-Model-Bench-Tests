@@ -1,0 +1,1 @@
+{"phase": "v2-cold-burst65", "status": "failed", "utcStart": "2026-09-27T06:59:21.489271+00:00", "profileSha256": "1714dc97b598690b60c5a1d80669871b127e5871a2721a3170667815927ac311", "sourceSha256": "4d69b3e0033962cf8e6a07c2e6b7f71a8a89c7321f8b92e2106094b642c905ce", "error": "RuntimeError: Cold settled30% state not reached in180s", "utcEnd": "2026-09-27T07:02:23.821182+00:00"}

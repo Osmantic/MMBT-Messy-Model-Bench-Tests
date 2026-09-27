@@ -1,0 +1,22 @@
+{
+  "status": "activated-and-reinstalled",
+  "utc": "20260927T151947Z",
+  "files": [
+    {
+      "path": "skills/dream-fleet-executor/SKILL.md",
+      "oldSha256": "c709cd283cc72673bd699fba56a320bf047c5341786e19d1da0c160d925d1cbf",
+      "newSha256": "e93c3e895df827539a3145276a8dd4c799f0027cec672ff3a6e840d977cabd2f"
+    },
+    {
+      "path": "scripts/local-first-hook.ps1",
+      "oldSha256": "1b9f98bb3ad6c82fb0fdf1513fe79fe05ed23ae0eb4f550782de1867f0934b26",
+      "newSha256": "442af83d303da3302c57b7d73a2176aedfb622e9ce38968774accfd2168079bf"
+    }
+  ],
+  "globalAgentsOldSha256": "4c0b438c091f1d6a80600f570eefc3520d6b6721d8dfcd5a4718f476815b07f8",
+  "globalAgentsNewSha256": "34898809772b7f04295cb4aec1324e149aad200f70aa1169b762d008a42965bc",
+  "backup": "C:\\Users\\conta\\Documents\\Codex\\2026-09-26\\https-github-com-osmantic-mmbt-messy\\work\\fleet-guidance-backup\\20260927T151947Z",
+  "pluginReinstallRequired": false,
+  "installedVersion": "0.1.0+codex.20260927151948",
+  "cachedFilesVerified": true
+}

@@ -1,0 +1,11 @@
+The deployment scripts and Engram storage adapter in this repository are
+provided under the MIT license in LICENSE.
+
+runtime/flash_mla_sm120.py is derived from SGLang and remains licensed under
+Apache License 2.0. See LICENSE.sglang and the pinned runtime/source references
+in README.md. The added page-splitting fix is distributed under the same terms.
+
+SGLang, FlashInfer, DeepGEMM, PyTorch, NVIDIA components and the DeepSeek model
+retain their respective upstream licenses. This repository does not redistribute
+model weights. B12x and prior DeepSpark/DS4 recipes are credited as related work;
+their kernels are not integrated into the default image.

@@ -1,0 +1,20 @@
+{
+  "referenceProfile": "fixed85",
+  "candidateProfile": "lower2",
+  "candidateStartupFloor": 65,
+  "candidateStartupSeconds": 15,
+  "pairs": [
+    {
+      "reference": "v2-matched-lower2-p1-ref85",
+      "candidate": "v2-matched-lower2-p1-candidate"
+    },
+    {
+      "reference": "v2-matched-lower2-p2-ref85",
+      "candidate": "v2-matched-lower2-p2-candidate"
+    },
+    {
+      "reference": "v2-matched-lower2-p3-ref85",
+      "candidate": "v2-matched-lower2-p3-candidate"
+    }
+  ]
+}

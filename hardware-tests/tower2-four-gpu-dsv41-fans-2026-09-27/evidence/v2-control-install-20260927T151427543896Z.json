@@ -1,0 +1,112 @@
+{
+  "utc": "20260927T151427543896Z",
+  "rootInstallation": {
+    "backup": "/destination/backups/20260927T151427543896Z",
+    "changes": [
+      {
+        "name": "common.py",
+        "destination": "/destination/common.py",
+        "oldSha256": "d8ae7b178590fa340f235d6b85f31abbc705d5773159ad5028791f15ab9e6e8d",
+        "newSha256": "d8ae7b178590fa340f235d6b85f31abbc705d5773159ad5028791f15ab9e6e8d"
+      },
+      {
+        "name": "policy.py",
+        "destination": "/destination/policy.py",
+        "oldSha256": "f223b034139424bf1355c221a42a03dda11174297ed8cd24aac353f8944d17d4",
+        "newSha256": "f223b034139424bf1355c221a42a03dda11174297ed8cd24aac353f8944d17d4"
+      },
+      {
+        "name": "hardware.py",
+        "destination": "/destination/hardware.py",
+        "oldSha256": "731621dbcb6fbae782b4c0a95c97a88c736a691c90947e24e00e1cc1f72cbac3",
+        "newSha256": "731621dbcb6fbae782b4c0a95c97a88c736a691c90947e24e00e1cc1f72cbac3"
+      },
+      {
+        "name": "recovery.py",
+        "destination": "/destination/recovery.py",
+        "oldSha256": "358e607647621dbb57a033121f9780bc0e8a8686bac595d832bdee95fd9b4fd9",
+        "newSha256": "358e607647621dbb57a033121f9780bc0e8a8686bac595d832bdee95fd9b4fd9"
+      },
+      {
+        "name": "controller.py",
+        "destination": "/destination/controller.py",
+        "oldSha256": "e227d743e167c9269ad6c3d0ef8ea656cb4603c84a8dbc991aee80882fd2c344",
+        "newSha256": "e227d743e167c9269ad6c3d0ef8ea656cb4603c84a8dbc991aee80882fd2c344"
+      },
+      {
+        "name": "observer.py",
+        "destination": "/destination/observer.py",
+        "oldSha256": "0730c371199d57077833d80cdf168c0eb60e6e153939afcb2a689d6a9e775017",
+        "newSha256": "0730c371199d57077833d80cdf168c0eb60e6e153939afcb2a689d6a9e775017"
+      },
+      {
+        "name": "model-gate.py",
+        "destination": "/destination/model-gate.py",
+        "oldSha256": "f0778d931e54c09554fbd2e8166ea7106cd35bb495ef9053cd1ef3a757ff26a2",
+        "newSha256": "f0778d931e54c09554fbd2e8166ea7106cd35bb495ef9053cd1ef3a757ff26a2"
+      },
+      {
+        "name": "workload.py",
+        "destination": "/destination/workload.py",
+        "oldSha256": "e2d811f268241d059c96bc563839b21018d83fd1b34628bb316e25470e549f6a",
+        "newSha256": "e2d811f268241d059c96bc563839b21018d83fd1b34628bb316e25470e549f6a"
+      },
+      {
+        "name": "status.py",
+        "destination": "/destination/status.py",
+        "oldSha256": "c69e4354c3df77b65e77c21e3930433a2a2ba652ff063c43a25824d342f60298",
+        "newSha256": "c69e4354c3df77b65e77c21e3930433a2a2ba652ff063c43a25824d342f60298"
+      },
+      {
+        "name": "pynvml.py",
+        "destination": "/destination/pynvml.py",
+        "oldSha256": "04a59b0076d3774f4faad8a3ee69785f536732b416b5fd397d2cd552593379fe",
+        "newSha256": "04a59b0076d3774f4faad8a3ee69785f536732b416b5fd397d2cd552593379fe"
+      },
+      {
+        "name": "mmbt-gpu-control.service",
+        "destination": "/units/mmbt-gpu-control.service",
+        "oldSha256": "d0ba9b6f353472a92076eb9abdc8af74487e43a8fcd3cf72e3280cc5f28e3b6d",
+        "newSha256": "d0ba9b6f353472a92076eb9abdc8af74487e43a8fcd3cf72e3280cc5f28e3b6d"
+      },
+      {
+        "name": "mmbt-native-watchdog.service",
+        "destination": "/units/mmbt-native-watchdog.service",
+        "oldSha256": "112e313248edbefe8cf70b44860c0c3544435de58c5b0d5ad8c3eaa94442b0f8",
+        "newSha256": "112e313248edbefe8cf70b44860c0c3544435de58c5b0d5ad8c3eaa94442b0f8"
+      },
+      {
+        "name": "mmbt-dsv41.service",
+        "destination": "/units/mmbt-dsv41.service",
+        "oldSha256": "3f2ac25a83efb0e3c8894f403619cd240447d7d8e504e323c5abd27b1b41c551",
+        "newSha256": "3f2ac25a83efb0e3c8894f403619cd240447d7d8e504e323c5abd27b1b41c551"
+      },
+      {
+        "name": "gpu-profile.json",
+        "destination": "/config/gpu-profile.json",
+        "oldSha256": "2881a6d108a4c9a145b7c97a1f2cefd72f94a5be403cda356147fdbea518f7f6",
+        "newSha256": "2881a6d108a4c9a145b7c97a1f2cefd72f94a5be403cda356147fdbea518f7f6"
+      }
+    ]
+  },
+  "sourceHashes": {
+    "common.py": "d8ae7b178590fa340f235d6b85f31abbc705d5773159ad5028791f15ab9e6e8d",
+    "policy.py": "f223b034139424bf1355c221a42a03dda11174297ed8cd24aac353f8944d17d4",
+    "hardware.py": "731621dbcb6fbae782b4c0a95c97a88c736a691c90947e24e00e1cc1f72cbac3",
+    "recovery.py": "358e607647621dbb57a033121f9780bc0e8a8686bac595d832bdee95fd9b4fd9",
+    "controller.py": "e227d743e167c9269ad6c3d0ef8ea656cb4603c84a8dbc991aee80882fd2c344",
+    "observer.py": "0730c371199d57077833d80cdf168c0eb60e6e153939afcb2a689d6a9e775017",
+    "model-gate.py": "f0778d931e54c09554fbd2e8166ea7106cd35bb495ef9053cd1ef3a757ff26a2",
+    "workload.py": "e2d811f268241d059c96bc563839b21018d83fd1b34628bb316e25470e549f6a",
+    "status.py": "c69e4354c3df77b65e77c21e3930433a2a2ba652ff063c43a25824d342f60298",
+    "pynvml.py": "04a59b0076d3774f4faad8a3ee69785f536732b416b5fd397d2cd552593379fe",
+    "mmbt-gpu-control.service": "d0ba9b6f353472a92076eb9abdc8af74487e43a8fcd3cf72e3280cc5f28e3b6d",
+    "mmbt-native-watchdog.service": "112e313248edbefe8cf70b44860c0c3544435de58c5b0d5ad8c3eaa94442b0f8",
+    "mmbt-dsv41.service": "3f2ac25a83efb0e3c8894f403619cd240447d7d8e504e323c5abd27b1b41c551",
+    "gpu-profile.json": "2881a6d108a4c9a145b7c97a1f2cefd72f94a5be403cda356147fdbea518f7f6"
+  },
+  "leaseInodeBefore": 114886049,
+  "leaseInodeAfter": 114886049,
+  "activated": false,
+  "checkpointStillPaused": true
+}

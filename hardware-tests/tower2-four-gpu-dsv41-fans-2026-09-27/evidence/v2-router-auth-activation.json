@@ -1,0 +1,15 @@
+{
+  "status": "installed",
+  "utc": "2026-09-27T15:15:42.730146+00:00",
+  "oldSourceSha256": "91cde241fb5bc05223f90bd61edd73928bb1e5202d15e4ad2f85dc3efa408f5f",
+  "newSourceSha256": "5dff90c2adde45f28f6ddc2a79ae42e9130ea16eacaa6c1a5740756bb1da8b34",
+  "nativeEndpoint": "tower2",
+  "priority": 0,
+  "maximumActive": 8,
+  "ownerOnlyKeyFileReference": true,
+  "keyValueExported": false,
+  "oldRequestsDrained": true,
+  "backupPath": "/home/michael/.local/state/dream-fleet/router-backups/20260927T151542696947Z",
+  "newConfigSha256": "dcfb00ef07ccd8067d9d5ce9168ecf95deadbf59e7ba22016edc4abf46f666b2",
+  "remainingWork": "Actual authenticated native and routed inference required."
+}

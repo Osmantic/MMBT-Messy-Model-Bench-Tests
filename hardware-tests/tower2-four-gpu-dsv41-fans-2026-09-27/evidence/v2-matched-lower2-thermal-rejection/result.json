@@ -1,0 +1,12 @@
+{
+  "status": "not-qualified",
+  "originalSeries": "v2-matched-lower2",
+  "failedPhase": "v2-matched-lower2-p3-ref85",
+  "reasons": [
+    "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca: not thermally steady",
+    "GPU-708ffb68-e356-930d-4f83-980567b5ae3a: not thermally steady",
+    "GPU-ff71102f-22f8-52bb-da93-2076a6531329: not thermally steady"
+  ],
+  "replacementSpec": "v2-matched-lower2-r2-spec.json",
+  "originalFailedTraceRetained": true
+}

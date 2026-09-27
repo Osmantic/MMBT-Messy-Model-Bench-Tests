@@ -1,0 +1,520 @@
+{
+  "status": "pass",
+  "utc": "2026-09-27T15:18:44.886602+00:00",
+  "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+  "readinessWaitSeconds": 0.5140611070019077,
+  "nativeStartedAt": "2026-09-27T15:15:10.185904434Z",
+  "containerId": "ac2cb54a2d8ef3ffa4f1c56bdfc873b47a420c5e2ebf890fbd1233c7251a1559",
+  "imageId": "sha256:a30e3c69e6a4de1b82e4893dfa971ab94cba126476e3a26f4d1da5d868fae04f",
+  "profileSha256": "2881a6d108a4c9a145b7c97a1f2cefd72f94a5be403cda356147fdbea518f7f6",
+  "protection": {
+    "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+    "observations": {
+      "status": {
+        "utc": "2026-09-27T15:18:44.348696+00:00",
+        "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+        "monotonic": 49299.322802136,
+        "gpus": [
+          {
+            "uuid": "GPU-708ffb68-e356-930d-4f83-980567b5ae3a",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 78,
+                "current": 78,
+                "rpm": 2360,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 78,
+                "current": 78,
+                "rpm": 2357,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 40,
+            "utilizationGpu": 0
+          },
+          {
+            "uuid": "GPU-ff71102f-22f8-52bb-da93-2076a6531329",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 78,
+                "current": 79,
+                "rpm": 2363,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 78,
+                "current": 78,
+                "rpm": 2358,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 34,
+            "utilizationGpu": 0
+          },
+          {
+            "uuid": "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 78,
+                "current": 79,
+                "rpm": 2361,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 78,
+                "current": 79,
+                "rpm": 2361,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 36,
+            "utilizationGpu": 0
+          },
+          {
+            "uuid": "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 78,
+                "current": 78,
+                "rpm": 2358,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 78,
+                "current": 78,
+                "rpm": 2359,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 46,
+            "utilizationGpu": 0
+          }
+        ],
+        "source": "uniform-controller-v2",
+        "pid": 75212,
+        "ready": true,
+        "allFansSettled": true,
+        "targetPercent": 78,
+        "mode": "curve"
+      },
+      "watchdog-status": {
+        "utc": "2026-09-27T15:18:44.049961+00:00",
+        "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+        "monotonic": 49299.02434154,
+        "gpus": [
+          {
+            "uuid": "GPU-708ffb68-e356-930d-4f83-980567b5ae3a",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 78,
+                "current": 78,
+                "rpm": 2360,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 78,
+                "current": 78,
+                "rpm": 2358,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 40,
+            "utilizationGpu": 0
+          },
+          {
+            "uuid": "GPU-ff71102f-22f8-52bb-da93-2076a6531329",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 78,
+                "current": 79,
+                "rpm": 2364,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 78,
+                "current": 78,
+                "rpm": 2358,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 34,
+            "utilizationGpu": 0
+          },
+          {
+            "uuid": "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 78,
+                "current": 79,
+                "rpm": 2361,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 78,
+                "current": 79,
+                "rpm": 2363,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 36,
+            "utilizationGpu": 0
+          },
+          {
+            "uuid": "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 78,
+                "current": 78,
+                "rpm": 2359,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 78,
+                "current": 78,
+                "rpm": 2359,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 46,
+            "utilizationGpu": 0
+          }
+        ],
+        "source": "independent-observer-v2",
+        "pid": 75935,
+        "mode": "manual",
+        "healthy": true,
+        "requestRecovery": false,
+        "suspend": false,
+        "degradedSince": null,
+        "critical": false,
+        "active": true,
+        "workloadStateKnown": true,
+        "workloadError": null,
+        "controlErrors": [],
+        "availableBytes": 35665338368,
+        "latchPresent": false
+      }
+    },
+    "units": {
+      "nvidia-powerlimit.service": {
+        "MainPID": "0",
+        "ActiveState": "active",
+        "SubState": "exited",
+        "UnitFileState": "enabled"
+      },
+      "mmbt-gpu-control.service": {
+        "MainPID": "75212",
+        "ActiveState": "active",
+        "SubState": "running",
+        "UnitFileState": "enabled"
+      },
+      "mmbt-native-watchdog.service": {
+        "MainPID": "75935",
+        "ActiveState": "active",
+        "SubState": "running",
+        "UnitFileState": "enabled"
+      },
+      "mmbt-dsv41.service": {
+        "MainPID": "79239",
+        "ActiveState": "active",
+        "SubState": "running",
+        "UnitFileState": "enabled"
+      }
+    },
+    "errors": [],
+    "sourceHashes": {
+      "observer.py": "0730c371199d57077833d80cdf168c0eb60e6e153939afcb2a689d6a9e775017",
+      "guard_validation.py": "bed3c54bdc922f65426efe4a41d91d044ad6a47aa23bf6b4607fbbbcafae9266",
+      "pynvml.py": "04a59b0076d3774f4faad8a3ee69785f536732b416b5fd397d2cd552593379fe",
+      "uniform_curve_policy.py": "ef476e3689e18929631ad16c8ccc82b622824fad4097a6eb1ff06c1797fcda28",
+      "common.py": "d8ae7b178590fa340f235d6b85f31abbc705d5773159ad5028791f15ab9e6e8d",
+      "service-fallback.py": "0d343b0a3e3eb6a62daea531e6e0324dfa7ce0ff2f976e58c1c67c058409a68f",
+      "workload.py": "e2d811f268241d059c96bc563839b21018d83fd1b34628bb316e25470e549f6a",
+      "model-gate.py": "f0778d931e54c09554fbd2e8166ea7106cd35bb495ef9053cd1ef3a757ff26a2",
+      "policy.py": "f223b034139424bf1355c221a42a03dda11174297ed8cd24aac353f8944d17d4",
+      "uniform_quiet_policy.py": "848fa4b3d5a9531ea27dc382477354298313296b43e8a533e6f9d465f2031f2d",
+      "production_watchdog.py": "86e7128ed260b090f716a552109b13b392a725ee79d045d028c86eb25473643f",
+      "recovery.py": "358e607647621dbb57a033121f9780bc0e8a8686bac595d832bdee95fd9b4fd9",
+      "controller.py": "e227d743e167c9269ad6c3d0ef8ea656cb4603c84a8dbc991aee80882fd2c344",
+      "status.py": "c69e4354c3df77b65e77c21e3930433a2a2ba652ff063c43a25824d342f60298",
+      "hardware.py": "731621dbcb6fbae782b4c0a95c97a88c736a691c90947e24e00e1cc1f72cbac3"
+    },
+    "docker": {
+      "Running": true,
+      "Paused": false,
+      "Pid": 79307,
+      "OOMKilled": false,
+      "healthStatus": "healthy"
+    },
+    "independentGpuSample": {
+      "utc": "2026-09-27T15:18:44.517718+00:00",
+      "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+      "monotonic": 49299.491856733,
+      "gpus": [
+        {
+          "uuid": "GPU-708ffb68-e356-930d-4f83-980567b5ae3a",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 78,
+              "current": 78,
+              "rpm": 2359
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 78,
+              "current": 78,
+              "rpm": 2357
+            }
+          ],
+          "vramC": null,
+          "coreC": 40,
+          "utilizationGpu": 0
+        },
+        {
+          "uuid": "GPU-ff71102f-22f8-52bb-da93-2076a6531329",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 78,
+              "current": 79,
+              "rpm": 2362
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 78,
+              "current": 78,
+              "rpm": 2358
+            }
+          ],
+          "vramC": null,
+          "coreC": 33,
+          "utilizationGpu": 0
+        },
+        {
+          "uuid": "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 78,
+              "current": 78,
+              "rpm": 2360
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 78,
+              "current": 79,
+              "rpm": 2361
+            }
+          ],
+          "vramC": null,
+          "coreC": 36,
+          "utilizationGpu": 0
+        },
+        {
+          "uuid": "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 78,
+              "current": 78,
+              "rpm": 2358
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 78,
+              "current": 78,
+              "rpm": 2359
+            }
+          ],
+          "vramC": null,
+          "coreC": 46,
+          "utilizationGpu": 0
+        }
+      ]
+    },
+    "criticalLatchPresent": false,
+    "hottestCoreC": 46,
+    "normalTemperatureRange": true,
+    "fanReadbackMeaning": "NVML-reported operating percentage/RPM; no independent physical tachometer",
+    "status": "ready"
+  },
+  "nativeLogConfig": {
+    "Type": "json-file",
+    "Config": {
+      "max-file": "3",
+      "max-size": "20m"
+    }
+  },
+  "modelUnitActive": true,
+  "responses": [
+    {
+      "role": "native",
+      "utcStart": "2026-09-27T15:18:44.553384+00:00",
+      "utcEnd": "2026-09-27T15:18:44.702147+00:00",
+      "model": "deepseek-v4.1-flash",
+      "selectedEndpoint": null,
+      "response": {
+        "id": "628659470ff44431ab496a5a54136ba2",
+        "object": "chat.completion",
+        "created": 1790522324,
+        "model": "deepseek-v4.1-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"product\":779,\"ok\":true}",
+              "reasoning_content": null,
+              "tool_calls": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "matched_stop": 1
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 24,
+          "total_tokens": 34,
+          "completion_tokens": 10,
+          "prompt_tokens_details": null,
+          "reasoning_tokens": 0
+        },
+        "metadata": {
+          "weight_version": "default",
+          "weight_versions": [
+            {
+              "version": "default",
+              "start": 0,
+              "end": 10
+            }
+          ]
+        }
+      },
+      "calculationPassed": true
+    },
+    {
+      "role": "routed",
+      "utcStart": "2026-09-27T15:18:44.716740+00:00",
+      "utcEnd": "2026-09-27T15:18:44.873131+00:00",
+      "model": "deepseek-v4.1-flash",
+      "selectedEndpoint": "tower2",
+      "response": {
+        "id": "cd0861e8a952406ebc352bce79548e62",
+        "object": "chat.completion",
+        "created": 1790522324,
+        "model": "deepseek-v4.1-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"product\":779,\"ok\":true}",
+              "reasoning_content": null,
+              "tool_calls": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "matched_stop": 1
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 24,
+          "total_tokens": 34,
+          "completion_tokens": 10,
+          "prompt_tokens_details": null,
+          "reasoning_tokens": 0
+        },
+        "metadata": {
+          "weight_version": "default",
+          "weight_versions": [
+            {
+              "version": "default",
+              "start": 0,
+              "end": 10
+            }
+          ]
+        }
+      },
+      "calculationPassed": true
+    }
+  ],
+  "actualHostRebootPerformed": false,
+  "twoHourSoakPerformed": false,
+  "sourceSha256": "cb9b3f0c1ecadeb4580529ef6c86a4b6ec87618196d4f0620f28a9fd20d5db2d",
+  "priorProofHarnessAttempt": "Two arithmetic calls succeeded but a missing status-schema field prevented receipt persistence; those calls are not included as known ledger usage."
+}

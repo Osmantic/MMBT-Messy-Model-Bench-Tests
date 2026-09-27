@@ -1,0 +1,3 @@
+# Preserve the exact source, profile and evidence bytes recorded in manifests.
+# Scripts are invoked with Python explicitly; existing shell/units retain LF.
+* -text

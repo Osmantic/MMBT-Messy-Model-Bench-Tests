@@ -1,0 +1,5 @@
+{
+  "power_limit_w": 275,
+  "mode": "fixed",
+  "fixed_percent": 85
+}

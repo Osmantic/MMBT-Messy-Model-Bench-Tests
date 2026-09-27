@@ -1,0 +1,34 @@
+{
+  "referenceProfile": "fixed85",
+  "candidateProfile": "lower2",
+  "candidateStartupFloor": 65,
+  "candidateStartupSeconds": 15,
+  "runSeconds": 1800,
+  "thermalPlateauMethod": "last6completeC8cycleMeans",
+  "plateauSourceSha256": "d95ae793a62c46722ebc6b69ad7bd39e3111df790fc743a43f238f62a25d96be",
+  "comparisonSourceSha256": "77c2292096a4af444ac4936275523a48cd805b82a6d6e9901c51a12e39effb2a",
+  "pairs": [
+    {
+      "reference": "v2-matched-cycle30-lower2-p1-ref85",
+      "candidate": "v2-matched-cycle30-lower2-p1-candidate"
+    },
+    {
+      "reference": "v2-matched-cycle30-lower2-p2-ref85",
+      "candidate": "v2-matched-cycle30-lower2-p2-candidate"
+    },
+    {
+      "reference": "v2-matched-cycle30-lower2-p3-ref85",
+      "candidate": "v2-matched-cycle30-lower2-p3-candidate"
+    }
+  ],
+  "protocolReason": "Two third-reference attempts failed the raw180-second absolute slope gate, including one narrow-0.315C/min boundary. Diagnostic complete-cycle slopes showed boundary alias contributes but does not explain every cooling trend. All six new30min runs are measured under one prospective complete-cycle method; old labels and traces remain unchanged.",
+  "unchangedRequirements": [
+    "four exact275W requested/enforced caps",
+    "all raw peaks<=82C including rejected transition reads",
+    "no thermal-counter increment",
+    "uniform manual accepted samples",
+    "same boot/runtime/executable source and candidate bytes",
+    "three paired95% Student-t lower bounds>=0.97 for BOTH final600 decode and end-to-end",
+    "candidate final600 fan effort below85%"
+  ]
+}

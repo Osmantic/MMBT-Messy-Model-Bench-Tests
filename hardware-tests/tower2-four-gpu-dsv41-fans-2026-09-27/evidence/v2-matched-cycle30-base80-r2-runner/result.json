@@ -1,0 +1,9 @@
+{
+  "status": "error",
+  "specSha256": "104598321638316d500040f662444dae89c51bd67cbd0f697d0c1067765a1474",
+  "driverSha256": "087edccb6d3a6355735fddfd3458c584d7250cfeebdc894139f10b4b8e4620d6",
+  "completed": [
+    "v2-matched-cycle30-base80-r2-p3-ref85"
+  ],
+  "error": "AssertionError: ['GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0: complete-cycle trend exceeds0.3C/min']"
+}

@@ -1,0 +1,181 @@
+{
+  "status": "pass",
+  "reasons": [],
+  "method": "last six complete C8 wave time-weighted means; absolute slope<=0.3C/min, span170..240s, all raw peaks<=82C and caps275",
+  "cycleSpanSeconds": 187.0476857649992,
+  "rawQualificationUnchanged": "pass",
+  "rawReasonsRetained": [],
+  "gpu": {
+    "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca": {
+      "completeCycleSlopeCPerMinute": 0.0540123340264608,
+      "cycles": [
+        {
+          "meanCoreC": 56.936741194325975,
+          "coverageSeconds": 31.268505465999624,
+          "durationSeconds": 31.268505465999624,
+          "midpointMonotonic": 32079.151834896
+        },
+        {
+          "meanCoreC": 57.03512127355581,
+          "coverageSeconds": 30.951897011000256,
+          "durationSeconds": 30.951897011000256,
+          "midpointMonotonic": 32110.2848631875
+        },
+        {
+          "meanCoreC": 56.979893354093726,
+          "coverageSeconds": 31.161124928999925,
+          "durationSeconds": 31.161124928999925,
+          "midpointMonotonic": 32141.3636718515
+        },
+        {
+          "meanCoreC": 57.032473448530155,
+          "coverageSeconds": 30.999346313998103,
+          "durationSeconds": 30.999346313998103,
+          "midpointMonotonic": 32172.453755479
+        },
+        {
+          "meanCoreC": 57.132310802129794,
+          "coverageSeconds": 31.45427610600018,
+          "durationSeconds": 31.45427610600018,
+          "midpointMonotonic": 32203.690165408
+        },
+        {
+          "meanCoreC": 57.06429772996149,
+          "coverageSeconds": 31.126627614998142,
+          "durationSeconds": 31.126627614998142,
+          "midpointMonotonic": 32235.0019541205
+        }
+      ],
+      "originalRaw180SlopeCPerMinute": 0.04554563772443823
+    },
+    "GPU-708ffb68-e356-930d-4f83-980567b5ae3a": {
+      "completeCycleSlopeCPerMinute": 0.02863782436399296,
+      "cycles": [
+        {
+          "meanCoreC": 65.96872714731892,
+          "coverageSeconds": 31.268505465999624,
+          "durationSeconds": 31.268505465999624,
+          "midpointMonotonic": 32079.151834896
+        },
+        {
+          "meanCoreC": 66.09097264335676,
+          "coverageSeconds": 30.951897011000256,
+          "durationSeconds": 30.951897011000256,
+          "midpointMonotonic": 32110.2848631875
+        },
+        {
+          "meanCoreC": 66.01219677511257,
+          "coverageSeconds": 31.161124928999925,
+          "durationSeconds": 31.161124928999925,
+          "midpointMonotonic": 32141.3636718515
+        },
+        {
+          "meanCoreC": 66.09900108782672,
+          "coverageSeconds": 30.999346313998103,
+          "durationSeconds": 30.999346313998103,
+          "midpointMonotonic": 32172.453755479
+        },
+        {
+          "meanCoreC": 66.18378734549528,
+          "coverageSeconds": 31.45427610600018,
+          "durationSeconds": 31.45427610600018,
+          "midpointMonotonic": 32203.690165408
+        },
+        {
+          "meanCoreC": 66.00001521934881,
+          "coverageSeconds": 31.126627614998142,
+          "durationSeconds": 31.126627614998142,
+          "midpointMonotonic": 32235.0019541205
+        }
+      ],
+      "originalRaw180SlopeCPerMinute": 0.010774795966502939
+    },
+    "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0": {
+      "completeCycleSlopeCPerMinute": 0.10872530280486718,
+      "cycles": [
+        {
+          "meanCoreC": 75.5444068771217,
+          "coverageSeconds": 31.268505465999624,
+          "durationSeconds": 31.268505465999624,
+          "midpointMonotonic": 32079.151834896
+        },
+        {
+          "meanCoreC": 75.5023976479527,
+          "coverageSeconds": 30.951897011000256,
+          "durationSeconds": 30.951897011000256,
+          "midpointMonotonic": 32110.2848631875
+        },
+        {
+          "meanCoreC": 75.64930517858718,
+          "coverageSeconds": 31.161124928999925,
+          "durationSeconds": 31.161124928999925,
+          "midpointMonotonic": 32141.3636718515
+        },
+        {
+          "meanCoreC": 75.53791419899953,
+          "coverageSeconds": 30.999346313998103,
+          "durationSeconds": 30.999346313998103,
+          "midpointMonotonic": 32172.453755479
+        },
+        {
+          "meanCoreC": 75.81967288505098,
+          "coverageSeconds": 31.45427610600018,
+          "durationSeconds": 31.45427610600018,
+          "midpointMonotonic": 32203.690165408
+        },
+        {
+          "meanCoreC": 75.7714354358593,
+          "coverageSeconds": 31.126627614998142,
+          "durationSeconds": 31.126627614998142,
+          "midpointMonotonic": 32235.0019541205
+        }
+      ],
+      "originalRaw180SlopeCPerMinute": 0.11419664092664299
+    },
+    "GPU-ff71102f-22f8-52bb-da93-2076a6531329": {
+      "completeCycleSlopeCPerMinute": 0.08222820797068993,
+      "cycles": [
+        {
+          "meanCoreC": 49.84081295508665,
+          "coverageSeconds": 31.268505465999624,
+          "durationSeconds": 31.268505465999624,
+          "midpointMonotonic": 32079.151834896
+        },
+        {
+          "meanCoreC": 49.93833852369924,
+          "coverageSeconds": 30.951897011000256,
+          "durationSeconds": 30.951897011000256,
+          "midpointMonotonic": 32110.2848631875
+        },
+        {
+          "meanCoreC": 50.044216546904174,
+          "coverageSeconds": 31.161124928999925,
+          "durationSeconds": 31.161124928999925,
+          "midpointMonotonic": 32141.3636718515
+        },
+        {
+          "meanCoreC": 50.09687254429771,
+          "coverageSeconds": 30.999346313998103,
+          "durationSeconds": 30.999346313998103,
+          "midpointMonotonic": 32172.453755479
+        },
+        {
+          "meanCoreC": 50.100537600812665,
+          "coverageSeconds": 31.45427610600018,
+          "durationSeconds": 31.45427610600018,
+          "midpointMonotonic": 32203.690165408
+        },
+        {
+          "meanCoreC": 50.03219672122522,
+          "coverageSeconds": 31.126627614998142,
+          "durationSeconds": 31.126627614998142,
+          "midpointMonotonic": 32235.0019541205
+        }
+      ],
+      "originalRaw180SlopeCPerMinute": 0.03314236089967895
+    }
+  },
+  "phase": "v2-matched-cycle30-lower2-p1-ref85",
+  "originalAnalysisSha256": "90d31c10f66f082908731fbae4ac5d730a470d46170dcfd4a191235cc47f647e",
+  "analysisSourceSha256": "d95ae793a62c46722ebc6b69ad7bd39e3111df790fc743a43f238f62a25d96be"
+}
