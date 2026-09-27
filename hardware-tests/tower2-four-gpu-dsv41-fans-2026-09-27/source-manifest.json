@@ -183,6 +183,11 @@
       "sha256": "99823560b1ca66acae9ff90a2c34e13b0532bf4eca2ff3b17ce85651a97734e7"
     },
     {
+      "path": "evidence/v2-everyday-operation-handoff.json",
+      "bytes": 1580,
+      "sha256": "eaf4c320b3ba9fe276d9781968e4ba750132c19ac11796adf0129ff63d6c06ef"
+    },
+    {
       "path": "evidence/v2-final-native-chat-receipt.json",
       "bytes": 1062,
       "sha256": "52d7cdbb952d4440e25ed7cd798fb850160284f5a9147bcbf75570bf4eab80e1"
@@ -1249,13 +1254,13 @@
     },
     {
       "path": "OPERATIONS.md",
-      "bytes": 6039,
-      "sha256": "dd6a23b3850e47bcc5879324ac6d848daf8d3cc7fdc452299eb6f64bb281d2fc"
+      "bytes": 7875,
+      "sha256": "5e968faa69625a36986d35316bb57903b5ad68a4601b8e603988588eac438d2a"
     },
     {
       "path": "README.md",
-      "bytes": 13010,
-      "sha256": "8fafa21f91b9a59e812499ee185ac268ab72a2753f05cafdd281c5f89a3feca6"
+      "bytes": 13494,
+      "sha256": "143591bcd59e12ade735ae29a4fdf353a56ce76b4b0dc5854fabbea2c8a41e67"
     },
     {
       "path": "REPRODUCE.md",

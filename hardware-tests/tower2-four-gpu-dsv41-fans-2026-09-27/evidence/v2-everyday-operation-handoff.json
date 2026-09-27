@@ -1,0 +1,42 @@
+{
+  "status": "pass",
+  "utc": "2026-09-27T15:30:50.943696+00:00",
+  "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+  "units": {
+    "mmbt-gpu-control.service": {
+      "Restart": "always",
+      "RestartUSec": "2s",
+      "WatchdogUSec": "6s",
+      "MainPID": "75212",
+      "WatchdogSignal": "9",
+      "Id": "mmbt-gpu-control.service",
+      "ActiveState": "active",
+      "UnitFileState": "enabled",
+      "StartLimitIntervalUSec": "0",
+      "fileSha256": "d0ba9b6f353472a92076eb9abdc8af74487e43a8fcd3cf72e3280cc5f28e3b6d"
+    },
+    "mmbt-native-watchdog.service": {
+      "Restart": "always",
+      "RestartUSec": "2s",
+      "WatchdogUSec": "6s",
+      "MainPID": "75935",
+      "WatchdogSignal": "9",
+      "Id": "mmbt-native-watchdog.service",
+      "ActiveState": "active",
+      "UnitFileState": "enabled",
+      "StartLimitIntervalUSec": "0",
+      "fileSha256": "112e313248edbefe8cf70b44860c0c3544435de58c5b0d5ad8c3eaa94442b0f8"
+    }
+  },
+  "rootOwnedSourcesAndConfiguration": true,
+  "profileSha256": "2881a6d108a4c9a145b7c97a1f2cefd72f94a5be403cda356147fdbea518f7f6",
+  "independentBootCapsEnabled": true,
+  "gatedNativeBootEnabled": true,
+  "nativeModelActive": true,
+  "authenticatedRouterHealthy": true,
+  "nativeModel": "deepseek-v4.1-flash",
+  "manualFanActionsRequiredForNormalInference": false,
+  "additionalFanTuningOrLoadTestsPerformed": false,
+  "automaticFaultRecovery": "automatic-first handoff, service restart and independent observation; bounded owned-workload suspension if protection cannot recover",
+  "qualificationLimitsUnchanged": true
+}
