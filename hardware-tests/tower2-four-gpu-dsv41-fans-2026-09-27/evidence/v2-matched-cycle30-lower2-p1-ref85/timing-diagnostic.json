@@ -1,0 +1,838 @@
+{
+  "phase": "v2-matched-cycle30-lower2-p1-ref85",
+  "status": "descriptive",
+  "sourceSha256": "a6ceb5a6e66ade920091537c1343b85535d831188a2a6a311b1a3773e9ce7be6",
+  "whole": {
+    "waves": 61,
+    "waveDurationSeconds": 29.750806492639356,
+    "latestFirstDeliverySeconds": 8.49519058478699,
+    "commonDecodeSeconds": 19.47632889750821,
+    "allStreamsLastPositiveSeconds": 28.904357653721327,
+    "postLastPositiveSeconds": 0.8464488389180305,
+    "postLastRawEventSeconds": 0.8464488389180305,
+    "betweenWaveGapSeconds": 0.014707365311461799,
+    "meanSpecAcceptLength": 4.7224669206282535
+  },
+  "first10Minutes": {
+    "waves": 21,
+    "waveDurationSeconds": 28.518584930000152,
+    "latestFirstDeliverySeconds": 8.03904114752385,
+    "commonDecodeSeconds": 18.748223692142695,
+    "allStreamsLastPositiveSeconds": 27.698563830904668,
+    "postLastPositiveSeconds": 0.8200210990954864,
+    "postLastRawEventSeconds": 0.8200210990954864,
+    "betweenWaveGapSeconds": 0.011959934285620139,
+    "meanSpecAcceptLength": 4.7277791948031505
+  },
+  "last10Minutes": {
+    "waves": 20,
+    "waveDurationSeconds": 30.97435594870003,
+    "latestFirstDeliverySeconds": 8.960648517450135,
+    "commonDecodeSeconds": 20.15520221015031,
+    "allStreamsLastPositiveSeconds": 30.097779797000292,
+    "postLastPositiveSeconds": 0.8765761516997372,
+    "postLastRawEventSeconds": 0.8765761516997372,
+    "betweenWaveGapSeconds": 0.018946060199959903,
+    "meanSpecAcceptLength": 4.728743787288935
+  },
+  "decode600": {
+    "tokens": 309538,
+    "seconds": 392.99951015800616,
+    "aggregateTokensPerSecond": 787.6294804427356,
+    "windowDurationSeconds": 600,
+    "minimumComparisonCoverageSeconds": 300,
+    "prefillAndDrainGapsExcluded": true
+  },
+  "e2e": 550.4262728913084,
+  "ttftMedianSeconds": 4.844955460999699,
+  "ttftP95Seconds": 8.915220406001026,
+  "latencyMedianSeconds": 28.392655490000834,
+  "paging": {
+    "wholeHostSwapInBytes": 13975552,
+    "wholeHostSwapOutBytes": 8556544,
+    "modelProcessMetricsRecorded": true,
+    "attribution": "Process major-fault and VmSwap observations available; aggregate host traffic alone does not establish model attribution",
+    "modelMajorFaultDeltaByPid": {
+      "928218": 0,
+      "928526": 0,
+      "928531": 21,
+      "929417": 0,
+      "929418": 5,
+      "929419": 9,
+      "929420": 30,
+      "929421": 19,
+      "929422": 16
+    },
+    "sameModelProcessSetObserved": true,
+    "modelPrivateSwapStartBytes": 3041239040,
+    "modelPrivateSwapEndBytes": 3040833536
+  },
+  "gpu": {
+    "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca": {
+      "peakCoreC": 59,
+      "steadyMeanCoreC": 57.06111111111111,
+      "steadyMinCoreC": 53,
+      "steadyMaxCoreC": 59,
+      "steadySlopeCPerMinute": 0.04554563772443823,
+      "reportedPeakPowerW": 288.318,
+      "smClockMedianMHz": 2445,
+      "observedClockEventMasks": [
+        0,
+        4
+      ],
+      "requestedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "enforcedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "thermalViolationDeltaNanoseconds": 0,
+      "powerViolationDeltaNanoseconds": 80753618880
+    },
+    "GPU-708ffb68-e356-930d-4f83-980567b5ae3a": {
+      "peakCoreC": 68,
+      "steadyMeanCoreC": 66.07222222222222,
+      "steadyMinCoreC": 63,
+      "steadyMaxCoreC": 68,
+      "steadySlopeCPerMinute": 0.010774795966502939,
+      "reportedPeakPowerW": 287.803,
+      "smClockMedianMHz": 2482,
+      "observedClockEventMasks": [
+        0,
+        4
+      ],
+      "requestedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "enforcedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "thermalViolationDeltaNanoseconds": 0,
+      "powerViolationDeltaNanoseconds": 56616183904
+    },
+    "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0": {
+      "peakCoreC": 78,
+      "steadyMeanCoreC": 75.69444444444444,
+      "steadyMinCoreC": 73,
+      "steadyMaxCoreC": 77,
+      "steadySlopeCPerMinute": 0.11419664092664299,
+      "reportedPeakPowerW": 292.915,
+      "smClockMedianMHz": 1875,
+      "observedClockEventMasks": [
+        0,
+        4
+      ],
+      "requestedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "enforcedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "thermalViolationDeltaNanoseconds": 0,
+      "powerViolationDeltaNanoseconds": 1669425097824
+    },
+    "GPU-ff71102f-22f8-52bb-da93-2076a6531329": {
+      "peakCoreC": 52,
+      "steadyMeanCoreC": 50.044444444444444,
+      "steadyMinCoreC": 46,
+      "steadyMaxCoreC": 51,
+      "steadySlopeCPerMinute": 0.03314236089967895,
+      "reportedPeakPowerW": 290.189,
+      "smClockMedianMHz": 2377,
+      "observedClockEventMasks": [
+        0,
+        4
+      ],
+      "requestedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "enforcedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "thermalViolationDeltaNanoseconds": 0,
+      "powerViolationDeltaNanoseconds": 65473568160
+    }
+  },
+  "waves": [
+    {
+      "endMinutes": 0.4597150355999474,
+      "waveDurationSeconds": 27.575227643999824,
+      "latestFirstDeliverySeconds": 7.508268890000181,
+      "commonDecodeSeconds": 17.973254245000135,
+      "allStreamsLastPositiveSeconds": 26.78701218599963,
+      "postLastPositiveSeconds": 0.7882154580001952,
+      "postLastRawEventSeconds": 0.7882154580001952,
+      "betweenWaveGapSeconds": 0,
+      "meanSpecAcceptLength": 4.657686103038352
+    },
+    {
+      "endMinutes": 0.9204804935499851,
+      "waveDurationSeconds": 27.628800572001637,
+      "latestFirstDeliverySeconds": 7.599919570002385,
+      "commonDecodeSeconds": 18.332153752999147,
+      "allStreamsLastPositiveSeconds": 26.795517105001636,
+      "postLastPositiveSeconds": 0.8332834670000011,
+      "postLastRawEventSeconds": 0.8332834670000011,
+      "betweenWaveGapSeconds": 0.017126905000623083,
+      "meanSpecAcceptLength": 4.726588149700251
+    },
+    {
+      "endMinutes": 1.3837730241833317,
+      "waveDurationSeconds": 27.781035718002386,
+      "latestFirstDeliverySeconds": 7.653302374001214,
+      "commonDecodeSeconds": 18.691521490000014,
+      "allStreamsLastPositiveSeconds": 26.874091863999638,
+      "postLastPositiveSeconds": 0.9069438540027477,
+      "postLastRawEventSeconds": 0.9069438540027477,
+      "betweenWaveGapSeconds": 0.01651611999841407,
+      "meanSpecAcceptLength": 4.695044557540878
+    },
+    {
+      "endMinutes": 1.8519262113666628,
+      "waveDurationSeconds": 28.085789664000913,
+      "latestFirstDeliverySeconds": 7.749706277998484,
+      "commonDecodeSeconds": 18.156724213000416,
+      "allStreamsLastPositiveSeconds": 27.2579820869978,
+      "postLastPositiveSeconds": 0.8278075770031137,
+      "postLastRawEventSeconds": 0.8278075770031137,
+      "betweenWaveGapSeconds": 0.003401566998945782,
+      "meanSpecAcceptLength": 4.751111195215499
+    },
+    {
+      "endMinutes": 2.315074066033291,
+      "waveDurationSeconds": 27.784721051000815,
+      "latestFirstDeliverySeconds": 7.789193021002575,
+      "commonDecodeSeconds": 18.662682819998736,
+      "allStreamsLastPositiveSeconds": 26.911848641000688,
+      "postLastPositiveSeconds": 0.8728724100001273,
+      "postLastRawEventSeconds": 0.8728724100001273,
+      "betweenWaveGapSeconds": 0.0041502289968775585,
+      "meanSpecAcceptLength": 4.7829040061512025
+    },
+    {
+      "endMinutes": 2.781833588266636,
+      "waveDurationSeconds": 28.001478461999795,
+      "latestFirstDeliverySeconds": 7.9288489680002385,
+      "commonDecodeSeconds": 18.356732373998966,
+      "allStreamsLastPositiveSeconds": 27.268177800000558,
+      "postLastPositiveSeconds": 0.7333006619992375,
+      "postLastRawEventSeconds": 0.7333006619992375,
+      "betweenWaveGapSeconds": 0.004092872000910575,
+      "meanSpecAcceptLength": 4.732169312593945
+    },
+    {
+      "endMinutes": 3.253537482749986,
+      "waveDurationSeconds": 28.298004210002546,
+      "latestFirstDeliverySeconds": 7.981183293002687,
+      "commonDecodeSeconds": 18.667388461999508,
+      "allStreamsLastPositiveSeconds": 27.476570273000107,
+      "postLastPositiveSeconds": 0.821433937002439,
+      "postLastRawEventSeconds": 0.821433937002439,
+      "betweenWaveGapSeconds": 0.0042294589984521735,
+      "meanSpecAcceptLength": 4.751583378476704
+    },
+    {
+      "endMinutes": 3.729092001799957,
+      "waveDurationSeconds": 28.529637285999343,
+      "latestFirstDeliverySeconds": 8.050671157001489,
+      "commonDecodeSeconds": 18.69592475999889,
+      "allStreamsLastPositiveSeconds": 27.762885996999103,
+      "postLastPositiveSeconds": 0.7667512890002399,
+      "postLastRawEventSeconds": 0.7667512890002399,
+      "betweenWaveGapSeconds": 0.003633856998931151,
+      "meanSpecAcceptLength": 4.721323876773194
+    },
+    {
+      "endMinutes": 4.1991058824499605,
+      "waveDurationSeconds": 28.196674568000162,
+      "latestFirstDeliverySeconds": 8.057036084999709,
+      "commonDecodeSeconds": 18.617400174000068,
+      "allStreamsLastPositiveSeconds": 27.358660608999344,
+      "postLastPositiveSeconds": 0.8380139590008184,
+      "postLastRawEventSeconds": 0.8380139590008184,
+      "betweenWaveGapSeconds": 0.0041582710000511725,
+      "meanSpecAcceptLength": 4.759765662122543
+    },
+    {
+      "endMinutes": 4.675136063699998,
+      "waveDurationSeconds": 28.54406175600161,
+      "latestFirstDeliverySeconds": 8.085504157999821,
+      "commonDecodeSeconds": 18.823467271999107,
+      "allStreamsLastPositiveSeconds": 27.757678878999286,
+      "postLastPositiveSeconds": 0.7863828770023247,
+      "postLastRawEventSeconds": 0.7863828770023247,
+      "betweenWaveGapSeconds": 0.0177491190006549,
+      "meanSpecAcceptLength": 4.720669896306209
+    },
+    {
+      "endMinutes": 5.155508760749944,
+      "waveDurationSeconds": 28.80447841699788,
+      "latestFirstDeliverySeconds": 8.11811094299992,
+      "commonDecodeSeconds": 18.60717275600109,
+      "allStreamsLastPositiveSeconds": 28.008139126999595,
+      "postLastPositiveSeconds": 0.7963392899982864,
+      "postLastRawEventSeconds": 0.7963392899982864,
+      "betweenWaveGapSeconds": 0.01788340599887306,
+      "meanSpecAcceptLength": 4.67981119687272
+    },
+    {
+      "endMinutes": 5.637289529366656,
+      "waveDurationSeconds": 28.902434268002253,
+      "latestFirstDeliverySeconds": 8.14740763699956,
+      "commonDecodeSeconds": 19.071072175000154,
+      "allStreamsLastPositiveSeconds": 28.139970650001487,
+      "postLastPositiveSeconds": 0.7624636180007656,
+      "postLastRawEventSeconds": 0.7624636180007656,
+      "betweenWaveGapSeconds": 0.004411849000462098,
+      "meanSpecAcceptLength": 4.696395308773202
+    },
+    {
+      "endMinutes": 6.124702710216662,
+      "waveDurationSeconds": 29.226608804001444,
+      "latestFirstDeliverySeconds": 8.184898264000367,
+      "commonDecodeSeconds": 19.073368224999285,
+      "allStreamsLastPositiveSeconds": 28.464815513001668,
+      "postLastPositiveSeconds": 0.7617932909997762,
+      "postLastRawEventSeconds": 0.7617932909997762,
+      "betweenWaveGapSeconds": 0.01818204699884518,
+      "meanSpecAcceptLength": 4.700231575046391
+    },
+    {
+      "endMinutes": 6.604385905599944,
+      "waveDurationSeconds": 28.7636084759979,
+      "latestFirstDeliverySeconds": 8.19773599600012,
+      "commonDecodeSeconds": 18.724974834000022,
+      "allStreamsLastPositiveSeconds": 27.995923684000445,
+      "postLastPositiveSeconds": 0.7676847919974534,
+      "postLastRawEventSeconds": 0.7676847919974534,
+      "betweenWaveGapSeconds": 0.017383246999088442,
+      "meanSpecAcceptLength": 4.78201273075423
+    },
+    {
+      "endMinutes": 7.084411686649946,
+      "waveDurationSeconds": 28.78328511699874,
+      "latestFirstDeliverySeconds": 8.203170496999519,
+      "commonDecodeSeconds": 18.734227850000025,
+      "allStreamsLastPositiveSeconds": 27.96768092899947,
+      "postLastPositiveSeconds": 0.8156041879992699,
+      "postLastRawEventSeconds": 0.8156041879992699,
+      "betweenWaveGapSeconds": 0.018261746001371648,
+      "meanSpecAcceptLength": 4.761601141330164
+    },
+    {
+      "endMinutes": 7.566524961333319,
+      "waveDurationSeconds": 28.921551801999158,
+      "latestFirstDeliverySeconds": 8.233608824997646,
+      "commonDecodeSeconds": 18.952134891998867,
+      "allStreamsLastPositiveSeconds": 28.048140114999114,
+      "postLastPositiveSeconds": 0.8734116870000435,
+      "postLastRawEventSeconds": 0.8734116870000435,
+      "betweenWaveGapSeconds": 0.005244679003226338,
+      "meanSpecAcceptLength": 4.72518225614966
+    },
+    {
+      "endMinutes": 8.04289065678331,
+      "waveDurationSeconds": 28.563085787998716,
+      "latestFirstDeliverySeconds": 8.229498664997664,
+      "commonDecodeSeconds": 18.85290944300141,
+      "allStreamsLastPositiveSeconds": 27.697572343997308,
+      "postLastPositiveSeconds": 0.8655134440014081,
+      "postLastRawEventSeconds": 0.8655134440014081,
+      "betweenWaveGapSeconds": 0.018855939000786748,
+      "meanSpecAcceptLength": 4.763943022462241
+    },
+    {
+      "endMinutes": 8.532859146599973,
+      "waveDurationSeconds": 29.379558646000078,
+      "latestFirstDeliverySeconds": 8.238867432999541,
+      "commonDecodeSeconds": 19.19466616600039,
+      "allStreamsLastPositiveSeconds": 28.555178870999953,
+      "postLastPositiveSeconds": 0.8243797750001249,
+      "postLastRawEventSeconds": 0.8243797750001249,
+      "betweenWaveGapSeconds": 0.018550742999650538,
+      "meanSpecAcceptLength": 4.690728979189281
+    },
+    {
+      "endMinutes": 9.014318419599961,
+      "waveDurationSeconds": 28.86861963100091,
+      "latestFirstDeliverySeconds": 8.285483353000018,
+      "commonDecodeSeconds": 19.296658502000355,
+      "allStreamsLastPositiveSeconds": 28.021037132002675,
+      "postLastPositiveSeconds": 0.8475824989982357,
+      "postLastRawEventSeconds": 0.8475824989982357,
+      "betweenWaveGapSeconds": 0.018936748998385156,
+      "meanSpecAcceptLength": 4.723250549229938
+    },
+    {
+      "endMinutes": 9.49589855284994,
+      "waveDurationSeconds": 28.875869970997883,
+      "latestFirstDeliverySeconds": 8.295528808997915,
+      "commonDecodeSeconds": 18.829408010002226,
+      "allStreamsLastPositiveSeconds": 28.106574482000724,
+      "postLastPositiveSeconds": 0.7692954889971588,
+      "postLastRawEventSeconds": 0.7692954889971588,
+      "betweenWaveGapSeconds": 0.018938024000817677,
+      "meanSpecAcceptLength": 4.78126364594358
+    },
+    {
+      "endMinutes": 9.98581861069997,
+      "waveDurationSeconds": 29.375751678999222,
+      "latestFirstDeliverySeconds": 8.281919881999784,
+      "commonDecodeSeconds": 19.398855118997744,
+      "allStreamsLastPositiveSeconds": 28.414382160997775,
+      "postLastPositiveSeconds": 0.9613695180014474,
+      "postLastRawEventSeconds": 0.9613695180014474,
+      "betweenWaveGapSeconds": 0.019451792002655566,
+      "meanSpecAcceptLength": 4.68009654719598
+    },
+    {
+      "endMinutes": 10.471450734883303,
+      "waveDurationSeconds": 29.131999173998338,
+      "latestFirstDeliverySeconds": 8.31106159599949,
+      "commonDecodeSeconds": 19.220177152998076,
+      "allStreamsLastPositiveSeconds": 28.31794982899737,
+      "postLastPositiveSeconds": 0.8140493450009672,
+      "postLastRawEventSeconds": 0.8140493450009672,
+      "betweenWaveGapSeconds": 0.005928277001657989,
+      "meanSpecAcceptLength": 4.702661447212406
+    },
+    {
+      "endMinutes": 10.95765248493329,
+      "waveDurationSeconds": 29.153085587000533,
+      "latestFirstDeliverySeconds": 8.281621876001736,
+      "commonDecodeSeconds": 19.43317196999851,
+      "allStreamsLastPositiveSeconds": 28.1954513640012,
+      "postLastPositiveSeconds": 0.9576342229993315,
+      "postLastRawEventSeconds": 0.9576342229993315,
+      "betweenWaveGapSeconds": 0.019019415998627665,
+      "meanSpecAcceptLength": 4.704639665015485
+    },
+    {
+      "endMinutes": 11.442643347633323,
+      "waveDurationSeconds": 29.092755024001235,
+      "latestFirstDeliverySeconds": 8.312964148000901,
+      "commonDecodeSeconds": 18.91834347400072,
+      "allStreamsLastPositiveSeconds": 28.25015839900152,
+      "postLastPositiveSeconds": 0.8425966249997145,
+      "postLastRawEventSeconds": 0.8425966249997145,
+      "betweenWaveGapSeconds": 0.006696738000755431,
+      "meanSpecAcceptLength": 4.734727643121016
+    },
+    {
+      "endMinutes": 11.933227224966625,
+      "waveDurationSeconds": 29.416503478998493,
+      "latestFirstDeliverySeconds": 8.308030509000673,
+      "commonDecodeSeconds": 19.261779030999605,
+      "allStreamsLastPositiveSeconds": 28.640048148998176,
+      "postLastPositiveSeconds": 0.7764553300003172,
+      "postLastRawEventSeconds": 0.7764553300003172,
+      "betweenWaveGapSeconds": 0.018529160999605665,
+      "meanSpecAcceptLength": 4.711048225709361
+    },
+    {
+      "endMinutes": 12.433866629883292,
+      "waveDurationSeconds": 30.018625574997714,
+      "latestFirstDeliverySeconds": 8.311740366996673,
+      "commonDecodeSeconds": 19.741855815002054,
+      "allStreamsLastPositiveSeconds": 29.14101207799831,
+      "postLastPositiveSeconds": 0.8776134969994018,
+      "postLastRawEventSeconds": 0.8776134969994018,
+      "betweenWaveGapSeconds": 0.01973872000235133,
+      "meanSpecAcceptLength": 4.61124455629036
+    },
+    {
+      "endMinutes": 12.91889937236665,
+      "waveDurationSeconds": 29.08281732099931,
+      "latestFirstDeliverySeconds": 8.342121618999954,
+      "commonDecodeSeconds": 18.934206179998,
+      "allStreamsLastPositiveSeconds": 28.31087686399769,
+      "postLastPositiveSeconds": 0.7719404570016195,
+      "postLastRawEventSeconds": 0.7719404570016195,
+      "betweenWaveGapSeconds": 0.01914722800211166,
+      "meanSpecAcceptLength": 4.7050621685959815
+    },
+    {
+      "endMinutes": 13.406816343966662,
+      "waveDurationSeconds": 29.269375446001504,
+      "latestFirstDeliverySeconds": 8.299643843998638,
+      "commonDecodeSeconds": 19.557990339002572,
+      "allStreamsLastPositiveSeconds": 28.383243882999523,
+      "postLastPositiveSeconds": 0.8861315630019817,
+      "postLastRawEventSeconds": 0.8861315630019817,
+      "betweenWaveGapSeconds": 0.005642849999276223,
+      "meanSpecAcceptLength": 4.681738183195466
+    },
+    {
+      "endMinutes": 13.892685081549947,
+      "waveDurationSeconds": 29.145215642998664,
+      "latestFirstDeliverySeconds": 8.307366279001144,
+      "commonDecodeSeconds": 19.246154975000536,
+      "allStreamsLastPositiveSeconds": 28.311494036999648,
+      "postLastPositiveSeconds": 0.8337216059990169,
+      "postLastRawEventSeconds": 0.8337216059990169,
+      "betweenWaveGapSeconds": 0.006908611998369452,
+      "meanSpecAcceptLength": 4.7284528826102665
+    },
+    {
+      "endMinutes": 14.384624316066644,
+      "waveDurationSeconds": 29.496878690999438,
+      "latestFirstDeliverySeconds": 8.319431682997674,
+      "commonDecodeSeconds": 19.75364917800107,
+      "allStreamsLastPositiveSeconds": 28.703513461998227,
+      "postLastPositiveSeconds": 0.7933652290012105,
+      "postLastRawEventSeconds": 0.7933652290012105,
+      "betweenWaveGapSeconds": 0.019475380002404563,
+      "meanSpecAcceptLength": 4.6647680109392375
+    },
+    {
+      "endMinutes": 14.868945952516636,
+      "waveDurationSeconds": 29.051518247000786,
+      "latestFirstDeliverySeconds": 8.320949290999124,
+      "commonDecodeSeconds": 19.136601627000346,
+      "allStreamsLastPositiveSeconds": 28.244290179001837,
+      "postLastPositiveSeconds": 0.807228067998949,
+      "postLastRawEventSeconds": 0.807228067998949,
+      "betweenWaveGapSeconds": 0.007779939998727059,
+      "meanSpecAcceptLength": 4.757321662220453
+    },
+    {
+      "endMinutes": 15.365400019249986,
+      "waveDurationSeconds": 29.780557014000806,
+      "latestFirstDeliverySeconds": 8.358210120000876,
+      "commonDecodeSeconds": 19.418526699999347,
+      "allStreamsLastPositiveSeconds": 28.94448012200155,
+      "postLastPositiveSeconds": 0.8360768919992552,
+      "postLastRawEventSeconds": 0.8360768919992552,
+      "betweenWaveGapSeconds": 0.006686990000162041,
+      "meanSpecAcceptLength": 4.671561089651353
+    },
+    {
+      "endMinutes": 15.851655707616617,
+      "waveDurationSeconds": 29.156060490000527,
+      "latestFirstDeliverySeconds": 8.356712578002771,
+      "commonDecodeSeconds": 18.66223551099756,
+      "allStreamsLastPositiveSeconds": 28.368505703001574,
+      "postLastPositiveSeconds": 0.7875547869989532,
+      "postLastRawEventSeconds": 0.7875547869989532,
+      "betweenWaveGapSeconds": 0.019280811997305136,
+      "meanSpecAcceptLength": 4.741919101676236
+    },
+    {
+      "endMinutes": 16.34329504869996,
+      "waveDurationSeconds": 29.49202017800053,
+      "latestFirstDeliverySeconds": 8.360281706001842,
+      "commonDecodeSeconds": 19.38588980699933,
+      "allStreamsLastPositiveSeconds": 28.691300665002927,
+      "postLastPositiveSeconds": 0.8007195129976026,
+      "postLastRawEventSeconds": 0.8007195129976026,
+      "betweenWaveGapSeconds": 0.0063402870000572875,
+      "meanSpecAcceptLength": 4.706256373785595
+    },
+    {
+      "endMinutes": 16.84226344318328,
+      "waveDurationSeconds": 29.917307345000154,
+      "latestFirstDeliverySeconds": 8.390187537999736,
+      "commonDecodeSeconds": 19.22527127700232,
+      "allStreamsLastPositiveSeconds": 28.947000978001597,
+      "postLastPositiveSeconds": 0.9703063669985568,
+      "postLastRawEventSeconds": 0.9703063669985568,
+      "betweenWaveGapSeconds": 0.020796323999093147,
+      "meanSpecAcceptLength": 4.787735739493928
+    },
+    {
+      "endMinutes": 17.364205245416635,
+      "waveDurationSeconds": 31.295844328000385,
+      "latestFirstDeliverySeconds": 8.94263218800188,
+      "commonDecodeSeconds": 20.46091654999691,
+      "allStreamsLastPositiveSeconds": 30.488730667999334,
+      "postLastPositiveSeconds": 0.8071136600010504,
+      "postLastRawEventSeconds": 0.8071136600010504,
+      "betweenWaveGapSeconds": 0.020663806000811746,
+      "meanSpecAcceptLength": 4.66306517190484
+    },
+    {
+      "endMinutes": 17.88260856438331,
+      "waveDurationSeconds": 31.083671617001528,
+      "latestFirstDeliverySeconds": 8.935832698000013,
+      "commonDecodeSeconds": 20.173823790002643,
+      "allStreamsLastPositiveSeconds": 30.197577378999995,
+      "postLastPositiveSeconds": 0.8860942380015331,
+      "postLastRawEventSeconds": 0.8860942380015331,
+      "betweenWaveGapSeconds": 0.02052752099916688,
+      "meanSpecAcceptLength": 4.7115580036797295
+    },
+    {
+      "endMinutes": 18.403380923966626,
+      "waveDurationSeconds": 31.225464754999848,
+      "latestFirstDeliverySeconds": 8.91959500500161,
+      "commonDecodeSeconds": 20.423295627999323,
+      "allStreamsLastPositiveSeconds": 30.401521931999014,
+      "postLastPositiveSeconds": 0.8239428230008343,
+      "postLastRawEventSeconds": 0.8239428230008343,
+      "betweenWaveGapSeconds": 0.020876819999102736,
+      "meanSpecAcceptLength": 4.690705183257575
+    },
+    {
+      "endMinutes": 18.90831398178331,
+      "waveDurationSeconds": 30.28866543299955,
+      "latestFirstDeliverySeconds": 8.912629536000168,
+      "commonDecodeSeconds": 19.91944329299804,
+      "allStreamsLastPositiveSeconds": 29.42947681000078,
+      "postLastPositiveSeconds": 0.8591886229987722,
+      "postLastRawEventSeconds": 0.8591886229987722,
+      "betweenWaveGapSeconds": 0.007318036001379369,
+      "meanSpecAcceptLength": 4.780143372567009
+    },
+    {
+      "endMinutes": 19.419203681483303,
+      "waveDurationSeconds": 30.645539471999655,
+      "latestFirstDeliverySeconds": 8.929744671000662,
+      "commonDecodeSeconds": 20.344522141000198,
+      "allStreamsLastPositiveSeconds": 29.716839591997996,
+      "postLastPositiveSeconds": 0.928699880001659,
+      "postLastRawEventSeconds": 0.928699880001659,
+      "betweenWaveGapSeconds": 0.007842510000045877,
+      "meanSpecAcceptLength": 4.757573485764295
+    },
+    {
+      "endMinutes": 19.930632994149953,
+      "waveDurationSeconds": 30.677888727997924,
+      "latestFirstDeliverySeconds": 8.953033972997218,
+      "commonDecodeSeconds": 20.02146657100093,
+      "allStreamsLastPositiveSeconds": 29.856908394998754,
+      "postLastPositiveSeconds": 0.8209803329991701,
+      "postLastRawEventSeconds": 0.8209803329991701,
+      "betweenWaveGapSeconds": 0.007870032000937499,
+      "meanSpecAcceptLength": 4.700061354987987
+    },
+    {
+      "endMinutes": 20.44920347544994,
+      "waveDurationSeconds": 31.093677834996925,
+      "latestFirstDeliverySeconds": 8.967970768997475,
+      "commonDecodeSeconds": 20.33227051799986,
+      "allStreamsLastPositiveSeconds": 30.067415695997624,
+      "postLastPositiveSeconds": 1.0262621389993,
+      "postLastRawEventSeconds": 1.0262621389993,
+      "betweenWaveGapSeconds": 0.02055104300234234,
+      "meanSpecAcceptLength": 4.726797488413303
+    },
+    {
+      "endMinutes": 20.958781796116636,
+      "waveDurationSeconds": 30.553710404001322,
+      "latestFirstDeliverySeconds": 8.989314436003042,
+      "commonDecodeSeconds": 20.13403227999879,
+      "allStreamsLastPositiveSeconds": 29.67353215700132,
+      "postLastPositiveSeconds": 0.8801782470000035,
+      "postLastRawEventSeconds": 0.8801782470000035,
+      "betweenWaveGapSeconds": 0.020988836000469746,
+      "meanSpecAcceptLength": 4.726581052016927
+    },
+    {
+      "endMinutes": 21.46937079031662,
+      "waveDurationSeconds": 30.615067659000488,
+      "latestFirstDeliverySeconds": 8.957654988000286,
+      "commonDecodeSeconds": 19.987630081002862,
+      "allStreamsLastPositiveSeconds": 29.710798357002204,
+      "postLastPositiveSeconds": 0.9042693019982835,
+      "postLastRawEventSeconds": 0.9042693019982835,
+      "betweenWaveGapSeconds": 0.02027199299845961,
+      "meanSpecAcceptLength": 4.7473296800485745
+    },
+    {
+      "endMinutes": 21.983123968216628,
+      "waveDurationSeconds": 30.817044635001366,
+      "latestFirstDeliverySeconds": 8.964928568002506,
+      "commonDecodeSeconds": 20.181853513000533,
+      "allStreamsLastPositiveSeconds": 29.99984394400235,
+      "postLastPositiveSeconds": 0.8172006909990159,
+      "postLastRawEventSeconds": 0.8172006909990159,
+      "betweenWaveGapSeconds": 0.008146038999257144,
+      "meanSpecAcceptLength": 4.741306410982601
+    },
+    {
+      "endMinutes": 22.50031718263332,
+      "waveDurationSeconds": 31.010586010001134,
+      "latestFirstDeliverySeconds": 8.972334697999031,
+      "commonDecodeSeconds": 20.149923475000833,
+      "allStreamsLastPositiveSeconds": 30.219805444001395,
+      "postLastPositiveSeconds": 0.7907805659997393,
+      "postLastRawEventSeconds": 0.7907805659997393,
+      "betweenWaveGapSeconds": 0.02100685500045074,
+      "meanSpecAcceptLength": 4.7216366559201
+    },
+    {
+      "endMinutes": 23.025858382349966,
+      "waveDurationSeconds": 31.5118302080009,
+      "latestFirstDeliverySeconds": 8.971744896000018,
+      "commonDecodeSeconds": 20.268895616001828,
+      "allStreamsLastPositiveSeconds": 30.572564081001474,
+      "postLastPositiveSeconds": 0.9392661269994278,
+      "postLastRawEventSeconds": 0.9392661269994278,
+      "betweenWaveGapSeconds": 0.020641774997784523,
+      "meanSpecAcceptLength": 4.715650222771212
+    },
+    {
+      "endMinutes": 23.53919216151662,
+      "waveDurationSeconds": 30.779903176997323,
+      "latestFirstDeliverySeconds": 8.94970432899936,
+      "commonDecodeSeconds": 20.365825609998865,
+      "allStreamsLastPositiveSeconds": 29.95768857699659,
+      "postLastPositiveSeconds": 0.8222146000007342,
+      "postLastRawEventSeconds": 0.8222146000007342,
+      "betweenWaveGapSeconds": 0.0201235730019107,
+      "meanSpecAcceptLength": 4.733149518325672
+    },
+    {
+      "endMinutes": 24.0519741998333,
+      "waveDurationSeconds": 30.74629866000032,
+      "latestFirstDeliverySeconds": 8.956324630999006,
+      "commonDecodeSeconds": 20.29196776200115,
+      "allStreamsLastPositiveSeconds": 29.890729884002212,
+      "postLastPositiveSeconds": 0.8555687759981083,
+      "postLastRawEventSeconds": 0.8555687759981083,
+      "betweenWaveGapSeconds": 0.020623639000405092,
+      "meanSpecAcceptLength": 4.759279711821567
+    },
+    {
+      "endMinutes": 24.567484946199997,
+      "waveDurationSeconds": 30.90829204000329,
+      "latestFirstDeliverySeconds": 8.998340300000564,
+      "commonDecodeSeconds": 19.86297786400246,
+      "allStreamsLastPositiveSeconds": 30.117751270001463,
+      "postLastPositiveSeconds": 0.7905407700018259,
+      "postLastRawEventSeconds": 0.7905407700018259,
+      "betweenWaveGapSeconds": 0.022352741998474812,
+      "meanSpecAcceptLength": 4.736762826632511
+    },
+    {
+      "endMinutes": 25.08058607536665,
+      "waveDurationSeconds": 30.764465150001342,
+      "latestFirstDeliverySeconds": 8.997184616000595,
+      "commonDecodeSeconds": 19.736117486001604,
+      "allStreamsLastPositiveSeconds": 29.846822654999414,
+      "postLastPositiveSeconds": 0.9176424950019282,
+      "postLastRawEventSeconds": 0.9176424950019282,
+      "betweenWaveGapSeconds": 0.021602599998004735,
+      "meanSpecAcceptLength": 4.772147617698542
+    },
+    {
+      "endMinutes": 25.59504845561666,
+      "waveDurationSeconds": 30.845890046999557,
+      "latestFirstDeliverySeconds": 8.981002554999577,
+      "commonDecodeSeconds": 20.1110675609998,
+      "allStreamsLastPositiveSeconds": 29.92777087599825,
+      "postLastPositiveSeconds": 0.9181191710013081,
+      "postLastRawEventSeconds": 0.9181191710013081,
+      "betweenWaveGapSeconds": 0.021852768000826472,
+      "meanSpecAcceptLength": 4.75628951369872
+    },
+    {
+      "endMinutes": 26.10915924401664,
+      "waveDurationSeconds": 30.82525008399898,
+      "latestFirstDeliverySeconds": 8.93456588099798,
+      "commonDecodeSeconds": 20.513471681002557,
+      "allStreamsLastPositiveSeconds": 30.02322879699932,
+      "postLastPositiveSeconds": 0.8020212869996612,
+      "postLastRawEventSeconds": 0.8020212869996612,
+      "betweenWaveGapSeconds": 0.021397219999926165,
+      "meanSpecAcceptLength": 4.724859591326572
+    },
+    {
+      "endMinutes": 26.628963852749983,
+      "waveDurationSeconds": 31.179504195002664,
+      "latestFirstDeliverySeconds": 8.931004805002885,
+      "commonDecodeSeconds": 20.047434762000194,
+      "allStreamsLastPositiveSeconds": 30.234222503000638,
+      "postLastPositiveSeconds": 0.9452816920020268,
+      "postLastRawEventSeconds": 0.9452816920020268,
+      "betweenWaveGapSeconds": 0.008772328998020384,
+      "meanSpecAcceptLength": 4.736488842583999
+    },
+    {
+      "endMinutes": 27.15047651896663,
+      "waveDurationSeconds": 31.268505465999624,
+      "latestFirstDeliverySeconds": 8.943414887999097,
+      "commonDecodeSeconds": 19.980579540999315,
+      "allStreamsLastPositiveSeconds": 30.384430907000933,
+      "postLastPositiveSeconds": 0.8840745589986909,
+      "postLastRawEventSeconds": 0.8840745589986909,
+      "betweenWaveGapSeconds": 0.022254506999161094,
+      "meanSpecAcceptLength": 4.69636790191603
+    },
+    {
+      "endMinutes": 27.666721920033282,
+      "waveDurationSeconds": 30.951897011000256,
+      "latestFirstDeliverySeconds": 8.955771338001796,
+      "commonDecodeSeconds": 20.11371860500003,
+      "allStreamsLastPositiveSeconds": 30.161119754000538,
+      "postLastPositiveSeconds": 0.7907772569997178,
+      "postLastRawEventSeconds": 0.7907772569997178,
+      "betweenWaveGapSeconds": 0.022827052998763975,
+      "meanSpecAcceptLength": 4.719211056552015
+    },
+    {
+      "endMinutes": 28.18644563041665,
+      "waveDurationSeconds": 31.161124928999925,
+      "latestFirstDeliverySeconds": 8.944984412999474,
+      "commonDecodeSeconds": 20.281231041000865,
+      "allStreamsLastPositiveSeconds": 30.293028444997617,
+      "postLastPositiveSeconds": 0.868096484002308,
+      "postLastRawEventSeconds": 0.868096484002308,
+      "betweenWaveGapSeconds": 0.022297694002190838,
+      "meanSpecAcceptLength": 4.714219595699165
+    },
+    {
+      "endMinutes": 28.70326553574996,
+      "waveDurationSeconds": 30.999346313998103,
+      "latestFirstDeliverySeconds": 8.965002230997925,
+      "commonDecodeSeconds": 20.204361783999047,
+      "allStreamsLastPositiveSeconds": 30.09588782100036,
+      "postLastPositiveSeconds": 0.9034584929977427,
+      "postLastRawEventSeconds": 0.9034584929977427,
+      "betweenWaveGapSeconds": 0.00984800600053859,
+      "meanSpecAcceptLength": 4.714986307609856
+    },
+    {
+      "endMinutes": 29.22766344949996,
+      "waveDurationSeconds": 31.45427610600018,
+      "latestFirstDeliverySeconds": 8.924289589002,
+      "commonDecodeSeconds": 19.877485744997102,
+      "allStreamsLastPositiveSeconds": 30.46131332400182,
+      "postLastPositiveSeconds": 0.992962781998358,
+      "postLastRawEventSeconds": 0.992962781998358,
+      "betweenWaveGapSeconds": 0.009598718999768607,
+      "meanSpecAcceptLength": 4.712151332277724
+    },
+    {
+      "endMinutes": 29.746796190616625,
+      "waveDurationSeconds": 31.126627614998142,
+      "latestFirstDeliverySeconds": 8.97659789699901,
+      "commonDecodeSeconds": 20.226794095000514,
+      "allStreamsLastPositiveSeconds": 30.28866601700065,
+      "postLastPositiveSeconds": 0.8379615979974915,
+      "postLastRawEventSeconds": 0.8379615979974915,
+      "betweenWaveGapSeconds": 0.02133685200169566,
+      "meanSpecAcceptLength": 4.676488547974913
+    },
+    {
+      "endMinutes": 30.261733663783282,
+      "waveDurationSeconds": 30.87382142899878,
+      "latestFirstDeliverySeconds": 8.930834521001088,
+      "commonDecodeSeconds": 20.436405182997987,
+      "allStreamsLastPositiveSeconds": 30.028975430999708,
+      "postLastPositiveSeconds": 0.844845997999073,
+      "postLastRawEventSeconds": 0.844845997999073,
+      "betweenWaveGapSeconds": 0.022426961000746815,
+      "meanSpecAcceptLength": 4.743171871508698
+    }
+  ],
+  "interpretation": "Post-delivery time includes client parsing, persistence, analysis and any final metadata wait. Recorded timing is descriptive, not isolated CPU cost or a causal thermal explanation. All declared comparison metrics and labels remain unchanged."
+}

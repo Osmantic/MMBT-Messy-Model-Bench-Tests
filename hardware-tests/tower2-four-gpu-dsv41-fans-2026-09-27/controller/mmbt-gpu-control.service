@@ -1,0 +1,21 @@
+[Unit]
+Description=MMBT uniform eight-fan controller v2 at275W per GPU
+After=docker.service nvidia-powerlimit.service
+Wants=nvidia-powerlimit.service
+StartLimitIntervalSec=0
+[Service]
+Type=notify
+NotifyAccess=main
+ExecStart=/usr/bin/python3 -u /opt/mmbt/gpu-control/controller.py
+ExecStopPost=/usr/bin/python3 -u /opt/mmbt/gpu-control/recovery.py
+Restart=always
+RestartSec=2
+WatchdogSec=6
+WatchdogSignal=SIGKILL
+TimeoutStartSec=30
+TimeoutStopSec=35
+KillMode=control-group
+NoNewPrivileges=yes
+UMask=0022
+[Install]
+WantedBy=multi-user.target

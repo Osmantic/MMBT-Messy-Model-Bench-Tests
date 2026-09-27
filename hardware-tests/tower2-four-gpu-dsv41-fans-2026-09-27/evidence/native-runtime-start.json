@@ -1,0 +1,23 @@
+{
+  "utc": "2026-09-27T15:15:00.811374+00:00",
+  "containerId": "ac2cb54a2d8ef3ffa4f1c56bdfc873b47a420c5e2ebf890fbd1233c7251a1559",
+  "imageId": "sha256:a30e3c69e6a4de1b82e4893dfa971ab94cba126476e3a26f4d1da5d868fae04f",
+  "checkpointRevision": "fb2764a5cf321eaa5070ca8f9e892818f477c16d",
+  "offloadMode": "ram",
+  "context": 409600,
+  "memoryFraction": 0.85,
+  "maxRunningRequests": 8,
+  "powerLimitPerGpuW": 275,
+  "hostKeyMode": "0600",
+  "checkpointMountReadOnly": true,
+  "restartPolicy": "no; qualification pending",
+  "logConfig": {
+    "Type": "json-file",
+    "Config": {
+      "max-file": "3",
+      "max-size": "20m"
+    }
+  },
+  "samplerSha256": "7a05d2460f70a40529385ed9990a14a224eb87b905a2849c81559790037eb574",
+  "maintenance": "Exact-image replacement with bounded Docker and RAM logs; creation leaves it stopped, to start through the fresh-gated systemd service separately"
+}

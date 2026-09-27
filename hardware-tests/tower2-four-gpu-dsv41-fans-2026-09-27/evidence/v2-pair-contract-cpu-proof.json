@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "utc": "2026-09-27T10:42:47.086938+00:00",
+  "exitCode": 0,
+  "sourceSha256": "77c2292096a4af444ac4936275523a48cd805b82a6d6e9901c51a12e39effb2a",
+  "testSourceSha256": "b45af55b921dd363851d76e725dda2b6343e37c31644ae917f1e7bf145f0e355",
+  "specSha256": "4b03d555f977d1e8183e5e2976bbf91dbc92975b2775d7acd4e1a855b844f3ab",
+  "stdout": "",
+  "stderr": "test_changed_candidate_bytes_rejected (__main__.ContractTests.test_changed_candidate_bytes_rejected) ... ok\ntest_changed_cap_rejected (__main__.ContractTests.test_changed_cap_rejected) ... ok\ntest_changed_executable_source_rejected (__main__.ContractTests.test_changed_executable_source_rejected) ... ok\ntest_cycle_failure_rejects_comparison (__main__.ContractTests.test_cycle_failure_rejects_comparison) ... ok\ntest_e2e_loss_rejects_even_when_decode_passes (__main__.ContractTests.test_e2e_loss_rejects_even_when_decode_passes) ... ok\ntest_insufficient_decode_coverage_rejected (__main__.ContractTests.test_insufficient_decode_coverage_rejected) ... ok\ntest_mixed_boot_rejected (__main__.ContractTests.test_mixed_boot_rejected) ... ok\ntest_native_model_identity_rejected (__main__.ContractTests.test_native_model_identity_rejected) ... ok\ntest_not_quieter_rejects_even_when_both_rates_pass (__main__.ContractTests.test_not_quieter_rejects_even_when_both_rates_pass) ... ok\ntest_original_analysis_tamper_fails_hash (__main__.ContractTests.test_original_analysis_tamper_fails_hash) ... ok\ntest_overlap_rejected (__main__.ContractTests.test_overlap_rejected) ... ok\ntest_reused_fixture_rejected (__main__.ContractTests.test_reused_fixture_rejected) ... ok\ntest_short_run_rejected (__main__.ContractTests.test_short_run_rejected) ... ok\ntest_valid_six_runs_qualify (__main__.ContractTests.test_valid_six_runs_qualify) ... ok\ntest_wrong_counterbalance_rejected (__main__.ContractTests.test_wrong_counterbalance_rejected) ... ok\ntest_wrong_plateau_source_rejected (__main__.ContractTests.test_wrong_plateau_source_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 0.035s\n\nOK\n",
+  "tests": 16,
+  "hardwareCalls": false
+}

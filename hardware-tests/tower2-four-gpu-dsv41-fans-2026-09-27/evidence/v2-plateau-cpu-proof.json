@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "utc": "2026-09-27T10:06:30.919837+00:00",
+  "exitCode": 0,
+  "sourceSha256": "d95ae793a62c46722ebc6b69ad7bd39e3111df790fc743a43f238f62a25d96be",
+  "testSourceSha256": "3aebc4e0c6dd8ab7ce5f2203876f69082672af828483fef778e5c9ec8ed22c17",
+  "specSha256": "4b03d555f977d1e8183e5e2976bbf91dbc92975b2775d7acd4e1a855b844f3ab",
+  "stdout": "",
+  "stderr": "test_cap_change_and_thermal_counter_fail (__main__.Plateau.test_cap_change_and_thermal_counter_fail) ... ok\ntest_incomplete_cycles_or_overlap_fail (__main__.Plateau.test_incomplete_cycles_or_overlap_fail) ... ok\ntest_other_original_failures_cannot_be_relabelled (__main__.Plateau.test_other_original_failures_cannot_be_relabelled) ... ok\ntest_periodic_cycle_means_are_stable (__main__.Plateau.test_periodic_cycle_means_are_stable) ... ok\ntest_raw_overtemperature_cannot_be_averaged_away (__main__.Plateau.test_raw_overtemperature_cannot_be_averaged_away) ... ok\ntest_real_heating_and_cooling_are_rejected (__main__.Plateau.test_real_heating_and_cooling_are_rejected) ... ok\ntest_rejected_transition_peak_is_retained (__main__.Plateau.test_rejected_transition_peak_is_retained) ... ok\ntest_sample_gap_fails (__main__.Plateau.test_sample_gap_fails) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.059s\n\nOK\n",
+  "tests": 8,
+  "hardwareCalls": false
+}

@@ -1,0 +1,76 @@
+{
+  "status": "diagnostic-only",
+  "phase": "v2-matched-lower2-r2-p3-ref85",
+  "originalQualificationUnchanged": "not-qualified",
+  "originalReasons": [
+    "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0: not thermally steady"
+  ],
+  "profileSha256": "97d66c89d6e864a859b54756560d47ed707d600d0fce18bbf53dac3a4d88e175",
+  "completeCycleSpanSeconds": 185.4686065829992,
+  "gpu": {
+    "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca": {
+      "originalRaw180SlopeCPerMinute": -0.08097537291302272,
+      "completeCycleMeanSlopeCPerMinute": -0.021038371625954826,
+      "cycleMeanCoreC": [
+        57.03263503487516,
+        56.93209833432187,
+        56.958855056273855,
+        56.76976845111529,
+        56.918410039103684,
+        57.00295631393402
+      ],
+      "originalRaw180RangeC": [
+        53,
+        58
+      ]
+    },
+    "GPU-708ffb68-e356-930d-4f83-980567b5ae3a": {
+      "originalRaw180SlopeCPerMinute": -0.15645782448965592,
+      "completeCycleMeanSlopeCPerMinute": -0.0862719517795731,
+      "cycleMeanCoreC": [
+        66.02532084776041,
+        66.05345765357329,
+        66.03609716481868,
+        65.93284479953411,
+        65.93850767499961,
+        65.80397011932784
+      ],
+      "originalRaw180RangeC": [
+        62,
+        68
+      ]
+    },
+    "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0": {
+      "originalRaw180SlopeCPerMinute": -0.31523895974444965,
+      "completeCycleMeanSlopeCPerMinute": -0.23535439665949948,
+      "cycleMeanCoreC": [
+        75.94919087282985,
+        75.68557007705746,
+        75.45962081405288,
+        75.2698071197386,
+        75.3474448195801,
+        75.34165205875735
+      ],
+      "originalRaw180RangeC": [
+        73,
+        77
+      ]
+    },
+    "GPU-ff71102f-22f8-52bb-da93-2076a6531329": {
+      "originalRaw180SlopeCPerMinute": -0.003948167029201495,
+      "completeCycleMeanSlopeCPerMinute": 0.07687857017047436,
+      "cycleMeanCoreC": [
+        49.964198746571135,
+        49.39622976866981,
+        49.506385882660425,
+        49.793010901343514,
+        49.87407234543489,
+        49.8970267935303
+      ],
+      "originalRaw180RangeC": [
+        46,
+        51
+      ]
+    }
+  }
+}

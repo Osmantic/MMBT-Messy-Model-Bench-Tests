@@ -27,6 +27,7 @@ Do not mix those two tables in a cross-host ranking.
 
 | Bundle | Primary question | Main caution |
 |---|---|---|
+| [`tower2-four-gpu-dsv41-fans-2026-09-27`](tower2-four-gpu-dsv41-fans-2026-09-27/) | How can four 275 W RTX PRO 6000 cards share one quiet fan curve while running native DSV4.1 with RAM offload? | Practical profile accepted and persistent installation verified; formal 3% performance noninferiority was not established, final hot/host-reboot proofs were omitted, and the owner waived the soak. |
 | [`tower2-dual-qwen27-no-gap-2026-07-29`](tower2-dual-qwen27-no-gap-2026-07-29/) | Can adjacent RTX PRO 6000 Blackwell cards sustain dense dual-GPU inference with no open-slot gap, and how does the thermal cost divide between temperature and fan duty? | 600/400 W is stable; 500/500 W shows no meaningful throttling; 600/600 W reaches the 96°C cutoff and confirmed GPU1 thermal slowdown after ~5 minutes. |
 | [`tower2-dual-qwen27-600w-2026-07-29`](tower2-dual-qwen27-600w-2026-07-29/) | Can both RTX PRO 6000 Blackwell GPUs sustain dense Qwen3.6-27B inference at 600 W each for 30 minutes, and where do temperatures, clocks, and fans settle? | One Tower2 run with independent AWQ-INT4 vLLM engines; host CPU/CCD temperatures, not GPU throttling, were the limiting thermal observation. |
 | [`qwen3.6-q8-fleet-2026-05-17`](qwen3.6-q8-fleet-2026-05-17/) | How do four local-AI hardware classes handle the same dense and MoE Qwen3.6 workloads? | Multi-user serving is held; Tower2 MoE uses a defended vLLM FP8 exception because native llama.cpp Q8 crashes. |

@@ -1,0 +1,52 @@
+{
+  "referenceProfile": "fixed85",
+  "candidateProfile": "curve",
+  "candidateStartupFloor": 80,
+  "candidateStartupSeconds": 30,
+  "runSeconds": 1800,
+  "thermalPlateauMethod": "last6completeC8cycleMeans",
+  "plateauSourceSha256": "d95ae793a62c46722ebc6b69ad7bd39e3111df790fc743a43f238f62a25d96be",
+  "comparisonSourceSha256": "77c2292096a4af444ac4936275523a48cd805b82a6d6e9901c51a12e39effb2a",
+  "pairs": [
+    {
+      "reference": "v2-matched-cycle30-base80-p1-ref85",
+      "candidate": "v2-matched-cycle30-base80-p1-candidate"
+    },
+    {
+      "reference": "v2-matched-cycle30-base80-p2-ref85",
+      "candidate": "v2-matched-cycle30-base80-p2-candidate"
+    },
+    {
+      "reference": "v2-matched-cycle30-base80-r2-p3-ref85",
+      "candidate": "v2-matched-cycle30-base80-r2-p3-candidate"
+    }
+  ],
+  "protocolReason": "The lower2/65-percent15-second-startup candidate completed its first new30min pair with end-to-end ratio0.960035, making the declared n3 two-sided95-percent lower>=0.97 gate impossible. It also failed the prospective six-cycle top-card slope gate (+0.373758C/min), while raw180 screening passed/peak81/no thermal counters. That series terminated without a second pair. This entirely new series tests the original screened curve plus80-percent30-second startup; both configuration components are assessed together. No historical labels, sources, thresholds or throughput definitions are changed.",
+  "unchangedRequirements": [
+    "four exact275W requested/enforced caps",
+    "all raw peaks<=82C including rejected transition reads",
+    "no thermal-counter increment",
+    "uniform manual accepted samples",
+    "same boot/runtime/executable source and candidate bytes",
+    "three paired95% Student-t lower bounds>=0.97 for BOTH final600 decode and end-to-end",
+    "candidate final600 fan effort below85%"
+  ],
+  "amendment": {
+    "originalSpecSha256": "3208d9e69fa6b39752ae9a626969bc46ea03b96c52662afc71b795c225175b31",
+    "retainedPairs": [
+      1,
+      2
+    ],
+    "excludedReference": "v2-matched-cycle30-base80-p3-ref85",
+    "excludedAnalysisSha256": "8a60c28b533c33967d84926c8b9dcd0981bcd78ed0d3d29b2d3947bddc0f1ee9",
+    "excludedPlateauSha256": "5ba72e28d5fa405bd93d037f4f07f2400ea66cb4117911310b1d83e2967d17e1",
+    "terminalReceiptSha256": "f9d9e3ae2a05b481af0c66ea2fd345c90b4a14891c8833441d83e152e388226a",
+    "reason": [
+      "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca: complete-cycle trend exceeds0.3C/min",
+      "GPU-708ffb68-e356-930d-4f83-980567b5ae3a: complete-cycle trend exceeds0.3C/min"
+    ],
+    "decision": "One entire third-pair replacement declared before either new measurement. Preserve original unsteady reference. Retain the two already eligible pairs from this same study/boot/configuration, all sources, windows and thresholds. No new campaign or retrospective relabeling.",
+    "repetitionLimit": 1,
+    "candidateProfileSha256": "2881a6d108a4c9a145b7c97a1f2cefd72f94a5be403cda356147fdbea518f7f6"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "utc": "2026-09-27T11:20:22.485888+00:00",
+  "exitCode": 0,
+  "sourceSha256": "42272165a12187fa2c41ee94a70fda47d99bce4c50744385799bd29c453fd79a",
+  "testSourceSha256": "7349e003bfc096e19d7e3abe5fc619ad842da0a6e8ed2cd6b4db266e93b72fd4",
+  "specSha256": "3208d9e69fa6b39752ae9a626969bc46ea03b96c52662afc71b795c225175b31",
+  "stdout": "",
+  "stderr": "test_bytes_valid (__main__.ByteProofTests.test_bytes_valid) ... ok\ntest_profile_bytes_tampered (__main__.ByteProofTests.test_profile_bytes_tampered) ... ok\ntest_source_bytes_tampered (__main__.ByteProofTests.test_source_bytes_tampered) ... ok\ntest_snapshot_symlink_rejected (__main__.ByteProofTests.test_snapshot_symlink_rejected) ... ok\ntest_analysis_hash_tampered (__main__.ByteProofTests.test_analysis_hash_tampered) ... ok\ntest_parent_path_rejected (__main__.ByteProofTests.test_parent_path_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.029s\n\nOK\n",
+  "tests": 6,
+  "hardwareCalls": false
+}

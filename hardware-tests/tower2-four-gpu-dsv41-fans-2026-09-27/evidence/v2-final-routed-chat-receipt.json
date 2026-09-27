@@ -1,0 +1,45 @@
+{
+  "role": "routed",
+  "utcStart": "2026-09-27T15:18:44.716740+00:00",
+  "utcEnd": "2026-09-27T15:18:44.873131+00:00",
+  "model": "deepseek-v4.1-flash",
+  "selectedEndpoint": "tower2",
+  "response": {
+    "id": "cd0861e8a952406ebc352bce79548e62",
+    "object": "chat.completion",
+    "created": 1790522324,
+    "model": "deepseek-v4.1-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"product\":779,\"ok\":true}",
+          "reasoning_content": null,
+          "tool_calls": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "matched_stop": 1
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 24,
+      "total_tokens": 34,
+      "completion_tokens": 10,
+      "prompt_tokens_details": null,
+      "reasoning_tokens": 0
+    },
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 10
+        }
+      ]
+    }
+  },
+  "calculationPassed": true
+}

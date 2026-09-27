@@ -1,0 +1,36 @@
+{
+  "phase": "v2-matched-lower2-p1-ref85",
+  "method": "Left-held time integral of hottest recorded core; accepted telemetry only; raw rejected transitions remain included in main peak analysis.",
+  "telemetrySha256": "da46d122704687752b3ed63adb26e7f463c0a6b80e17f945ca8db48ef0ab77bb",
+  "final600": {
+    "coverageSeconds": 600.0,
+    "seconds": {
+      "below75": 18.237127567012067,
+      "75through80": 581.7628724329879,
+      "above80through82": 0.0,
+      "above82": 0.0
+    },
+    "percent": {
+      "below75": 3.039521261168678,
+      "75through80": 96.96047873883133,
+      "above80through82": 0.0,
+      "above82": 0.0
+    }
+  },
+  "final180": {
+    "coverageSeconds": 180.0,
+    "seconds": {
+      "below75": 4.307873469002516,
+      "75through80": 175.69212653099748,
+      "above80through82": 0.0,
+      "above82": 0.0
+    },
+    "percent": {
+      "below75": 2.393263038334731,
+      "75through80": 97.60673696166526,
+      "above80through82": 0.0,
+      "above82": 0.0
+    }
+  },
+  "sourceSha256": "133b79fe1a063cf0c9188c4a766c56a82ccf8f3b60e6c46f7942d45b2592e2b3"
+}

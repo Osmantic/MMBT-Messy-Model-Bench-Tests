@@ -1,0 +1,78 @@
+{
+  "status": "diagnostic-only",
+  "phase": "v2-matched-lower2-p3-ref85",
+  "originalQualificationUnchanged": "not-qualified",
+  "originalReasons": [
+    "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca: not thermally steady",
+    "GPU-708ffb68-e356-930d-4f83-980567b5ae3a: not thermally steady",
+    "GPU-ff71102f-22f8-52bb-da93-2076a6531329: not thermally steady"
+  ],
+  "profileSha256": "97d66c89d6e864a859b54756560d47ed707d600d0fce18bbf53dac3a4d88e175",
+  "completeCycleSpanSeconds": 186.79009100700205,
+  "gpu": {
+    "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca": {
+      "originalRaw180SlopeCPerMinute": -0.35778132119109385,
+      "completeCycleMeanSlopeCPerMinute": -0.28757131452783713,
+      "cycleMeanCoreC": [
+        57.12168889884215,
+        56.93477306076043,
+        56.97360264564557,
+        56.556930871213325,
+        56.476017998961346,
+        56.43454292413477
+      ],
+      "originalRaw180RangeC": [
+        53,
+        58
+      ]
+    },
+    "GPU-708ffb68-e356-930d-4f83-980567b5ae3a": {
+      "originalRaw180SlopeCPerMinute": -0.39529519543876424,
+      "completeCycleMeanSlopeCPerMinute": -0.3618568330211641,
+      "cycleMeanCoreC": [
+        66.25592530436654,
+        65.9684345849868,
+        65.94819109691282,
+        65.82056526204791,
+        65.42029841096286,
+        65.29366558165654
+      ],
+      "originalRaw180RangeC": [
+        62,
+        68
+      ]
+    },
+    "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0": {
+      "originalRaw180SlopeCPerMinute": -0.2626288428853378,
+      "completeCycleMeanSlopeCPerMinute": -0.19872319689218101,
+      "cycleMeanCoreC": [
+        75.90659864370589,
+        75.73309831641264,
+        75.4835787755538,
+        75.50490124875695,
+        75.39955134830252,
+        75.38034775664296
+      ],
+      "originalRaw180RangeC": [
+        73,
+        77
+      ]
+    },
+    "GPU-ff71102f-22f8-52bb-da93-2076a6531329": {
+      "originalRaw180SlopeCPerMinute": -0.3497421512625301,
+      "completeCycleMeanSlopeCPerMinute": -0.286198950421366,
+      "cycleMeanCoreC": [
+        50.00243781686572,
+        49.83027463192012,
+        49.5559959180609,
+        49.396087437377105,
+        49.31430497994022,
+        49.30394554519065
+      ],
+      "originalRaw180RangeC": [
+        46,
+        51
+      ]
+    }
+  }
+}

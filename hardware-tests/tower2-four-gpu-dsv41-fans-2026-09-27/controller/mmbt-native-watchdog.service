@@ -1,0 +1,20 @@
+[Unit]
+Description=MMBT independent GPU and DSV safety observer v2
+After=docker.service mmbt-gpu-control.service
+StartLimitIntervalSec=0
+[Service]
+Type=notify
+NotifyAccess=main
+ExecStart=/usr/bin/python3 -u /opt/mmbt/gpu-control/observer.py
+ExecStopPost=/usr/bin/python3 -u /opt/mmbt/gpu-control/recovery.py --observer-exit
+Restart=always
+RestartSec=2
+WatchdogSec=6
+WatchdogSignal=SIGKILL
+TimeoutStartSec=30
+TimeoutStopSec=40
+KillMode=control-group
+NoNewPrivileges=yes
+UMask=0022
+[Install]
+WantedBy=multi-user.target

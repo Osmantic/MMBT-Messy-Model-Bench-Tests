@@ -1,0 +1,537 @@
+{
+  "phase": "v2-matched-cycle30-lower2-p1-candidate",
+  "waves": [
+    {
+      "endMinutes": 0.4909368810833257,
+      "decodeTokensPerSecond": 824.6423834947075,
+      "meanSpecAcceptLength": 4.748364623513119,
+      "meanSpecAcceptRate": 0.7504204611072273,
+      "verifyCount": 3453,
+      "acceptedDrafts": 12944,
+      "proposedDrafts": 17265
+    },
+    {
+      "endMinutes": 0.9713662703499721,
+      "decodeTokensPerSecond": 847.1918662751374,
+      "meanSpecAcceptLength": 4.718935404676882,
+      "meanSpecAcceptRate": 0.7443714318079218,
+      "verifyCount": 3473,
+      "acceptedDrafts": 12921,
+      "proposedDrafts": 17365
+    },
+    {
+      "endMinutes": 1.4440363660499618,
+      "decodeTokensPerSecond": 842.9987089126261,
+      "meanSpecAcceptLength": 4.694627294779187,
+      "meanSpecAcceptRate": 0.7396617266080768,
+      "verifyCount": 3491,
+      "acceptedDrafts": 12906,
+      "proposedDrafts": 17455
+    },
+    {
+      "endMinutes": 1.92134557791663,
+      "decodeTokensPerSecond": 845.2577293715912,
+      "meanSpecAcceptLength": 4.683298331999691,
+      "meanSpecAcceptRate": 0.7370631977335004,
+      "verifyCount": 3500,
+      "acceptedDrafts": 12891,
+      "proposedDrafts": 17500
+    },
+    {
+      "endMinutes": 2.4044439657166246,
+      "decodeTokensPerSecond": 827.5799964309301,
+      "meanSpecAcceptLength": 4.642565682990371,
+      "meanSpecAcceptRate": 0.7294136047536703,
+      "verifyCount": 3530,
+      "acceptedDrafts": 12870,
+      "proposedDrafts": 17650
+    },
+    {
+      "endMinutes": 2.8903512874166455,
+      "decodeTokensPerSecond": 828.1685821146909,
+      "meanSpecAcceptLength": 4.701170519735021,
+      "meanSpecAcceptRate": 0.7402944189998243,
+      "verifyCount": 3486,
+      "acceptedDrafts": 12899,
+      "proposedDrafts": 17430
+    },
+    {
+      "endMinutes": 3.3748243027666223,
+      "decodeTokensPerSecond": 839.6854500317125,
+      "meanSpecAcceptLength": 4.803868434012328,
+      "meanSpecAcceptRate": 0.7615253172147365,
+      "verifyCount": 3412,
+      "acceptedDrafts": 12985,
+      "proposedDrafts": 17060
+    },
+    {
+      "endMinutes": 3.890127185433327,
+      "decodeTokensPerSecond": 786.3016338501146,
+      "meanSpecAcceptLength": 4.755649547335072,
+      "meanSpecAcceptRate": 0.7512488166427883,
+      "verifyCount": 3446,
+      "acceptedDrafts": 12940,
+      "proposedDrafts": 17230
+    },
+    {
+      "endMinutes": 4.415102224599953,
+      "decodeTokensPerSecond": 783.2429592630349,
+      "meanSpecAcceptLength": 4.722359082493533,
+      "meanSpecAcceptRate": 0.7452156679410519,
+      "verifyCount": 3472,
+      "acceptedDrafts": 12925,
+      "proposedDrafts": 17360
+    },
+    {
+      "endMinutes": 4.929947078499996,
+      "decodeTokensPerSecond": 788.6535167037806,
+      "meanSpecAcceptLength": 4.728267701732417,
+      "meanSpecAcceptRate": 0.7459999008778769,
+      "verifyCount": 3466,
+      "acceptedDrafts": 12924,
+      "proposedDrafts": 17330
+    },
+    {
+      "endMinutes": 5.449575905816649,
+      "decodeTokensPerSecond": 780.8234766279812,
+      "meanSpecAcceptLength": 4.727050390527048,
+      "meanSpecAcceptRate": 0.7458036123719318,
+      "verifyCount": 3468,
+      "acceptedDrafts": 12923,
+      "proposedDrafts": 17340
+    },
+    {
+      "endMinutes": 5.97491468261663,
+      "decodeTokensPerSecond": 764.5744850457793,
+      "meanSpecAcceptLength": 4.692195444073766,
+      "meanSpecAcceptRate": 0.7391764852490152,
+      "verifyCount": 3493,
+      "acceptedDrafts": 12904,
+      "proposedDrafts": 17465
+    },
+    {
+      "endMinutes": 6.491668067116674,
+      "decodeTokensPerSecond": 787.7594236868389,
+      "meanSpecAcceptLength": 4.720446703597993,
+      "meanSpecAcceptRate": 0.7445455644422401,
+      "verifyCount": 3473,
+      "acceptedDrafts": 12919,
+      "proposedDrafts": 17365
+    },
+    {
+      "endMinutes": 7.020524057733261,
+      "decodeTokensPerSecond": 768.7514727303867,
+      "meanSpecAcceptLength": 4.668656569709101,
+      "meanSpecAcceptRate": 0.7341786511936035,
+      "verifyCount": 3513,
+      "acceptedDrafts": 12879,
+      "proposedDrafts": 17565
+    },
+    {
+      "endMinutes": 7.534862674316598,
+      "decodeTokensPerSecond": 792.6865582776411,
+      "meanSpecAcceptLength": 4.718829790426989,
+      "meanSpecAcceptRate": 0.7442293660356725,
+      "verifyCount": 3473,
+      "acceptedDrafts": 12919,
+      "proposedDrafts": 17365
+    },
+    {
+      "endMinutes": 8.063989946166657,
+      "decodeTokensPerSecond": 773.0110627642518,
+      "meanSpecAcceptLength": 4.6809573068914645,
+      "meanSpecAcceptRate": 0.7368208284035302,
+      "verifyCount": 3503,
+      "acceptedDrafts": 12892,
+      "proposedDrafts": 17515
+    },
+    {
+      "endMinutes": 8.582225490349993,
+      "decodeTokensPerSecond": 783.0315490643678,
+      "meanSpecAcceptLength": 4.7033486330339,
+      "meanSpecAcceptRate": 0.7410719401951548,
+      "verifyCount": 3484,
+      "acceptedDrafts": 12907,
+      "proposedDrafts": 17420
+    },
+    {
+      "endMinutes": 9.108209972616594,
+      "decodeTokensPerSecond": 771.4751177062699,
+      "meanSpecAcceptLength": 4.712423759381265,
+      "meanSpecAcceptRate": 0.7434062843946632,
+      "verifyCount": 3479,
+      "acceptedDrafts": 12921,
+      "proposedDrafts": 17395
+    },
+    {
+      "endMinutes": 9.62420500449995,
+      "decodeTokensPerSecond": 787.3131031264015,
+      "meanSpecAcceptLength": 4.79858191264449,
+      "meanSpecAcceptRate": 0.7601847171426328,
+      "verifyCount": 3415,
+      "acceptedDrafts": 12977,
+      "proposedDrafts": 17075
+    },
+    {
+      "endMinutes": 10.141562280483353,
+      "decodeTokensPerSecond": 781.4833119144457,
+      "meanSpecAcceptLength": 4.747421180052672,
+      "meanSpecAcceptRate": 0.7498967214459195,
+      "verifyCount": 3452,
+      "acceptedDrafts": 12939,
+      "proposedDrafts": 17260
+    },
+    {
+      "endMinutes": 10.667690237850001,
+      "decodeTokensPerSecond": 778.0644102107503,
+      "meanSpecAcceptLength": 4.71833786897284,
+      "meanSpecAcceptRate": 0.7441834258553126,
+      "verifyCount": 3476,
+      "acceptedDrafts": 12917,
+      "proposedDrafts": 17380
+    },
+    {
+      "endMinutes": 11.187408918383335,
+      "decodeTokensPerSecond": 789.3745323650722,
+      "meanSpecAcceptLength": 4.794967429625124,
+      "meanSpecAcceptRate": 0.7592347765912946,
+      "verifyCount": 3420,
+      "acceptedDrafts": 12968,
+      "proposedDrafts": 17100
+    },
+    {
+      "endMinutes": 11.70845594546669,
+      "decodeTokensPerSecond": 785.6166540836002,
+      "meanSpecAcceptLength": 4.772975569235302,
+      "meanSpecAcceptRate": 0.7554722957202044,
+      "verifyCount": 3434,
+      "acceptedDrafts": 12965,
+      "proposedDrafts": 17170
+    },
+    {
+      "endMinutes": 12.226828762916618,
+      "decodeTokensPerSecond": 786.2905732427519,
+      "meanSpecAcceptLength": 4.7307933127658774,
+      "meanSpecAcceptRate": 0.7471429072510075,
+      "verifyCount": 3465,
+      "acceptedDrafts": 12936,
+      "proposedDrafts": 17325
+    },
+    {
+      "endMinutes": 12.75260156923329,
+      "decodeTokensPerSecond": 772.7982192350951,
+      "meanSpecAcceptLength": 4.689172776062135,
+      "meanSpecAcceptRate": 0.7380669960421492,
+      "verifyCount": 3496,
+      "acceptedDrafts": 12892,
+      "proposedDrafts": 17480
+    },
+    {
+      "endMinutes": 13.265595051716627,
+      "decodeTokensPerSecond": 806.2756445257376,
+      "meanSpecAcceptLength": 4.801561809989008,
+      "meanSpecAcceptRate": 0.7607709001132191,
+      "verifyCount": 3414,
+      "acceptedDrafts": 12978,
+      "proposedDrafts": 17070
+    },
+    {
+      "endMinutes": 13.790957850316591,
+      "decodeTokensPerSecond": 771.1881860903208,
+      "meanSpecAcceptLength": 4.6782953277171595,
+      "meanSpecAcceptRate": 0.7359491219836511,
+      "verifyCount": 3503,
+      "acceptedDrafts": 12886,
+      "proposedDrafts": 17515
+    },
+    {
+      "endMinutes": 14.308862276216617,
+      "decodeTokensPerSecond": 785.8126571161748,
+      "meanSpecAcceptLength": 4.74534637193622,
+      "meanSpecAcceptRate": 0.7498792449276123,
+      "verifyCount": 3453,
+      "acceptedDrafts": 12945,
+      "proposedDrafts": 17265
+    },
+    {
+      "endMinutes": 14.82957453638331,
+      "decodeTokensPerSecond": 779.237958144697,
+      "meanSpecAcceptLength": 4.720047769718858,
+      "meanSpecAcceptRate": 0.7447032189607408,
+      "verifyCount": 3473,
+      "acceptedDrafts": 12923,
+      "proposedDrafts": 17365
+    },
+    {
+      "endMinutes": 15.354490627416634,
+      "decodeTokensPerSecond": 767.7701251129739,
+      "meanSpecAcceptLength": 4.652971643722979,
+      "meanSpecAcceptRate": 0.7311549452454353,
+      "verifyCount": 3522,
+      "acceptedDrafts": 12872,
+      "proposedDrafts": 17610
+    },
+    {
+      "endMinutes": 15.876416927149997,
+      "decodeTokensPerSecond": 773.6588790141426,
+      "meanSpecAcceptLength": 4.71819824896493,
+      "meanSpecAcceptRate": 0.7446790263370975,
+      "verifyCount": 3474,
+      "acceptedDrafts": 12928,
+      "proposedDrafts": 17370
+    },
+    {
+      "endMinutes": 16.396293772350024,
+      "decodeTokensPerSecond": 782.2742749274232,
+      "meanSpecAcceptLength": 4.67522086802872,
+      "meanSpecAcceptRate": 0.7357888638931073,
+      "verifyCount": 3505,
+      "acceptedDrafts": 12892,
+      "proposedDrafts": 17525
+    },
+    {
+      "endMinutes": 16.918428085016604,
+      "decodeTokensPerSecond": 790.3064622986801,
+      "meanSpecAcceptLength": 4.720550248220233,
+      "meanSpecAcceptRate": 0.744689785601183,
+      "verifyCount": 3473,
+      "acceptedDrafts": 12921,
+      "proposedDrafts": 17365
+    },
+    {
+      "endMinutes": 17.44107690799992,
+      "decodeTokensPerSecond": 776.8013155205928,
+      "meanSpecAcceptLength": 4.709263422904175,
+      "meanSpecAcceptRate": 0.7427124093858449,
+      "verifyCount": 3480,
+      "acceptedDrafts": 12919,
+      "proposedDrafts": 17400
+    },
+    {
+      "endMinutes": 17.96498990525003,
+      "decodeTokensPerSecond": 773.4876566220445,
+      "meanSpecAcceptLength": 4.69153975755871,
+      "meanSpecAcceptRate": 0.7385875710475548,
+      "verifyCount": 3493,
+      "acceptedDrafts": 12896,
+      "proposedDrafts": 17465
+    },
+    {
+      "endMinutes": 18.48578676520004,
+      "decodeTokensPerSecond": 776.2846488158333,
+      "meanSpecAcceptLength": 4.722368815965865,
+      "meanSpecAcceptRate": 0.7454513893306567,
+      "verifyCount": 3470,
+      "acceptedDrafts": 12931,
+      "proposedDrafts": 17350
+    },
+    {
+      "endMinutes": 19.008537539633288,
+      "decodeTokensPerSecond": 769.8827132514464,
+      "meanSpecAcceptLength": 4.7009332318189365,
+      "meanSpecAcceptRate": 0.740936912351643,
+      "verifyCount": 3486,
+      "acceptedDrafts": 12911,
+      "proposedDrafts": 17430
+    },
+    {
+      "endMinutes": 19.52905563819992,
+      "decodeTokensPerSecond": 781.8979498369091,
+      "meanSpecAcceptLength": 4.720458753152624,
+      "meanSpecAcceptRate": 0.7454141466144949,
+      "verifyCount": 3472,
+      "acceptedDrafts": 12935,
+      "proposedDrafts": 17360
+    },
+    {
+      "endMinutes": 20.054345685916694,
+      "decodeTokensPerSecond": 771.5199727586147,
+      "meanSpecAcceptLength": 4.692934376810518,
+      "meanSpecAcceptRate": 0.7391637527894325,
+      "verifyCount": 3492,
+      "acceptedDrafts": 12902,
+      "proposedDrafts": 17460
+    },
+    {
+      "endMinutes": 20.56813756519993,
+      "decodeTokensPerSecond": 802.045815928578,
+      "meanSpecAcceptLength": 4.7793916477257286,
+      "meanSpecAcceptRate": 0.7564671202372574,
+      "verifyCount": 3429,
+      "acceptedDrafts": 12965,
+      "proposedDrafts": 17145
+    },
+    {
+      "endMinutes": 21.092673195883314,
+      "decodeTokensPerSecond": 771.51531350126,
+      "meanSpecAcceptLength": 4.6877061565732,
+      "meanSpecAcceptRate": 0.7381767403258535,
+      "verifyCount": 3496,
+      "acceptedDrafts": 12899,
+      "proposedDrafts": 17480
+    },
+    {
+      "endMinutes": 21.611244238366695,
+      "decodeTokensPerSecond": 791.0898052731553,
+      "meanSpecAcceptLength": 4.719331974983648,
+      "meanSpecAcceptRate": 0.7446260056861599,
+      "verifyCount": 3473,
+      "acceptedDrafts": 12924,
+      "proposedDrafts": 17365
+    },
+    {
+      "endMinutes": 22.128331949233264,
+      "decodeTokensPerSecond": 786.1402365235223,
+      "meanSpecAcceptLength": 4.737024965186158,
+      "meanSpecAcceptRate": 0.748038753877698,
+      "verifyCount": 3459,
+      "acceptedDrafts": 12936,
+      "proposedDrafts": 17295
+    },
+    {
+      "endMinutes": 22.64811188871663,
+      "decodeTokensPerSecond": 781.8534781391372,
+      "meanSpecAcceptLength": 4.733458042504992,
+      "meanSpecAcceptRate": 0.7473794156298841,
+      "verifyCount": 3462,
+      "acceptedDrafts": 12934,
+      "proposedDrafts": 17310
+    },
+    {
+      "endMinutes": 23.17049334729994,
+      "decodeTokensPerSecond": 777.5747901687403,
+      "meanSpecAcceptLength": 4.72398923553852,
+      "meanSpecAcceptRate": 0.7453722036162379,
+      "verifyCount": 3469,
+      "acceptedDrafts": 12925,
+      "proposedDrafts": 17345
+    },
+    {
+      "endMinutes": 23.69022655171666,
+      "decodeTokensPerSecond": 782.4581421168423,
+      "meanSpecAcceptLength": 4.76852850816585,
+      "meanSpecAcceptRate": 0.7538813176208802,
+      "verifyCount": 3438,
+      "acceptedDrafts": 12949,
+      "proposedDrafts": 17190
+    },
+    {
+      "endMinutes": 24.21022566168328,
+      "decodeTokensPerSecond": 788.7540223789603,
+      "meanSpecAcceptLength": 4.762621572576524,
+      "meanSpecAcceptRate": 0.7536783375773575,
+      "verifyCount": 3442,
+      "acceptedDrafts": 12962,
+      "proposedDrafts": 17210
+    },
+    {
+      "endMinutes": 24.72716562361669,
+      "decodeTokensPerSecond": 785.8583988537698,
+      "meanSpecAcceptLength": 4.7017817215034485,
+      "meanSpecAcceptRate": 0.7407013325107803,
+      "verifyCount": 3485,
+      "acceptedDrafts": 12905,
+      "proposedDrafts": 17425
+    },
+    {
+      "endMinutes": 25.24723585536661,
+      "decodeTokensPerSecond": 778.273278431524,
+      "meanSpecAcceptLength": 4.720487431891804,
+      "meanSpecAcceptRate": 0.7447908873418692,
+      "verifyCount": 3471,
+      "acceptedDrafts": 12925,
+      "proposedDrafts": 17355
+    },
+    {
+      "endMinutes": 25.766505747466667,
+      "decodeTokensPerSecond": 787.860470283416,
+      "meanSpecAcceptLength": 4.728849402148761,
+      "meanSpecAcceptRate": 0.7459446789199038,
+      "verifyCount": 3466,
+      "acceptedDrafts": 12921,
+      "proposedDrafts": 17330
+    },
+    {
+      "endMinutes": 26.291830392699982,
+      "decodeTokensPerSecond": 772.1410272483117,
+      "meanSpecAcceptLength": 4.667917281718847,
+      "meanSpecAcceptRate": 0.7343815726219365,
+      "verifyCount": 3511,
+      "acceptedDrafts": 12887,
+      "proposedDrafts": 17555
+    },
+    {
+      "endMinutes": 26.8135631507667,
+      "decodeTokensPerSecond": 789.2257080005388,
+      "meanSpecAcceptLength": 4.744373605551649,
+      "meanSpecAcceptRate": 0.7495185906588103,
+      "verifyCount": 3455,
+      "acceptedDrafts": 12940,
+      "proposedDrafts": 17275
+    },
+    {
+      "endMinutes": 27.336522986900004,
+      "decodeTokensPerSecond": 775.3101431411804,
+      "meanSpecAcceptLength": 4.690957059283077,
+      "meanSpecAcceptRate": 0.7386498243474465,
+      "verifyCount": 3493,
+      "acceptedDrafts": 12899,
+      "proposedDrafts": 17465
+    },
+    {
+      "endMinutes": 27.86412660716663,
+      "decodeTokensPerSecond": 774.1018231775861,
+      "meanSpecAcceptLength": 4.698297855894016,
+      "meanSpecAcceptRate": 0.740119961725347,
+      "verifyCount": 3489,
+      "acceptedDrafts": 12903,
+      "proposedDrafts": 17445
+    },
+    {
+      "endMinutes": 28.38701931926668,
+      "decodeTokensPerSecond": 776.3774040963972,
+      "meanSpecAcceptLength": 4.710291001807276,
+      "meanSpecAcceptRate": 0.7423529264874419,
+      "verifyCount": 3480,
+      "acceptedDrafts": 12909,
+      "proposedDrafts": 17400
+    },
+    {
+      "endMinutes": 28.906227403549988,
+      "decodeTokensPerSecond": 788.9380627310254,
+      "meanSpecAcceptLength": 4.731346660145059,
+      "meanSpecAcceptRate": 0.7467326096043317,
+      "verifyCount": 3464,
+      "acceptedDrafts": 12928,
+      "proposedDrafts": 17320
+    },
+    {
+      "endMinutes": 29.432433668999934,
+      "decodeTokensPerSecond": 772.0740806557906,
+      "meanSpecAcceptLength": 4.7273764314589215,
+      "meanSpecAcceptRate": 0.7460502768470058,
+      "verifyCount": 3466,
+      "acceptedDrafts": 12928,
+      "proposedDrafts": 17330
+    },
+    {
+      "endMinutes": 29.959077492400016,
+      "decodeTokensPerSecond": 772.5436702027788,
+      "meanSpecAcceptLength": 4.7200212891565645,
+      "meanSpecAcceptRate": 0.7441143356748308,
+      "verifyCount": 3473,
+      "acceptedDrafts": 12913,
+      "proposedDrafts": 17365
+    },
+    {
+      "endMinutes": 30.488004734283276,
+      "decodeTokensPerSecond": 774.2980353914999,
+      "meanSpecAcceptLength": 4.704788208588735,
+      "meanSpecAcceptRate": 0.7416412887891506,
+      "verifyCount": 3486,
+      "acceptedDrafts": 12910,
+      "proposedDrafts": 17430
+    }
+  ],
+  "interpretation": "Provider-reported DSpark acceptance; descriptive covariate, not a throughput normalization or causal explanation."
+}

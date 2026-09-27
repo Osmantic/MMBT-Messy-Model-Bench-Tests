@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "scope": "Explicit archive path safety and native-key-value stream scan; not a universal secret detector.",
+  "assets": [
+    {
+      "asset": "v2-completed-evidence-1790522472653967458.tar.gz",
+      "sha256": "f6b5e771fe8e73b78df5fc058f956c71cf756e525b73e5b3d3e8d1e8d09d4745",
+      "bytes": 121680549,
+      "regularFilesScanned": 16817,
+      "nativeKeyValueMatches": 0,
+      "unsafeArchivePaths": 0
+    },
+    {
+      "asset": "publication-prior-evidence.tar.gz",
+      "sha256": "cee1e3283ff8162297570affc56471740005982098f9dd0ded64d08c979a7b09",
+      "bytes": 105689873,
+      "regularFilesScanned": 164,
+      "nativeKeyValueMatches": 0,
+      "unsafeArchivePaths": 0
+    }
+  ]
+}

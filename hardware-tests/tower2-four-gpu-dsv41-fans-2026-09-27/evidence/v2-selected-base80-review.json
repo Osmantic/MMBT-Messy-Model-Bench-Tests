@@ -1,0 +1,175 @@
+{
+  "status": "selected-with-performance-uncertainty",
+  "formalComparisonStatus": "not-qualified",
+  "formalPerformanceClaimAccepted": false,
+  "thermalEquilibriumClaimAccepted": false,
+  "selectionPurpose": "Unchanged base80 curve for independent workload, hot-fault, update, reboot and soak validation; no further matched repetitions under this amendment.",
+  "reason": "Bounded replacement exhausted; last candidate cooled faster than the predeclared absolute plateau limit. Original failed labels remain unchanged. Plan section4 requires reporting unresolved uncertainty.",
+  "utc": "2026-09-27T15:08:21.275348+00:00",
+  "specSha256": "104598321638316d500040f662444dae89c51bd67cbd0f697d0c1067765a1474",
+  "specFile": "v2-matched-cycle30-base80-r2-spec.json",
+  "candidateProfileSha256": "2881a6d108a4c9a145b7c97a1f2cefd72f94a5be403cda356147fdbea518f7f6",
+  "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+  "sources": {
+    "v2-native-trial.py": "fd9ce128c2f18d81bc06cb88f494ef47d1468f8deaa66f680e2d78e69b002526",
+    "native_sse_parser.py": "ecd4572617b10a6d5df5fb2fa5a9332de92d9ddfaf90313a2fe851b565d917f4",
+    "coherent_fans.py": "b0c38b433e06d097bcd123fe61d8278a3bf1d4dc3af90a2e2787c565fe08a45b",
+    "observer.py": "0730c371199d57077833d80cdf168c0eb60e6e153939afcb2a689d6a9e775017",
+    "guard_validation.py": "bed3c54bdc922f65426efe4a41d91d044ad6a47aa23bf6b4607fbbbcafae9266",
+    "uniform_curve_policy.py": "ef476e3689e18929631ad16c8ccc82b622824fad4097a6eb1ff06c1797fcda28",
+    "common.py": "d8ae7b178590fa340f235d6b85f31abbc705d5773159ad5028791f15ab9e6e8d",
+    "service-fallback.py": "0d343b0a3e3eb6a62daea531e6e0324dfa7ce0ff2f976e58c1c67c058409a68f",
+    "workload.py": "e2d811f268241d059c96bc563839b21018d83fd1b34628bb316e25470e549f6a",
+    "model-gate.py": "f0778d931e54c09554fbd2e8166ea7106cd35bb495ef9053cd1ef3a757ff26a2",
+    "policy.py": "f223b034139424bf1355c221a42a03dda11174297ed8cd24aac353f8944d17d4",
+    "uniform_quiet_policy.py": "848fa4b3d5a9531ea27dc382477354298313296b43e8a533e6f9d465f2031f2d",
+    "production_watchdog.py": "86e7128ed260b090f716a552109b13b392a725ee79d045d028c86eb25473643f",
+    "recovery.py": "358e607647621dbb57a033121f9780bc0e8a8686bac595d832bdee95fd9b4fd9",
+    "controller.py": "e227d743e167c9269ad6c3d0ef8ea656cb4603c84a8dbc991aee80882fd2c344",
+    "status.py": "c69e4354c3df77b65e77c21e3930433a2a2ba652ff063c43a25824d342f60298",
+    "hardware.py": "731621dbcb6fbae782b4c0a95c97a88c736a691c90947e24e00e1cc1f72cbac3"
+  },
+  "runtime": {
+    "runtime": {
+      "utc": "2026-09-27T01:43:13.575759+00:00",
+      "containerId": "7b25db6a9d1a6bd3f6b3e35077b5ccae0aa8e7ee9829b966e8098d0f6b016971",
+      "imageId": "sha256:a30e3c69e6a4de1b82e4893dfa971ab94cba126476e3a26f4d1da5d868fae04f",
+      "checkpointRevision": "fb2764a5cf321eaa5070ca8f9e892818f477c16d",
+      "offloadMode": "ram",
+      "context": 409600,
+      "memoryFraction": 0.85,
+      "maxRunningRequests": 8,
+      "powerLimitPerGpuW": 275,
+      "hostKeyMode": "0600",
+      "checkpointMountReadOnly": true,
+      "restartPolicy": "no; qualification pending"
+    },
+    "verifiedModels": {
+      "object": "list",
+      "data": [
+        {
+          "id": "deepseek-v4.1-flash",
+          "object": "model",
+          "owned_by": "sglang",
+          "root": "deepseek-v4.1-flash",
+          "parent": null,
+          "max_model_len": 409600
+        }
+      ]
+    }
+  },
+  "metrics": {
+    "warmSimultaneousDecode600": {
+      "ratios": [
+        0.9947009302328239,
+        0.9853235708913387,
+        0.9924652640181737
+      ],
+      "geometricMeanRatio": 0.9908218393140346,
+      "twoSided95PercentLower": 0.9787159442347978,
+      "twoSided95PercentUpper": 1.0030774741584532,
+      "experimentalUnits": 3,
+      "method": "paired log rate ratio, Student t, df=2",
+      "minimumAcceptableRatio": 0.97,
+      "noninferiorityQualified": true,
+      "descriptiveOnly": true,
+      "formalQualification": false
+    },
+    "endToEnd": {
+      "ratios": [
+        0.9760324513889661,
+        0.9746069563934304,
+        0.9716728911259462
+      ],
+      "geometricMeanRatio": 0.9741024079897849,
+      "twoSided95PercentLower": 0.9685941303701782,
+      "twoSided95PercentUpper": 0.979642010517713,
+      "experimentalUnits": 3,
+      "method": "paired log rate ratio, Student t, df=2",
+      "minimumAcceptableRatio": 0.97,
+      "noninferiorityQualified": false,
+      "descriptiveOnly": true,
+      "formalQualification": false
+    }
+  },
+  "eligibility": [
+    {
+      "phase": "v2-matched-cycle30-base80-p1-candidate",
+      "status": "pass",
+      "reasons": [],
+      "resultSha256": "07ea022106cd7248a7376e6af5f205faa8618130841c990f5542931a21a87f56",
+      "analysisSha256": "b07f84a34372db97887eb12cc83669b67c5af671f4c99d97bc9a7ccb75429abd",
+      "plateauSha256": "eb34edb2a8720d65d60c3020786dcf60d93b0d07cfd656b2c5d14d58b843ef5d",
+      "profileSha256": "2881a6d108a4c9a145b7c97a1f2cefd72f94a5be403cda356147fdbea518f7f6"
+    },
+    {
+      "phase": "v2-matched-cycle30-base80-p1-ref85",
+      "status": "pass",
+      "reasons": [],
+      "resultSha256": "0c00c2cc61fa7c1ed4b68424e515a9a2d03a9f1246fe48ddc4041e78789042d9",
+      "analysisSha256": "91753d032c6bbda8989e0f17b1eb387e78eff5d3dd4b3f560ad0fcedf1ad867c",
+      "plateauSha256": "05f71aba8fecbcc105a1381234af2930af1aad777a83a167eeb7abd408408b56",
+      "profileSha256": "97d66c89d6e864a859b54756560d47ed707d600d0fce18bbf53dac3a4d88e175"
+    },
+    {
+      "phase": "v2-matched-cycle30-base80-p2-candidate",
+      "status": "pass",
+      "reasons": [],
+      "resultSha256": "f592269c202f6d80a6682b1b2078c87377ee90d003d9699645afc1b463d440ba",
+      "analysisSha256": "58333f26190907db5b65531ee969d98f09829007dc42215fef4ddbfd5647b097",
+      "plateauSha256": "5759226cfd8e82ec8ef9f70d46b3a0252d08011f5e080e305d5707ef43d182b6",
+      "profileSha256": "2881a6d108a4c9a145b7c97a1f2cefd72f94a5be403cda356147fdbea518f7f6"
+    },
+    {
+      "phase": "v2-matched-cycle30-base80-p2-ref85",
+      "status": "pass",
+      "reasons": [],
+      "resultSha256": "3d2060665d33b85cae500288b546f0c005e1b287bd8b0a93b2d297daa414269f",
+      "analysisSha256": "cb0a7fd780d6b497eb46a7d8d60a360a7a6e53cc9fe3424dea230292c2e6cfa5",
+      "plateauSha256": "a51f502bee11e3bfbb758eb747fbc175cfff7ed6ddc0fbbeb13486da0bf085c0",
+      "profileSha256": "97d66c89d6e864a859b54756560d47ed707d600d0fce18bbf53dac3a4d88e175"
+    },
+    {
+      "phase": "v2-matched-cycle30-base80-r2-p3-candidate",
+      "status": "not-qualified",
+      "reasons": [
+        "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0: complete-cycle trend exceeds0.3C/min"
+      ],
+      "resultSha256": "75a450ea9f8c25298abd5ca0d2511ff62975180718b362eec984bac366930d45",
+      "analysisSha256": "2ac6d59a0c40893d034482a6cb8f99f530305569ce54b70f6813d355d9d9eaea",
+      "plateauSha256": "f41456efb4c319399070ccb7b732085ae8fa9b3b7fdebadb240db871ae7d011d",
+      "profileSha256": "2881a6d108a4c9a145b7c97a1f2cefd72f94a5be403cda356147fdbea518f7f6"
+    },
+    {
+      "phase": "v2-matched-cycle30-base80-r2-p3-ref85",
+      "status": "pass",
+      "reasons": [],
+      "resultSha256": "97e1a2ef91be8b887b6310c984ec3d3071c1115e41be3c5c135d9183993a18b7",
+      "analysisSha256": "34af77ddc5e1a058772cad481ba8e65d3e7c5d8b3e4fb4b8f877db82c790216b",
+      "plateauSha256": "9e557016c6662ee34029fbfdcfc7248eac95ed0dc7158e4fd92a4c3d262107ea",
+      "profileSha256": "97d66c89d6e864a859b54756560d47ed707d600d0fce18bbf53dac3a4d88e175"
+    }
+  ],
+  "pairs": [
+    {
+      "reference": "v2-matched-cycle30-base80-p1-ref85",
+      "candidate": "v2-matched-cycle30-base80-p1-candidate"
+    },
+    {
+      "reference": "v2-matched-cycle30-base80-p2-ref85",
+      "candidate": "v2-matched-cycle30-base80-p2-candidate"
+    },
+    {
+      "reference": "v2-matched-cycle30-base80-r2-p3-ref85",
+      "candidate": "v2-matched-cycle30-base80-r2-p3-candidate"
+    }
+  ],
+  "sourceByteVerification": "all six actual profile, source snapshots, live controller/harness and analysis linkage passed",
+  "limitations": [
+    "Intervals include a thermally ineligible thirdcandidate and are descriptive, not a formal noninferiority proof.",
+    "Only two pairs satisfied plateau eligibility.",
+    "Replacement is eligibility-conditioned; inlet temperature is unmeasured.",
+    "Global quietest or best-performance optimum is not established."
+  ],
+  "sourceSha256": "ac92ec28c5e6c75dab3e6bbbeb4080b04801d164988bd176a8f6de454b775934"
+}

@@ -1,0 +1,2128 @@
+{
+  "telemetrySha256": "047f6bc9293fc7561837018b53fb737d06185f51bb788641dda2b9c531a34e07",
+  "rootEventFileSha256AtCapture": "b7ddf29f76893dba9c487dd34c9ba906528ca1833fa3107da0a5f19993edf463",
+  "mixedSampleIndices": [
+    255,
+    256
+  ],
+  "neighborSamples": [
+    {
+      "utc": "2026-09-27T07:09:34.071136+00:00",
+      "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+      "monotonic": 19949.045260869,
+      "gpus": [
+        {
+          "uuid": "GPU-708ffb68-e356-930d-4f83-980567b5ae3a",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 73,
+              "current": 73,
+              "rpm": 2230
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 73,
+              "current": 73,
+              "rpm": 2229
+            }
+          ],
+          "vramC": null,
+          "coreC": 67,
+          "utilizationGpu": 76,
+          "powerW": 172.928,
+          "smClockMHz": 2632,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492974072143,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492974072400,
+            "violationTimeNanoseconds": 463599509920
+          }
+        },
+        {
+          "uuid": "GPU-ff71102f-22f8-52bb-da93-2076a6531329",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 73,
+              "current": 73,
+              "rpm": 2231
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 73,
+              "current": 73,
+              "rpm": 2229
+            }
+          ],
+          "vramC": null,
+          "coreC": 50,
+          "utilizationGpu": 96,
+          "powerW": 191.318,
+          "smClockMHz": 2572,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492974073488,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492974073738,
+            "violationTimeNanoseconds": 468227785504
+          }
+        },
+        {
+          "uuid": "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 73,
+              "current": 73,
+              "rpm": 2229
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 73,
+              "current": 73,
+              "rpm": 2231
+            }
+          ],
+          "vramC": null,
+          "coreC": 58,
+          "utilizationGpu": 96,
+          "powerW": 193.689,
+          "smClockMHz": 2460,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492974076034,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492974076296,
+            "violationTimeNanoseconds": 686870014880
+          }
+        },
+        {
+          "uuid": "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 73,
+              "current": 73,
+              "rpm": 2228
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 73,
+              "current": 73,
+              "rpm": 2230
+            }
+          ],
+          "vramC": null,
+          "coreC": 76,
+          "utilizationGpu": 97,
+          "powerW": 210.822,
+          "smClockMHz": 1770,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492974077425,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492974077684,
+            "violationTimeNanoseconds": 8015482732256
+          }
+        }
+      ],
+      "primary": {
+        "utc": "2026-09-27T07:09:34.059990+00:00",
+        "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+        "monotonic": 19949.034136185,
+        "gpus": [
+          {
+            "uuid": "GPU-708ffb68-e356-930d-4f83-980567b5ae3a",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 67,
+            "utilizationGpu": 76
+          },
+          {
+            "uuid": "GPU-ff71102f-22f8-52bb-da93-2076a6531329",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2231,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 50,
+            "utilizationGpu": 96
+          },
+          {
+            "uuid": "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 58,
+            "utilizationGpu": 96
+          },
+          {
+            "uuid": "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2228,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 76,
+            "utilizationGpu": 97
+          }
+        ],
+        "source": "uniform-controller-v2",
+        "pid": 1570075,
+        "ready": true,
+        "allFansSettled": true,
+        "targetPercent": 73,
+        "mode": "curve"
+      },
+      "observer": {
+        "utc": "2026-09-27T07:09:33.780377+00:00",
+        "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+        "monotonic": 19948.754506855,
+        "gpus": [
+          {
+            "uuid": "GPU-708ffb68-e356-930d-4f83-980567b5ae3a",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 63,
+            "utilizationGpu": 0
+          },
+          {
+            "uuid": "GPU-ff71102f-22f8-52bb-da93-2076a6531329",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2231,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2227,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 46,
+            "utilizationGpu": 0
+          },
+          {
+            "uuid": "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 54,
+            "utilizationGpu": 0
+          },
+          {
+            "uuid": "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2228,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2231,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 73,
+            "utilizationGpu": 0
+          }
+        ],
+        "source": "independent-observer-v2",
+        "pid": 1562272,
+        "mode": "manual",
+        "healthy": true,
+        "requestRecovery": false,
+        "suspend": false,
+        "degradedSince": null,
+        "critical": false,
+        "active": true,
+        "workloadStateKnown": true,
+        "workloadError": null,
+        "controlErrors": [],
+        "availableBytes": 33310195712,
+        "latchPresent": false
+      },
+      "host": {
+        "memAvailableBytes": 33305837568,
+        "swapUsedBytes": 8164622336,
+        "pswpin": 1510936,
+        "pswpout": 5213711,
+        "pgmajfault": 2356384,
+        "loadAverage": [
+          6.77783203125,
+          6.58056640625,
+          6.82373046875
+        ],
+        "pageBytes": 4096
+      },
+      "docker": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 928218,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-09-27T04:49:37.547451624Z",
+        "FinishedAt": "2026-09-27T04:32:12.165824459Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-09-27T03:07:24.444882351-04:00",
+              "End": "2026-09-27T03:07:24.658260229-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:07:54.658875606-04:00",
+              "End": "2026-09-27T03:07:54.901188551-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:08:24.902558283-04:00",
+              "End": "2026-09-27T03:08:24.991099348-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:08:54.992247119-04:00",
+              "End": "2026-09-27T03:08:55.199836301-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:09:25.20074275-04:00",
+              "End": "2026-09-27T03:09:25.366492911-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            }
+          ]
+        }
+      },
+      "modelProcesses": [
+        {
+          "pid": 928218,
+          "majorFaults": 1526,
+          "VmLck": 0,
+          "VmRSS": 27516928,
+          "VmSwap": 47382528
+        },
+        {
+          "pid": 928526,
+          "majorFaults": 182,
+          "VmLck": 0,
+          "VmRSS": 5128192,
+          "VmSwap": 5652480
+        },
+        {
+          "pid": 928531,
+          "majorFaults": 67993,
+          "VmLck": 16384,
+          "VmRSS": 531734528,
+          "VmSwap": 599773184
+        },
+        {
+          "pid": 929417,
+          "majorFaults": 74,
+          "VmLck": 0,
+          "VmRSS": 1855488,
+          "VmSwap": 8368128
+        },
+        {
+          "pid": 929418,
+          "majorFaults": 85508,
+          "VmLck": 203073097728,
+          "VmRSS": 205467889664,
+          "VmSwap": 435384320
+        },
+        {
+          "pid": 929419,
+          "majorFaults": 73476,
+          "VmLck": 203073097728,
+          "VmRSS": 205436694528,
+          "VmSwap": 484208640
+        },
+        {
+          "pid": 929420,
+          "majorFaults": 92156,
+          "VmLck": 203073097728,
+          "VmRSS": 206155735040,
+          "VmSwap": 452677632
+        },
+        {
+          "pid": 929421,
+          "majorFaults": 83054,
+          "VmLck": 203073097728,
+          "VmRSS": 205851791360,
+          "VmSwap": 504930304
+        },
+        {
+          "pid": 929422,
+          "majorFaults": 27108,
+          "VmLck": 16384,
+          "VmRSS": 490397696,
+          "VmSwap": 507731968
+        }
+      ],
+      "processSampleMonotonic": 19945.025475747
+    },
+    {
+      "utc": "2026-09-27T07:09:35.075371+00:00",
+      "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+      "monotonic": 19950.049471823,
+      "gpus": [
+        {
+          "uuid": "GPU-708ffb68-e356-930d-4f83-980567b5ae3a",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 73,
+              "current": 73,
+              "rpm": 2229
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 73,
+              "current": 73,
+              "rpm": 2230
+            }
+          ],
+          "vramC": null,
+          "coreC": 66,
+          "utilizationGpu": 81,
+          "powerW": 275.803,
+          "smClockMHz": 2347,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492975076283,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492975076507,
+            "violationTimeNanoseconds": 463900109184
+          }
+        },
+        {
+          "uuid": "GPU-ff71102f-22f8-52bb-da93-2076a6531329",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 73,
+              "current": 73,
+              "rpm": 2228
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 73,
+              "current": 73,
+              "rpm": 2228
+            }
+          ],
+          "vramC": null,
+          "coreC": 51,
+          "utilizationGpu": 99,
+          "powerW": 276.563,
+          "smClockMHz": 2272,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492975077891,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492975078219,
+            "violationTimeNanoseconds": 468467832352
+          }
+        },
+        {
+          "uuid": "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 74,
+              "current": 73,
+              "rpm": 2229
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 74,
+              "current": 73,
+              "rpm": 2230
+            }
+          ],
+          "vramC": null,
+          "coreC": 58,
+          "utilizationGpu": 98,
+          "powerW": 276.597,
+          "smClockMHz": 2310,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492975079063,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492975079209,
+            "violationTimeNanoseconds": 687169685280
+          }
+        },
+        {
+          "uuid": "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 74,
+              "current": 73,
+              "rpm": 2227
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 74,
+              "current": 73,
+              "rpm": 2228
+            }
+          ],
+          "vramC": null,
+          "coreC": 77,
+          "utilizationGpu": 99,
+          "powerW": 276.356,
+          "smClockMHz": 1672,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492975080023,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492975080179,
+            "violationTimeNanoseconds": 8016485236768
+          }
+        }
+      ],
+      "primary": {
+        "utc": "2026-09-27T07:09:34.059990+00:00",
+        "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+        "monotonic": 19949.034136185,
+        "gpus": [
+          {
+            "uuid": "GPU-708ffb68-e356-930d-4f83-980567b5ae3a",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 67,
+            "utilizationGpu": 76
+          },
+          {
+            "uuid": "GPU-ff71102f-22f8-52bb-da93-2076a6531329",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2231,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 50,
+            "utilizationGpu": 96
+          },
+          {
+            "uuid": "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 58,
+            "utilizationGpu": 96
+          },
+          {
+            "uuid": "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2228,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 76,
+            "utilizationGpu": 97
+          }
+        ],
+        "source": "uniform-controller-v2",
+        "pid": 1570075,
+        "ready": true,
+        "allFansSettled": true,
+        "targetPercent": 73,
+        "mode": "curve"
+      },
+      "observer": {
+        "utc": "2026-09-27T07:09:34.781671+00:00",
+        "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+        "monotonic": 19949.755792531,
+        "gpus": [
+          {
+            "uuid": "GPU-708ffb68-e356-930d-4f83-980567b5ae3a",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2231,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 68,
+            "utilizationGpu": 84
+          },
+          {
+            "uuid": "GPU-ff71102f-22f8-52bb-da93-2076a6531329",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 50,
+            "utilizationGpu": 97
+          },
+          {
+            "uuid": "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 58,
+            "utilizationGpu": 97
+          },
+          {
+            "uuid": "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2228,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 73,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 77,
+            "utilizationGpu": 98
+          }
+        ],
+        "source": "independent-observer-v2",
+        "pid": 1562272,
+        "mode": "manual",
+        "healthy": true,
+        "requestRecovery": false,
+        "suspend": false,
+        "degradedSince": null,
+        "critical": false,
+        "active": true,
+        "workloadStateKnown": true,
+        "workloadError": null,
+        "controlErrors": [],
+        "availableBytes": 33303412736,
+        "latchPresent": false
+      },
+      "host": {
+        "memAvailableBytes": 33300832256,
+        "swapUsedBytes": 8164618240,
+        "pswpin": 1510937,
+        "pswpout": 5213711,
+        "pgmajfault": 2356386,
+        "loadAverage": [
+          6.71533203125,
+          6.57080078125,
+          6.81884765625
+        ],
+        "pageBytes": 4096
+      },
+      "docker": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 928218,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-09-27T04:49:37.547451624Z",
+        "FinishedAt": "2026-09-27T04:32:12.165824459Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-09-27T03:07:24.444882351-04:00",
+              "End": "2026-09-27T03:07:24.658260229-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:07:54.658875606-04:00",
+              "End": "2026-09-27T03:07:54.901188551-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:08:24.902558283-04:00",
+              "End": "2026-09-27T03:08:24.991099348-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:08:54.992247119-04:00",
+              "End": "2026-09-27T03:08:55.199836301-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:09:25.20074275-04:00",
+              "End": "2026-09-27T03:09:25.366492911-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            }
+          ]
+        }
+      },
+      "modelProcesses": [
+        {
+          "pid": 928218,
+          "majorFaults": 1526,
+          "VmLck": 0,
+          "VmRSS": 27516928,
+          "VmSwap": 47382528
+        },
+        {
+          "pid": 928526,
+          "majorFaults": 182,
+          "VmLck": 0,
+          "VmRSS": 5128192,
+          "VmSwap": 5652480
+        },
+        {
+          "pid": 928531,
+          "majorFaults": 67993,
+          "VmLck": 16384,
+          "VmRSS": 531734528,
+          "VmSwap": 599773184
+        },
+        {
+          "pid": 929417,
+          "majorFaults": 74,
+          "VmLck": 0,
+          "VmRSS": 1855488,
+          "VmSwap": 8368128
+        },
+        {
+          "pid": 929418,
+          "majorFaults": 85508,
+          "VmLck": 203073097728,
+          "VmRSS": 205467889664,
+          "VmSwap": 435384320
+        },
+        {
+          "pid": 929419,
+          "majorFaults": 73476,
+          "VmLck": 203073097728,
+          "VmRSS": 205436694528,
+          "VmSwap": 484208640
+        },
+        {
+          "pid": 929420,
+          "majorFaults": 92156,
+          "VmLck": 203073097728,
+          "VmRSS": 206155735040,
+          "VmSwap": 452677632
+        },
+        {
+          "pid": 929421,
+          "majorFaults": 83054,
+          "VmLck": 203073097728,
+          "VmRSS": 205851791360,
+          "VmSwap": 504930304
+        },
+        {
+          "pid": 929422,
+          "majorFaults": 27108,
+          "VmLck": 16384,
+          "VmRSS": 490397696,
+          "VmSwap": 507731968
+        }
+      ],
+      "processSampleMonotonic": 19945.025475747
+    },
+    {
+      "utc": "2026-09-27T07:09:36.075933+00:00",
+      "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+      "monotonic": 19951.050026074,
+      "gpus": [
+        {
+          "uuid": "GPU-708ffb68-e356-930d-4f83-980567b5ae3a",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 74,
+              "current": 73,
+              "rpm": 2232
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 74,
+              "current": 73,
+              "rpm": 2229
+            }
+          ],
+          "vramC": null,
+          "coreC": 67,
+          "utilizationGpu": 92,
+          "powerW": 274.92,
+          "smClockMHz": 2362,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492976077139,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492976077459,
+            "violationTimeNanoseconds": 464000811616
+          }
+        },
+        {
+          "uuid": "GPU-ff71102f-22f8-52bb-da93-2076a6531329",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 74,
+              "current": 73,
+              "rpm": 2231
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 74,
+              "current": 73,
+              "rpm": 2230
+            }
+          ],
+          "vramC": null,
+          "coreC": 50,
+          "utilizationGpu": 91,
+          "powerW": 275.481,
+          "smClockMHz": 2302,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492976078506,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492976079394,
+            "violationTimeNanoseconds": 468508577472
+          }
+        },
+        {
+          "uuid": "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 75,
+              "current": 73,
+              "rpm": 2230
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 75,
+              "current": 73,
+              "rpm": 2231
+            }
+          ],
+          "vramC": null,
+          "coreC": 58,
+          "utilizationGpu": 91,
+          "powerW": 274.286,
+          "smClockMHz": 2340,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492976080339,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492976080494,
+            "violationTimeNanoseconds": 687289854816
+          }
+        },
+        {
+          "uuid": "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 75,
+              "current": 73,
+              "rpm": 2230
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 75,
+              "current": 73,
+              "rpm": 2230
+            }
+          ],
+          "vramC": null,
+          "coreC": 77,
+          "utilizationGpu": 87,
+          "powerW": 275.845,
+          "smClockMHz": 1680,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492976081373,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492976089771,
+            "violationTimeNanoseconds": 8017494837952
+          }
+        }
+      ],
+      "primary": {
+        "utc": "2026-09-27T07:09:35.085172+00:00",
+        "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+        "monotonic": 19950.059297295,
+        "gpus": [
+          {
+            "uuid": "GPU-708ffb68-e356-930d-4f83-980567b5ae3a",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 66,
+            "utilizationGpu": 81
+          },
+          {
+            "uuid": "GPU-ff71102f-22f8-52bb-da93-2076a6531329",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 51,
+            "utilizationGpu": 99
+          },
+          {
+            "uuid": "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 58,
+            "utilizationGpu": 98
+          },
+          {
+            "uuid": "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2227,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 77,
+            "utilizationGpu": 99
+          }
+        ],
+        "source": "uniform-controller-v2",
+        "pid": 1570075,
+        "ready": true,
+        "allFansSettled": true,
+        "targetPercent": 74,
+        "mode": "curve"
+      },
+      "observer": {
+        "utc": "2026-09-27T07:09:35.780666+00:00",
+        "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+        "monotonic": 19950.754788457,
+        "gpus": [
+          {
+            "uuid": "GPU-708ffb68-e356-930d-4f83-980567b5ae3a",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2231,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 67,
+            "utilizationGpu": 81
+          },
+          {
+            "uuid": "GPU-ff71102f-22f8-52bb-da93-2076a6531329",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 50,
+            "utilizationGpu": 99
+          },
+          {
+            "uuid": "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 58,
+            "utilizationGpu": 99
+          },
+          {
+            "uuid": "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 74,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 77,
+            "utilizationGpu": 99
+          }
+        ],
+        "source": "independent-observer-v2",
+        "pid": 1562272,
+        "mode": "manual",
+        "healthy": true,
+        "requestRecovery": false,
+        "suspend": false,
+        "degradedSince": null,
+        "critical": false,
+        "active": true,
+        "workloadStateKnown": true,
+        "workloadError": null,
+        "controlErrors": [],
+        "availableBytes": 33312284672,
+        "latchPresent": false
+      },
+      "host": {
+        "memAvailableBytes": 33308901376,
+        "swapUsedBytes": 8164618240,
+        "pswpin": 1510937,
+        "pswpout": 5213711,
+        "pgmajfault": 2356386,
+        "loadAverage": [
+          6.71533203125,
+          6.57080078125,
+          6.81884765625
+        ],
+        "pageBytes": 4096
+      },
+      "docker": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 928218,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-09-27T04:49:37.547451624Z",
+        "FinishedAt": "2026-09-27T04:32:12.165824459Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-09-27T03:07:24.444882351-04:00",
+              "End": "2026-09-27T03:07:24.658260229-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:07:54.658875606-04:00",
+              "End": "2026-09-27T03:07:54.901188551-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:08:24.902558283-04:00",
+              "End": "2026-09-27T03:08:24.991099348-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:08:54.992247119-04:00",
+              "End": "2026-09-27T03:08:55.199836301-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:09:25.20074275-04:00",
+              "End": "2026-09-27T03:09:25.366492911-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            }
+          ]
+        }
+      },
+      "modelProcesses": [
+        {
+          "pid": 928218,
+          "majorFaults": 1526,
+          "VmLck": 0,
+          "VmRSS": 27516928,
+          "VmSwap": 47382528
+        },
+        {
+          "pid": 928526,
+          "majorFaults": 182,
+          "VmLck": 0,
+          "VmRSS": 5128192,
+          "VmSwap": 5652480
+        },
+        {
+          "pid": 928531,
+          "majorFaults": 67993,
+          "VmLck": 16384,
+          "VmRSS": 531734528,
+          "VmSwap": 599773184
+        },
+        {
+          "pid": 929417,
+          "majorFaults": 74,
+          "VmLck": 0,
+          "VmRSS": 1855488,
+          "VmSwap": 8368128
+        },
+        {
+          "pid": 929418,
+          "majorFaults": 85508,
+          "VmLck": 203073097728,
+          "VmRSS": 205467889664,
+          "VmSwap": 435384320
+        },
+        {
+          "pid": 929419,
+          "majorFaults": 73476,
+          "VmLck": 203073097728,
+          "VmRSS": 205436694528,
+          "VmSwap": 484208640
+        },
+        {
+          "pid": 929420,
+          "majorFaults": 92156,
+          "VmLck": 203073097728,
+          "VmRSS": 206155735040,
+          "VmSwap": 452677632
+        },
+        {
+          "pid": 929421,
+          "majorFaults": 83054,
+          "VmLck": 203073097728,
+          "VmRSS": 205851791360,
+          "VmSwap": 504930304
+        },
+        {
+          "pid": 929422,
+          "majorFaults": 27108,
+          "VmLck": 16384,
+          "VmRSS": 490397696,
+          "VmSwap": 507731968
+        }
+      ],
+      "processSampleMonotonic": 19945.025475747
+    },
+    {
+      "utc": "2026-09-27T07:09:37.072147+00:00",
+      "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+      "monotonic": 19952.046298386,
+      "gpus": [
+        {
+          "uuid": "GPU-708ffb68-e356-930d-4f83-980567b5ae3a",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 75,
+              "current": 73,
+              "rpm": 2233
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 75,
+              "current": 73,
+              "rpm": 2233
+            }
+          ],
+          "vramC": null,
+          "coreC": 67,
+          "utilizationGpu": 97,
+          "powerW": 274.859,
+          "smClockMHz": 2355,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492977073240,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492977073573,
+            "violationTimeNanoseconds": 464101080672
+          }
+        },
+        {
+          "uuid": "GPU-ff71102f-22f8-52bb-da93-2076a6531329",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 75,
+              "current": 73,
+              "rpm": 2236
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 75,
+              "current": 73,
+              "rpm": 2234
+            }
+          ],
+          "vramC": null,
+          "coreC": 50,
+          "utilizationGpu": 83,
+          "powerW": 274.8,
+          "smClockMHz": 2317,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492977074790,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492977075038,
+            "violationTimeNanoseconds": 468566891456
+          }
+        },
+        {
+          "uuid": "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 75,
+              "current": 73,
+              "rpm": 2234
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 75,
+              "current": 73,
+              "rpm": 2233
+            }
+          ],
+          "vramC": null,
+          "coreC": 58,
+          "utilizationGpu": 83,
+          "powerW": 274.709,
+          "smClockMHz": 2302,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492977076059,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492977076221,
+            "violationTimeNanoseconds": 687390354848
+          }
+        },
+        {
+          "uuid": "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0",
+          "requestedPowerW": 275.0,
+          "enforcedPowerW": 275.0,
+          "fans": [
+            {
+              "fan": 0,
+              "policy": 1,
+              "target": 75,
+              "current": 73,
+              "rpm": 2235
+            },
+            {
+              "fan": 1,
+              "policy": 1,
+              "target": 75,
+              "current": 73,
+              "rpm": 2233
+            }
+          ],
+          "vramC": null,
+          "coreC": 76,
+          "utilizationGpu": 83,
+          "powerW": 274.713,
+          "smClockMHz": 1627,
+          "memoryClockMHz": 13365,
+          "performanceState": 1,
+          "clockEventMask": 4,
+          "thermalViolation": {
+            "referenceTimeNanoseconds": 1790492977077034,
+            "violationTimeNanoseconds": 0
+          },
+          "powerViolation": {
+            "referenceTimeNanoseconds": 1790492977077197,
+            "violationTimeNanoseconds": 8018482273056
+          }
+        }
+      ],
+      "primary": {
+        "utc": "2026-09-27T07:09:36.093742+00:00",
+        "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+        "monotonic": 19951.067881154,
+        "gpus": [
+          {
+            "uuid": "GPU-708ffb68-e356-930d-4f83-980567b5ae3a",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2229,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 67,
+            "utilizationGpu": 92
+          },
+          {
+            "uuid": "GPU-ff71102f-22f8-52bb-da93-2076a6531329",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2231,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 50,
+            "utilizationGpu": 91
+          },
+          {
+            "uuid": "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2231,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 58,
+            "utilizationGpu": 91
+          },
+          {
+            "uuid": "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2230,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 77,
+            "utilizationGpu": 87
+          }
+        ],
+        "source": "uniform-controller-v2",
+        "pid": 1570075,
+        "ready": true,
+        "allFansSettled": true,
+        "targetPercent": 75,
+        "mode": "curve"
+      },
+      "observer": {
+        "utc": "2026-09-27T07:09:36.779645+00:00",
+        "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+        "monotonic": 19951.753771565,
+        "gpus": [
+          {
+            "uuid": "GPU-708ffb68-e356-930d-4f83-980567b5ae3a",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2231,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2232,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 67,
+            "utilizationGpu": 95
+          },
+          {
+            "uuid": "GPU-ff71102f-22f8-52bb-da93-2076a6531329",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2234,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2234,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 50,
+            "utilizationGpu": 90
+          },
+          {
+            "uuid": "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2233,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2233,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 58,
+            "utilizationGpu": 90
+          },
+          {
+            "uuid": "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0",
+            "requestedPowerW": 275.0,
+            "enforcedPowerW": 275.0,
+            "fans": [
+              {
+                "fan": 0,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2232,
+                "settlingSince": null
+              },
+              {
+                "fan": 1,
+                "policy": 1,
+                "target": 75,
+                "current": 73,
+                "rpm": 2232,
+                "settlingSince": null
+              }
+            ],
+            "vramC": null,
+            "coreC": 76,
+            "utilizationGpu": 88
+          }
+        ],
+        "source": "independent-observer-v2",
+        "pid": 1562272,
+        "mode": "manual",
+        "healthy": true,
+        "requestRecovery": false,
+        "suspend": false,
+        "degradedSince": null,
+        "critical": false,
+        "active": true,
+        "workloadStateKnown": true,
+        "workloadError": null,
+        "controlErrors": [],
+        "availableBytes": 33318879232,
+        "latchPresent": false
+      },
+      "host": {
+        "memAvailableBytes": 33289789440,
+        "swapUsedBytes": 8164614144,
+        "pswpin": 1510937,
+        "pswpout": 5213711,
+        "pgmajfault": 2356386,
+        "loadAverage": [
+          6.71533203125,
+          6.57080078125,
+          6.81884765625
+        ],
+        "pageBytes": 4096
+      },
+      "docker": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 928218,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-09-27T04:49:37.547451624Z",
+        "FinishedAt": "2026-09-27T04:32:12.165824459Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-09-27T03:07:24.444882351-04:00",
+              "End": "2026-09-27T03:07:24.658260229-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:07:54.658875606-04:00",
+              "End": "2026-09-27T03:07:54.901188551-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:08:24.902558283-04:00",
+              "End": "2026-09-27T03:08:24.991099348-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:08:54.992247119-04:00",
+              "End": "2026-09-27T03:08:55.199836301-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-27T03:09:25.20074275-04:00",
+              "End": "2026-09-27T03:09:25.366492911-04:00",
+              "ExitCode": 0,
+              "Output": ""
+            }
+          ]
+        }
+      },
+      "modelProcesses": [
+        {
+          "pid": 928218,
+          "majorFaults": 1526,
+          "VmLck": 0,
+          "VmRSS": 27516928,
+          "VmSwap": 47382528
+        },
+        {
+          "pid": 928526,
+          "majorFaults": 182,
+          "VmLck": 0,
+          "VmRSS": 5128192,
+          "VmSwap": 5652480
+        },
+        {
+          "pid": 928531,
+          "majorFaults": 67993,
+          "VmLck": 16384,
+          "VmRSS": 531734528,
+          "VmSwap": 599773184
+        },
+        {
+          "pid": 929417,
+          "majorFaults": 74,
+          "VmLck": 0,
+          "VmRSS": 1855488,
+          "VmSwap": 8368128
+        },
+        {
+          "pid": 929418,
+          "majorFaults": 85508,
+          "VmLck": 203073097728,
+          "VmRSS": 205467889664,
+          "VmSwap": 435384320
+        },
+        {
+          "pid": 929419,
+          "majorFaults": 73476,
+          "VmLck": 203073097728,
+          "VmRSS": 205436694528,
+          "VmSwap": 484208640
+        },
+        {
+          "pid": 929420,
+          "majorFaults": 92156,
+          "VmLck": 203073097728,
+          "VmRSS": 206155735040,
+          "VmSwap": 452677632
+        },
+        {
+          "pid": 929421,
+          "majorFaults": 83054,
+          "VmLck": 203073097728,
+          "VmRSS": 205851791360,
+          "VmSwap": 504930304
+        },
+        {
+          "pid": 929422,
+          "majorFaults": 27108,
+          "VmLck": 16384,
+          "VmRSS": 490397696,
+          "VmSwap": 507731968
+        }
+      ],
+      "processSampleMonotonic": 19945.025475747
+    }
+  ],
+  "matchingRootCommands": [
+    {
+      "utc": "2026-09-27T07:09:35.085388+00:00",
+      "monotonic": 19950.059399179,
+      "kind": "fan-command",
+      "targetPercent": 74,
+      "maxCoreC": 77
+    },
+    {
+      "utc": "2026-09-27T07:09:36.093951+00:00",
+      "monotonic": 19951.067962057,
+      "kind": "fan-command",
+      "targetPercent": 75,
+      "maxCoreC": 77
+    }
+  ],
+  "originalQualification": "not-qualified; raw-snapshot criterion retained",
+  "interpretation": "Serial one-point uniform commands intersected a non-atomic independent read; matching completion follows the mixed read by about10 and18ms. This is not retroactive coherent-read qualification."
+}

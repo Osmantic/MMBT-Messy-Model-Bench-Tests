@@ -1,0 +1,34 @@
+{
+  "referenceProfile": "fixed85",
+  "candidateProfile": "curve",
+  "candidateStartupFloor": 80,
+  "candidateStartupSeconds": 30,
+  "runSeconds": 1800,
+  "thermalPlateauMethod": "last6completeC8cycleMeans",
+  "plateauSourceSha256": "d95ae793a62c46722ebc6b69ad7bd39e3111df790fc743a43f238f62a25d96be",
+  "comparisonSourceSha256": "77c2292096a4af444ac4936275523a48cd805b82a6d6e9901c51a12e39effb2a",
+  "pairs": [
+    {
+      "reference": "v2-matched-cycle30-base80-p1-ref85",
+      "candidate": "v2-matched-cycle30-base80-p1-candidate"
+    },
+    {
+      "reference": "v2-matched-cycle30-base80-p2-ref85",
+      "candidate": "v2-matched-cycle30-base80-p2-candidate"
+    },
+    {
+      "reference": "v2-matched-cycle30-base80-p3-ref85",
+      "candidate": "v2-matched-cycle30-base80-p3-candidate"
+    }
+  ],
+  "protocolReason": "The lower2/65-percent15-second-startup candidate completed its first new30min pair with end-to-end ratio0.960035, making the declared n3 two-sided95-percent lower>=0.97 gate impossible. It also failed the prospective six-cycle top-card slope gate (+0.373758C/min), while raw180 screening passed/peak81/no thermal counters. That series terminated without a second pair. This entirely new series tests the original screened curve plus80-percent30-second startup; both configuration components are assessed together. No historical labels, sources, thresholds or throughput definitions are changed.",
+  "unchangedRequirements": [
+    "four exact275W requested/enforced caps",
+    "all raw peaks<=82C including rejected transition reads",
+    "no thermal-counter increment",
+    "uniform manual accepted samples",
+    "same boot/runtime/executable source and candidate bytes",
+    "three paired95% Student-t lower bounds>=0.97 for BOTH final600 decode and end-to-end",
+    "candidate final600 fan effort below85%"
+  ]
+}

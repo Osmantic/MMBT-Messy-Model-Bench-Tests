@@ -1,0 +1,14 @@
+[Unit]
+Description=MMBT verified native DSV4.1 Flash RAM runtime
+After=docker.service mmbt-gpu-control.service mmbt-native-watchdog.service
+Requires=docker.service
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/python3 /opt/mmbt/gpu-control/model-gate.py
+ExecStart=/usr/bin/docker start --attach mmbt-dsv41
+ExecStop=/usr/bin/docker stop --timeout 2 mmbt-dsv41
+Restart=no
+TimeoutStopSec=10
+KillMode=control-group
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,80 @@
+{
+  "8-12minutes": {
+    "gpuMedians": {
+      "ae3a": {
+        "coreC": 67.0,
+        "smClockMHz": 2437.0,
+        "powerW": 274.9945,
+        "utilizationGpu": 99.0,
+        "memoryClockMHz": 13365.0
+      },
+      "f2ca": {
+        "coreC": 57.0,
+        "smClockMHz": 2392.0,
+        "powerW": 274.977,
+        "utilizationGpu": 99.0,
+        "memoryClockMHz": 13365.0
+      },
+      "c1a0": {
+        "coreC": 77.0,
+        "smClockMHz": 1721.0,
+        "powerW": 274.99649999999997,
+        "utilizationGpu": 99.0,
+        "memoryClockMHz": 13365.0
+      },
+      "1329": {
+        "coreC": 50.0,
+        "smClockMHz": 2332.0,
+        "powerW": 274.996,
+        "utilizationGpu": 99.0,
+        "memoryClockMHz": 13365.0
+      }
+    },
+    "hostLoadMean": [
+      7.789229329427084,
+      7.460624186197917,
+      6.995509847005208
+    ],
+    "wholeHostSwapInBytes": 1191936,
+    "availableGiBMinimum": 30.856128692626953
+  },
+  "14-17minutes": {
+    "gpuMedians": {
+      "ae3a": {
+        "coreC": 68,
+        "smClockMHz": 2520,
+        "powerW": 275.006,
+        "utilizationGpu": 99,
+        "memoryClockMHz": 13365
+      },
+      "f2ca": {
+        "coreC": 58,
+        "smClockMHz": 2482,
+        "powerW": 275.015,
+        "utilizationGpu": 99,
+        "memoryClockMHz": 13365
+      },
+      "c1a0": {
+        "coreC": 78,
+        "smClockMHz": 1860,
+        "powerW": 274.987,
+        "utilizationGpu": 99,
+        "memoryClockMHz": 13365
+      },
+      "1329": {
+        "coreC": 51,
+        "smClockMHz": 2430,
+        "powerW": 274.983,
+        "utilizationGpu": 99,
+        "memoryClockMHz": 13365
+      }
+    },
+    "hostLoadMean": [
+      7.637484375,
+      7.52496484375,
+      7.1498125
+    ],
+    "wholeHostSwapInBytes": 2207744,
+    "availableGiBMinimum": 30.847736358642578
+  }
+}

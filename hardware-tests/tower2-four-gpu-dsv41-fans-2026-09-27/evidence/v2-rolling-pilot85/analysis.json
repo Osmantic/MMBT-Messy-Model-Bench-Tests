@@ -1,0 +1,63 @@
+{
+  "phase": "v2-rolling-pilot85",
+  "quietContinuousQualification": "not-qualified",
+  "reasons": [
+    "Pilot shorter than20 minutes",
+    "Insufficient steady coverage",
+    "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca: not thermally steady",
+    "GPU-708ffb68-e356-930d-4f83-980567b5ae3a: not thermally steady",
+    "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0: not thermally steady",
+    "GPU-ff71102f-22f8-52bb-da93-2076a6531329: not thermally steady"
+  ],
+  "gpu": {
+    "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca": {
+      "peakCoreCIncludingDrain": 55,
+      "steadyMeanCoreC": 52.333333333333336,
+      "steadySlopeCPerMinute": 4.519824607744857
+    },
+    "GPU-708ffb68-e356-930d-4f83-980567b5ae3a": {
+      "peakCoreCIncludingDrain": 63,
+      "steadyMeanCoreC": 60.35,
+      "steadySlopeCPerMinute": 3.594868255316094
+    },
+    "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0": {
+      "peakCoreCIncludingDrain": 72,
+      "steadyMeanCoreC": 69.91666666666667,
+      "steadySlopeCPerMinute": 1.9380823290358837
+    },
+    "GPU-ff71102f-22f8-52bb-da93-2076a6531329": {
+      "peakCoreCIncludingDrain": 49,
+      "steadyMeanCoreC": 46.71666666666667,
+      "steadySlopeCPerMinute": 4.25472249614158
+    }
+  },
+  "noiseProxy": {
+    "timeWeightedRequestedPercent": 85.0,
+    "timeWeightedReportedEightFanMeanPercent": 85.0,
+    "peakRequestedPercent": 85,
+    "commandChangesPerMinute": 0.0,
+    "nonuniformSnapshots": 0
+  },
+  "replenishment": {
+    "replacements": 11,
+    "p95Seconds": 0.03550484600054915,
+    "maximumSeconds": 0.03550484600054915,
+    "proof": "each HTTP EOF replenished before its recorder completes; eight HTTP streams targeted, at most sixteen total worker jobs"
+  },
+  "steadyHttpOccupancy": {
+    "meanHttpConcurrency": 7.993548137333589,
+    "fractionWithEightHttpStreams": 0.9960823080000409,
+    "peakHttpConcurrency": 8,
+    "windowSeconds": 60.0
+  },
+  "steadyDeliveredTokensPerSecond": 540.7333333333333,
+  "deliveryWindowSeconds": 60.0,
+  "steadyRateMeaning": "recorded deliveries in up-to-final180s before dispatch deadline, includes serving/prefill mix; not matched-cohort simultaneous decode",
+  "e2eOutputTokensPerSecond": 522.5451414526144,
+  "ttftMedianSeconds": 1.9249464589993295,
+  "latencyMedianSeconds": 29.715217973000108,
+  "minimumAvailableGiB": 31.30481719970703,
+  "ambientTemperatureC": null,
+  "soakDurationQualified": false,
+  "performanceComparisonPending": true
+}

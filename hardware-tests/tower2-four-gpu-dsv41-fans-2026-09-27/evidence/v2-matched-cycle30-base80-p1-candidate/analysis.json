@@ -1,0 +1,161 @@
+{
+  "phase": "v2-matched-cycle30-base80-p1-candidate",
+  "quietThermalQualification": "pass",
+  "reasons": [],
+  "gpu": {
+    "GPU-6b6dd6f9-2850-043f-b545-6ff4a60df2ca": {
+      "peakCoreC": 60,
+      "steadyMeanCoreC": 57.96111111111111,
+      "steadyMinCoreC": 54,
+      "steadyMaxCoreC": 59,
+      "steadySlopeCPerMinute": -0.0030992851374168455,
+      "reportedPeakPowerW": 287.512,
+      "smClockMedianMHz": 2505,
+      "observedClockEventMasks": [
+        0,
+        4
+      ],
+      "requestedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "enforcedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "thermalViolationDeltaNanoseconds": 0,
+      "powerViolationDeltaNanoseconds": 26628180000
+    },
+    "GPU-708ffb68-e356-930d-4f83-980567b5ae3a": {
+      "peakCoreC": 70,
+      "steadyMeanCoreC": 67.24444444444444,
+      "steadyMinCoreC": 64,
+      "steadyMaxCoreC": 69,
+      "steadySlopeCPerMinute": -0.06728251846352629,
+      "reportedPeakPowerW": 288.289,
+      "smClockMedianMHz": 2520,
+      "observedClockEventMasks": [
+        0,
+        4
+      ],
+      "requestedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "enforcedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "thermalViolationDeltaNanoseconds": 0,
+      "powerViolationDeltaNanoseconds": 22601344736
+    },
+    "GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0": {
+      "peakCoreC": 81,
+      "steadyMeanCoreC": 78.11666666666666,
+      "steadyMinCoreC": 75,
+      "steadyMaxCoreC": 79,
+      "steadySlopeCPerMinute": -0.05237719509629522,
+      "reportedPeakPowerW": 292.698,
+      "smClockMedianMHz": 1867,
+      "observedClockEventMasks": [
+        0,
+        4
+      ],
+      "requestedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "enforcedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "thermalViolationDeltaNanoseconds": 0,
+      "powerViolationDeltaNanoseconds": 1716002148096
+    },
+    "GPU-ff71102f-22f8-52bb-da93-2076a6531329": {
+      "peakCoreC": 52,
+      "steadyMeanCoreC": 50.18333333333333,
+      "steadyMinCoreC": 47,
+      "steadyMaxCoreC": 52,
+      "steadySlopeCPerMinute": -0.04932457839643311,
+      "reportedPeakPowerW": 289.429,
+      "smClockMedianMHz": 2445,
+      "observedClockEventMasks": [
+        0,
+        4
+      ],
+      "requestedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "enforcedCapRangeW": [
+        275.0,
+        275.0
+      ],
+      "thermalViolationDeltaNanoseconds": 0,
+      "powerViolationDeltaNanoseconds": 20423092192
+    }
+  },
+  "noiseProxy": {
+    "timeWeightedRequestedPercent": 79.38414035850694,
+    "timeWeightedActualEightFanMeanPercent": 79.3855930738264,
+    "peakRequestedPercent": 83,
+    "commandChangesPerMinute": 0.6589909437075099,
+    "nonuniformSnapshots": 0,
+    "steady600RequestedPercent": 80.0,
+    "steady600ReportedPercent": 80.0,
+    "steady600CoverageSeconds": 600.0
+  },
+  "steadyDecode": {
+    "tokens": 94715,
+    "seconds": 121.2118950189979,
+    "aggregateTokensPerSecond": 781.4002081656676
+  },
+  "e2eOutputTokensPerSecond": 530.8190518224241,
+  "ttftMedianSeconds": 4.995001861501805,
+  "ttftP95Seconds": 9.053175214001385,
+  "latencyMedianSeconds": 29.96263624099811,
+  "latencyP95Seconds": 30.666617638002208,
+  "paging": {
+    "wholeHostSwapInBytes": 5705728,
+    "wholeHostSwapOutBytes": 24576,
+    "modelProcessMetricsRecorded": true,
+    "attribution": "Process major-fault and VmSwap observations available; aggregate host traffic alone does not establish model attribution",
+    "modelMajorFaultDeltaByPid": {
+      "928218": 0,
+      "928526": 0,
+      "928531": 11,
+      "929417": 0,
+      "929418": 7,
+      "929419": 4,
+      "929420": 31,
+      "929421": 9,
+      "929422": 13
+    },
+    "sameModelProcessSetObserved": true,
+    "modelPrivateSwapStartBytes": 3039780864,
+    "modelPrivateSwapEndBytes": 3039526912
+  },
+  "ambientTemperatureC": null,
+  "thermalPerformanceComparisonPending": true,
+  "elapsedSeconds": 1820.9658440050043,
+  "minimumAvailableGiB": 34.40753936767578,
+  "warmDecode600": {
+    "tokens": 303181,
+    "seconds": 389.6179695559913,
+    "aggregateTokensPerSecond": 778.1494276188163,
+    "windowDurationSeconds": 600,
+    "minimumComparisonCoverageSeconds": 300,
+    "prefillAndDrainGapsExcluded": true
+  },
+  "analysisSourceSha256": "cee47b3a5ace3c3149ab93752503d6758389cf0ab219f54b52d664343ed4df59",
+  "fanObservationMethod": {
+    "accepted": "bounded coherent readback when recorded; older raw snapshots retained unchanged",
+    "transitionBudgetSeconds": 0.25,
+    "retainedRejectedRawObservations": 0,
+    "rawMixedTargetSnapshots": 0,
+    "rawTransitionTemperaturesIncludedInPeak": true,
+    "unresolvedMismatchFailsTrial": true
+  },
+  "fanReadbackMeaning": "Historical Actual fields mean NVML-reported operating speed, not independent physical tachometry"
+}

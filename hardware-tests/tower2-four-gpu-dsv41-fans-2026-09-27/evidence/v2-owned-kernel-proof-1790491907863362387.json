@@ -1,0 +1,26 @@
+{
+  "freeze": {
+    "utc": "2026-09-27T06:51:45.054469+00:00",
+    "bootId": "ca45f2f8-5057-4739-b590-1ecde7d1591d",
+    "monotonic": 18880.028516497,
+    "reason": "Qualification: owned kernel fallback with Docker RPC absent",
+    "running": true,
+    "paused": true,
+    "method": "owned-cgroup-freezer",
+    "id": "7b25db6a9d1a6bd3f6b3e35077b5ccae0aa8e7ee9829b966e8098d0f6b016971"
+  },
+  "elapsedSeconds": 0.03023036900049192,
+  "rootUid": 0,
+  "kernelFrozenVerified": true,
+  "explicitResume": {
+    "running": true,
+    "paused": false,
+    "method": "owned-cgroup-freezer",
+    "id": "7b25db6a9d1a6bd3f6b3e35077b5ccae0aa8e7ee9829b966e8098d0f6b016971"
+  },
+  "primaryPidUnchanged": true,
+  "permanentLeaseInodeUnchanged": true,
+  "caps275": true,
+  "sourceSha256": "eb7898f8b69a8faf4be3337ffa8f5fcbeb37c2e4f8382a94368d9eec1efaf162",
+  "foreignDockerDaemonUntouched": true
+}

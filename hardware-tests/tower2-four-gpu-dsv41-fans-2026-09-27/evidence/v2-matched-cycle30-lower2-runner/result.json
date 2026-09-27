@@ -1,0 +1,1 @@
+{"status": "error", "specSha256": "4b03d555f977d1e8183e5e2976bbf91dbc92975b2775d7acd4e1a855b844f3ab", "completed": ["v2-matched-cycle30-lower2-p1-ref85"], "error": "AssertionError: ['GPU-fe3fb4d0-5ddc-9c05-587b-1bc84c75c1a0: complete-cycle trend exceeds0.3C/min']"}

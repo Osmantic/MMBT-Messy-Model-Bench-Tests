@@ -1,0 +1,29 @@
+{
+  "status": "pass",
+  "utc": "20260927T151456825921Z",
+  "selectionReceipt": "v2-selected-base80-review.json",
+  "formalPerformanceQualification": false,
+  "comparisonSha256": "d6a790707e9a7aa09737be89722a580b5d8aee595f081da6c70e0c7adeefc4d6",
+  "oldContainerId": "7b25db6a9d1a6bd3f6b3e35077b5ccae0aa8e7ee9829b966e8098d0f6b016971",
+  "backupContainerName": "mmbt-dsv41-pre-log-20260927T151456825921Z",
+  "newContainerId": "ac2cb54a2d8ef3ffa4f1c56bdfc873b47a420c5e2ebf890fbd1233c7251a1559",
+  "imageId": "sha256:a30e3c69e6a4de1b82e4893dfa971ab94cba126476e3a26f4d1da5d868fae04f",
+  "oldSamplerSha256": "f99b30415e70b0bc161a81ec45a46f26ad6306b14194eaa1305cb21d94e03e87",
+  "newSamplerSha256": "7a05d2460f70a40529385ed9990a14a224eb87b905a2849c81559790037eb574",
+  "nativeLogConfig": {
+    "Type": "json-file",
+    "Config": {
+      "max-file": "3",
+      "max-size": "20m"
+    }
+  },
+  "ramLogActiveMaximumBytes": 16777216,
+  "ramLogBackups": 3,
+  "archivedRamTelemetry": {
+    "name": "v2-ram-records-before-bounded-20260927T151456825921Z.jsonl",
+    "bytes": 33735612,
+    "sha256": "725a284588fd4af2e3ded5904667432267053b3da8d99424223a7fdac39ea580"
+  },
+  "started": false,
+  "foreignContainersTouched": false
+}
