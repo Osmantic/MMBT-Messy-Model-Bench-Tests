@@ -1,0 +1,107 @@
+{
+  "cell": "p3_writing_qwen36-nothink-card_v7",
+  "defects_applied": [
+    "D1"
+  ],
+  "evidence": {
+    "D1": {
+      "all_deliverables_within_ceiling_by_wc_w": true,
+      "any_deliverable_over_ceiling_by_grader_regex": true,
+      "applies": true,
+      "defect": "D1",
+      "extraction_verified": true,
+      "framing": "neither counter is ground truth: wc -w counts markdown punctuation as words, the grader regex splits hyphenated tokens. Two reasonable counters disagree by more than the margin at a hard threshold.",
+      "gate_source": "phase3_writing_editing_grade.py:110 (all audiences must PASS)",
+      "length_attributable_fail": true,
+      "measurements": [
+        {
+          "audience": "ceo_brief",
+          "bytes": 1752,
+          "ceiling": 250,
+          "counter_delta": 12,
+          "grader_recount_matches_stored": true,
+          "grader_regex_word_count": 257,
+          "over_ceiling_by_grader_regex": true,
+          "relname": "ceo_brief.md",
+          "sha256": "7418519a7dc60ebb246ed82c5a50bd77f22b8ca71b09bd5231278b95a07b26b4",
+          "stored_grader_count": 257,
+          "wc_w_count": 245,
+          "wc_w_counters_agree": true,
+          "wc_w_locale": "C.UTF-8",
+          "wc_w_locale_provenance": "bench-sandbox:latest Config.Env LANG=C.UTF-8; verified by running wc -w inside that image against an extracted deliverable",
+          "wc_w_pure_python": 245,
+          "wc_w_shell": 245,
+          "wc_w_source": "shell wc -w under LC_ALL=C.UTF-8",
+          "within_ceiling_by_wc_w": true
+        },
+        {
+          "audience": "customer_email",
+          "bytes": 2029,
+          "ceiling": 350,
+          "counter_delta": 5,
+          "grader_recount_matches_stored": true,
+          "grader_regex_word_count": 320,
+          "over_ceiling_by_grader_regex": false,
+          "relname": "customer_email.md",
+          "sha256": "0ebfc428ad520c18bce5dff74e46fe6f708615b7e6d16787037df88ed617bf6e",
+          "stored_grader_count": 320,
+          "wc_w_count": 315,
+          "wc_w_counters_agree": true,
+          "wc_w_locale": "C.UTF-8",
+          "wc_w_locale_provenance": "bench-sandbox:latest Config.Env LANG=C.UTF-8; verified by running wc -w inside that image against an extracted deliverable",
+          "wc_w_pure_python": 315,
+          "wc_w_shell": 315,
+          "wc_w_source": "shell wc -w under LC_ALL=C.UTF-8",
+          "within_ceiling_by_wc_w": true
+        },
+        {
+          "audience": "legal_summary",
+          "bytes": 2132,
+          "ceiling": 400,
+          "counter_delta": 6,
+          "grader_recount_matches_stored": true,
+          "grader_regex_word_count": 303,
+          "over_ceiling_by_grader_regex": false,
+          "relname": "legal_summary.md",
+          "sha256": "7410ca5071313794a298c27042f921688edad1e5ad21003d6977e40097f8a30c",
+          "stored_grader_count": 303,
+          "wc_w_count": 297,
+          "wc_w_counters_agree": true,
+          "wc_w_locale": "C.UTF-8",
+          "wc_w_locale_provenance": "bench-sandbox:latest Config.Env LANG=C.UTF-8; verified by running wc -w inside that image against an extracted deliverable",
+          "wc_w_pure_python": 297,
+          "wc_w_shell": 297,
+          "wc_w_source": "shell wc -w under LC_ALL=C.UTF-8",
+          "within_ceiling_by_wc_w": true
+        }
+      ],
+      "model_wc_w_calls_in_transcript": 13,
+      "non_length_gates_pass": true,
+      "title": "word-gate tokenizer mismatch"
+    }
+  },
+  "family": "p3_writing",
+  "frozen_dataset": {
+    "graded_at_freeze": true,
+    "matches_on_disk": true,
+    "verdict_at_freeze": "FAIL"
+  },
+  "gate_invalidated": true,
+  "gate_invalidated_meaning": "the original FAIL is attributable solely to the length gate, where two reasonable word counters disagree across the threshold; read this cell as NOT A VALID FAIL, not as a verified PASS (grader-defects doc, D1 correction limits)",
+  "grade_json_sha256": "9106581368e6f7bebb2cd36520a0b9ddc823d5a80e7b642b06c1be9e6c245781",
+  "identity": {
+    "arm": "qwen36-nothink-card",
+    "mode": "no-think",
+    "model": "3.6",
+    "quant": "UD-Q4_K_XL",
+    "regime": "T1/p0.95/pp0",
+    "replicate": "7",
+    "source": "cell identity, model and sampler are taken verbatim from the frozen dataset; never recomputed from directory names"
+  },
+  "original_verdict": "FAIL",
+  "policy": "grade.json, task briefs and ground truth are immutable run evidence; this overlay modifies no run artifact and no raw verdict",
+  "repo": "mmbt-q36-card",
+  "schema_version": "mmbt-grade-correction-overlay/2",
+  "task": "writing_editing",
+  "verdict_without_length_gate": "PASS"
+}

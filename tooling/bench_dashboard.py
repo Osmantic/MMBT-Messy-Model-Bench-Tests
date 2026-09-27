@@ -33,14 +33,15 @@ import argparse, json, os, time
 from collections import Counter
 from pathlib import Path
 
-HOME = Path(os.path.expanduser("~"))
-LOGS = HOME / "bench" / "logs"
+REPO = Path(__file__).resolve().parent.parent
+LOGS = REPO / "logs"
 STATE = Path("/tmp/bench-autopilot")
 STATUS = STATE / "status.json"
 LOG = STATE / "autopilot.log"
 
-# Glob that matches a cell dir for any arm/rep (e.g. p1_bugfix_397b-nothink_v3).
-CELL_GLOB = "p*_397b-*_v*"
+# Glob that matches a cell dir for any model arm/rep. A dedicated campaign
+# checkout keeps this generic scan isolated from unrelated historical logs.
+CELL_GLOB = "p[1-3]_*_v*"
 
 # N=10 no-think baseline pass counts per task (totals to 82/120).
 BASELINE_N10_NOTHINK = {
@@ -536,6 +537,7 @@ def load_status():
 
 
 def main():
+    global LOGS
     ap = argparse.ArgumentParser()
     ap.add_argument("--watch", action="store_true")
     ap.add_argument("--html", default=None)
@@ -550,7 +552,10 @@ def main():
                     help="per-task cumulative-window pass-rate table (v1-3/5/10/20) per arm")
     ap.add_argument("--flips", action="store_true",
                     help="per-task flip map: cells differing from the task/arm modal verdict")
+    ap.add_argument("--logs", default=str(LOGS),
+                    help="per-cell logs directory (default: logs in this checkout)")
     args = ap.parse_args()
+    LOGS = Path(os.path.expanduser(args.logs)).resolve()
 
     def once():
         status = load_status()  # None if missing/partial — every renderer handles None

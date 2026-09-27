@@ -28,6 +28,7 @@ added. The original --target-n / --config / --max-passes / --once all behave as 
 """
 from __future__ import annotations
 import argparse, json, os, signal, statistics, subprocess, sys, time
+import re
 from pathlib import Path
 
 HOME = Path(os.path.expanduser("~"))
@@ -44,6 +45,7 @@ LOG = STATE_DIR / "autopilot.log"
 HEARTBEAT = STATE_DIR / "heartbeat.json"
 SCORECARD = STATE_DIR / "scorecard.md"           # addition B
 NOTIFY_SH = HOME / "dream-fleet-test" / "lib" / "notify.sh"
+CLEANUP_IMAGE = "sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662"
 
 HEARTBEAT_FRESH_SECS = 120
 SUBSTANCE_CHECK_SECS = 300
@@ -79,6 +81,12 @@ DEFAULT_CONFIG = {
     "arms": [{"label": "397b-nothink", "thinking": "off"},
              {"label": "397b-think",   "thinking": "on"}],
     "stuck_secs": 1200,        # transcript frozen this long = truly hung (kill it)
+    # A transcript is intentionally quiet while the harness waits for a bash
+    # tool.  The harness owns that command's timeout and adds a 15 s Docker
+    # cleanup guard, so the supervisor must not apply the shorter inference
+    # watchdog to this phase.  3,900 s covers the documented 3,600 s ceiling
+    # plus teardown/jitter while still bounding a genuinely wedged harness.
+    "tool_stuck_secs": 3900,
     "endpoint_grace_secs": 180 # endpoint must load within this on (re)launch
 }
 
@@ -150,6 +158,26 @@ def log(msg: str):
 
 def sh(cmd, **kw):
     return subprocess.run(cmd, shell=isinstance(cmd, str), capture_output=True, text=True, **kw)
+
+
+def cleanup_pattern(parent: Path, pattern: str) -> None:
+    """Remove root-owned benchmark scratch through a pinned, networkless helper."""
+    allowed_parents = {Path("/tmp").resolve(), (TOOLING / "workspace").resolve()}
+    resolved_parent = parent.resolve()
+    if resolved_parent not in allowed_parents:
+        raise RuntimeError(f"cleanup parent is not approved: {resolved_parent}")
+    if not re.fullmatch(r"[A-Za-z0-9._*-]{1,160}", pattern) or "/" in pattern or ".." in pattern:
+        raise RuntimeError("cleanup pattern is unsafe")
+    result = sh([
+        "docker", "run", "--rm", "--network", "none", "--read-only",
+        "-e", f"CLEANUP_PATTERN={pattern}",
+        "-v", f"{resolved_parent}:/cleanup:rw",
+        CLEANUP_IMAGE,
+        "sh", "-c",
+        'find /cleanup -mindepth 1 -maxdepth 1 -name "$CLEANUP_PATTERN" -exec rm -rf -- {} \\;',
+    ])
+    if result.returncode != 0:
+        raise RuntimeError(f"root-owned scratch cleanup failed: {result.stderr.strip()[:300]}")
 
 
 # --- pushover ---------------------------------------------------------------
@@ -352,7 +380,7 @@ def cell_done(run_name: str) -> bool:
     # final workspace archive because SIGTERM bypasses harness teardown.
     try:
         label = json.loads((d / "label.json").read_text())
-        return (label.get("primary") == "identical-call-loop"
+        return (label.get("primary") in {"identical-call-loop", "stuck-in-research"}
                 and (d / "receipt.json").exists()
                 and (d / "transcript.jsonl").exists())
     except Exception:
@@ -474,6 +502,40 @@ def current_cell_info(cfg=None):
     except Exception:
         pass
     return {"cell": tp.parent.name, "iter": it, "frozen_secs": int(time.time() - mt)}
+
+
+def _last_transcript_row(transcript: Path):
+    """Return the newest JSONL object without rereading a potentially huge log."""
+    try:
+        with transcript.open("rb") as handle:
+            handle.seek(0, os.SEEK_END)
+            size = handle.tell()
+            handle.seek(max(0, size - 65536))
+            tail = handle.read().decode("utf-8", errors="replace")
+        for line in reversed(tail.splitlines()):
+            if line.strip():
+                row = json.loads(line)
+                return row if isinstance(row, dict) else None
+    except (OSError, json.JSONDecodeError):
+        pass
+    return None
+
+
+def watchdog_stuck_policy(cfg: dict, transcript: Path):
+    """Return ``(limit_seconds, phase)`` for the active harness phase.
+
+    Model rows ending in ``tool_calls`` precede tool execution; the matching
+    tool row is written only after that command exits.  During that interval
+    neither transcript mtime nor inference-slot counters move.  Applying the
+    normal 1,200 s inference watchdog there can therefore kill a valid command
+    whose harness timeout is 1,800 or 3,600 s.
+    """
+    inference_limit = int(cfg["stuck_secs"])
+    row = _last_transcript_row(transcript)
+    if row and row.get("type") == "model" and row.get("finish_reason") == "tool_calls":
+        tool_limit = int(cfg.get("tool_stuck_secs", 3900))
+        return max(inference_limit, tool_limit), "pending-tool"
+    return inference_limit, "inference-or-idle"
 
 
 def kill_stuck(cell: str):
@@ -827,7 +889,7 @@ def publish_scorecard(cfg, target, final_status):
         log(f"publish: git step failed (non-fatal): {e}")
 
 
-def benchmark_environment(cfg, base_env=None):
+def benchmark_environment(cfg, base_env=None, arm=None):
     """Return the child environment carrying a model's pinned sampling point.
 
     ``run_microbench.sh`` intentionally keeps historical defaults, so model-card
@@ -840,13 +902,20 @@ def benchmark_environment(cfg, base_env=None):
         "benchmark_temperature": "BENCH_TEMP",
         "benchmark_top_p": "BENCH_TOP_P",
         "benchmark_top_k": "BENCH_TOP_K",
+        "benchmark_min_p": "BENCH_MIN_P",
+        "benchmark_presence_penalty": "BENCH_PRESENCE_PENALTY",
+        "benchmark_repeat_penalty": "BENCH_REPEAT_PENALTY",
+        "benchmark_seed": "BENCH_SEED",
         "benchmark_max_output_tokens_cap": "BENCH_MAX_OUTPUT_TOKENS_CAP",
+        "benchmark_sandbox_gpus": "BENCH_SANDBOX_GPUS",
+        "preserve_thinking": "BENCH_PRESERVE_THINKING",
+        "reasoning_effort_location": "BENCH_REASONING_EFFORT_LOCATION",
         "serving_manifest": "BENCH_SERVING_MANIFEST",
     }
     for config_key, env_key in sampling_env.items():
-        value = cfg.get(config_key)
+        value = arm.get(config_key, cfg.get(config_key)) if arm else cfg.get(config_key)
         if value is not None:
-            run_env[env_key] = str(value)
+            run_env[env_key] = str(value).lower() if isinstance(value, bool) else str(value)
         else:
             run_env.pop(env_key, None)
     return run_env
@@ -855,10 +924,12 @@ def benchmark_environment(cfg, base_env=None):
 def run_arm_with_supervision(cfg, arm, target, started_at):
     """Shard one arm deterministically across configured replica endpoints."""
     label, thinking = arm["label"], arm["thinking"]
-    ids = sh("docker ps -aq --filter name=bench-sandbox-").stdout.split()
+    # Scope to THIS arm only. A global wipe kills concurrent campaigns' live cells
+    # mid-run; harness.py names sandboxes per-cell so parallel runs can coexist.
+    ids = sh(f"docker ps -aq --filter name=bench-sandbox-.*{label}").stdout.split()
     if ids:
         sh(["docker", "rm", "-f", *ids])
-    sh(f"sudo rm -rf {TOOLING}/workspace/*{label}_v* 2>/dev/null")
+    cleanup_pattern(TOOLING / "workspace", f"*{label}_v*")
     ports = configured_ports(cfg)
     lane_count = len(ports)
     log(f"RUN arm {label} (thinking={thinking}) target N={target} lanes={ports}")
@@ -866,7 +937,7 @@ def run_arm_with_supervision(cfg, arm, target, started_at):
     handles = []
     try:
         for lane_index, port in enumerate(ports):
-            run_env = benchmark_environment(cfg)
+            run_env = benchmark_environment(cfg, arm=arm)
             run_env["BENCH_LANE_INDEX"] = str(lane_index)
             run_env["BENCH_LANE_COUNT"] = str(lane_count)
             log_path = STATE_DIR / (
@@ -877,7 +948,8 @@ def run_arm_with_supervision(cfg, arm, target, started_at):
             handles.append(handle)
             proc = subprocess.Popen(
                 ["bash", str(SCRIPTS / "run_microbench.sh"), cfg["model"], str(port),
-                 label, str(target), "", thinking, str(cfg["max_model_len"])],
+                 label, str(target), str(arm.get("reasoning_effort", "")),
+                 thinking, str(cfg["max_model_len"])],
                 stdout=handle, stderr=subprocess.STDOUT, env=run_env)
             procs.append((lane_index, port, proc))
 
@@ -922,10 +994,12 @@ def run_arm_with_supervision(cfg, arm, target, started_at):
                     watch.update(cell=cell, signal=signal, last_progress=now)
                     continue
                 frozen_secs = int(now - watch["last_progress"])
-                if frozen_secs > cfg["stuck_secs"]:
+                stuck_limit, phase = watchdog_stuck_policy(cfg, transcript)
+                if frozen_secs > stuck_limit:
                     log(
                         f"STUCK: lane port {port} cell {cell} showed no transcript "
-                        f"or server-slot progress for {frozen_secs}s"
+                        f"or server-slot progress for {frozen_secs}s "
+                        f"(phase={phase}, limit={stuck_limit}s)"
                     )
                     kill_stuck(cell)
                     watch.update(cell=None, signal=None, last_progress=now)
@@ -934,7 +1008,7 @@ def run_arm_with_supervision(cfg, arm, target, started_at):
     finally:
         for handle in handles:
             handle.close()
-    sh(f"sudo rm -rf /tmp/grade_*{label}_v* 2>/dev/null")
+    cleanup_pattern(Path("/tmp"), f"grade_*{label}_v*")
     g = sh(["bash", str(SCRIPTS / "grade_microbench.sh"), label])
     (STATE_DIR / f"grade-{label}.log").write_text(g.stdout + g.stderr)
     s = sh(["bash", str(SCRIPTS / "summarize.sh"), label])

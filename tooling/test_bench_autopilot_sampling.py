@@ -44,6 +44,41 @@ def test_unset_sampling_does_not_leak_parent_overrides():
     assert env == {"PRESERVED": "yes"}
 
 
+def test_arm_sampling_overrides_global_without_losing_fallbacks():
+    env = MODULE.benchmark_environment(
+        {
+            "benchmark_temperature": 1.0,
+            "benchmark_top_p": 0.95,
+            "benchmark_top_k": 20,
+            "benchmark_min_p": 0.0,
+            "benchmark_presence_penalty": 0.0,
+            "benchmark_repeat_penalty": 1.0,
+            "benchmark_seed": 42,
+            "benchmark_sandbox_gpus": "none",
+            "preserve_thinking": True,
+        },
+        {"PRESERVED": "yes"},
+        arm={
+            "benchmark_temperature": 0.7,
+            "benchmark_top_p": 0.8,
+            "benchmark_presence_penalty": 1.5,
+            "preserve_thinking": False,
+            "reasoning_effort_location": "top_level",
+        },
+    )
+    assert env["PRESERVED"] == "yes"
+    assert env["BENCH_TEMP"] == "0.7"
+    assert env["BENCH_TOP_P"] == "0.8"
+    assert env["BENCH_TOP_K"] == "20"
+    assert env["BENCH_MIN_P"] == "0.0"
+    assert env["BENCH_PRESENCE_PENALTY"] == "1.5"
+    assert env["BENCH_REPEAT_PENALTY"] == "1.0"
+    assert env["BENCH_SEED"] == "42"
+    assert env["BENCH_SANDBOX_GPUS"] == "none"
+    assert env["BENCH_PRESERVE_THINKING"] == "false"
+    assert env["BENCH_REASONING_EFFORT_LOCATION"] == "top_level"
+
+
 def test_configured_ports_are_ordered_and_deduplicated():
     assert MODULE.configured_ports({"port": 8000}) == [8000]
     assert MODULE.configured_ports({"port": 8000, "lane_ports": [8000, "8001", 8000]}) == [8000, 8001]

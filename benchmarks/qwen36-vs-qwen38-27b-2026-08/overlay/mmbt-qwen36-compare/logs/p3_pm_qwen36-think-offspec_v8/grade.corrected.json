@@ -1,0 +1,218 @@
+{
+  "cell": "p3_pm_qwen36-think-offspec_v8",
+  "corrected_verdict": "PASS",
+  "defects_applied": [
+    "D2"
+  ],
+  "evidence": {
+    "D1": {
+      "all_deliverables_within_ceiling_by_wc_w": true,
+      "any_deliverable_over_ceiling_by_grader_regex": false,
+      "applies": false,
+      "defect": "D1",
+      "extraction_verified": true,
+      "framing": "neither counter is ground truth: wc -w counts markdown punctuation as words, the grader regex splits hyphenated tokens. Two reasonable counters disagree by more than the margin at a hard threshold.",
+      "gate_source": "phase3_project_mgmt_grade.py:95-102",
+      "length_attributable_fail": false,
+      "measurements": [
+        {
+          "bytes": 2796,
+          "ceiling": 700,
+          "counter_delta": -82,
+          "grader_recount_matches_stored": true,
+          "grader_regex_word_count": 417,
+          "over_ceiling_by_grader_regex": false,
+          "relname": "status_report.md",
+          "sha256": "46575ce1e8343385807aab7ceed9ef7afc938cd105caf1b9824066d224328647",
+          "stored_grader_count": 417,
+          "wc_w_count": 499,
+          "wc_w_counters_agree": true,
+          "wc_w_locale": "C.UTF-8",
+          "wc_w_locale_provenance": "bench-sandbox:latest Config.Env LANG=C.UTF-8; verified by running wc -w inside that image against an extracted deliverable",
+          "wc_w_pure_python": 499,
+          "wc_w_shell": 499,
+          "wc_w_source": "shell wc -w under LC_ALL=C.UTF-8",
+          "within_ceiling_by_wc_w": true
+        }
+      ],
+      "model_wc_w_calls_in_transcript": 3,
+      "non_length_gates_pass": false,
+      "title": "word-gate tokenizer mismatch"
+    },
+    "D2": {
+      "applies": true,
+      "changes": [
+        {
+          "category": "risks",
+          "item": "R3",
+          "matched_span": "legal has not responded to the private-beta contract",
+          "pattern": "\\blegal\\b.{0,200}\\b(?:has\\s+not|not\\s+yet\\s+responded|sign[ -]?off|approval|unresponsive|silent|delay|contract)\\b",
+          "reason": "legal/private-beta contract delay uses an equivalent non-contracted phrase"
+        }
+      ],
+      "corrected_details": {
+        "decisions": {
+          "D1_branding": {
+            "keyword": "cut custom-branding",
+            "matched": true
+          },
+          "D2_panel_limit": {
+            "keyword": "40-panel",
+            "matched": true
+          },
+          "D3_mobile": {
+            "keyword": "native in v2",
+            "matched": true
+          },
+          "D4_option_b": {
+            "keyword": "option b",
+            "matched": true
+          }
+        },
+        "milestones": {
+          "M1": {
+            "keyword": "mid-may",
+            "matched": true
+          },
+          "M2": {
+            "keyword": "mid-may",
+            "matched": true
+          },
+          "M3": {
+            "keyword": null,
+            "matched": false
+          },
+          "M4": {
+            "keyword": "v1.1",
+            "matched": true
+          },
+          "M5": {
+            "keyword": "deferred",
+            "matched": true
+          }
+        },
+        "risks": {
+          "R1": {
+            "keyword": null,
+            "matched": false
+          },
+          "R2": {
+            "keyword": null,
+            "matched": false
+          },
+          "R3": {
+            "keyword": "correction-overlay-semantic-equivalent",
+            "matched": true
+          },
+          "R4": {
+            "keyword": "40-panel",
+            "matched": true
+          },
+          "R5": {
+            "keyword": "custom-branding",
+            "matched": true
+          },
+          "R6": {
+            "keyword": null,
+            "matched": false
+          }
+        },
+        "workstreams": {
+          "WS1": {
+            "keyword": "query layer",
+            "matched": true
+          },
+          "WS2": {
+            "keyword": "dashboard refresh",
+            "matched": true
+          },
+          "WS3": {
+            "keyword": "architectural fix",
+            "matched": true
+          },
+          "WS4": {
+            "keyword": "access-control",
+            "matched": true
+          },
+          "WS5": {
+            "keyword": "maevia",
+            "matched": true
+          },
+          "WS6": {
+            "keyword": "legal",
+            "matched": true
+          }
+        }
+      },
+      "corrected_scores": {
+        "decision_recall": "4/4",
+        "milestone_recall": "4/5",
+        "risk_recall": "3/6",
+        "sections_present": [
+          "workstream",
+          "risk",
+          "decision",
+          "milestone"
+        ],
+        "word_count": 417,
+        "workstream_recall": "6/6"
+      },
+      "defect": "D2",
+      "evidence": {
+        "R3": {
+          "literal_keywords_required_by_grader": [
+            "legal unresponsive",
+            "legal silent",
+            "legal hasn't",
+            "blocking on legal"
+          ],
+          "matched_phrase_in_report": "ttention: legal has not responded to the private-beta contract draft, and customer maevia was promised ga sdk at the conference. ## workstreams | workstream | owner | status | v1-blo",
+          "matched_span_of_upstream_pattern": {
+            "end_in_normalized_text": 303,
+            "matched_span": "legal has not responded to the private-beta contract",
+            "normalization": "lowercased, whitespace collapsed to single spaces (identical to upstream apply_correction)",
+            "start_in_normalized_text": 251
+          },
+          "semantic_rule": "legal/private-beta contract delay uses an equivalent non-contracted phrase",
+          "upstream_pattern": "\\blegal\\b.{0,200}\\b(?:has\\s+not|not\\s+yet\\s+responded|sign[ -]?off|approval|unresponsive|silent|delay|contract)\\b"
+        }
+      },
+      "mechanism_note": "the rule actually applied is upstream R3, an adjacency regex (the word legal within 200 characters of a completion term such as has not / sign-off / approval / unresponsive / silent / delay / contract), which matches strictly more than contractions; matched_span in each change records the exact text that satisfied it",
+      "status_report_sha256": "46575ce1e8343385807aab7ceed9ef7afc938cd105caf1b9824066d224328647",
+      "status_report_source": "workspace_final.tar.gz:./status_report.md",
+      "title": "p3_pm keyword literalism",
+      "upstream_corrected_verdict": "PASS",
+      "upstream_module": {
+        "active_rules": [
+          "R3"
+        ],
+        "generalised_by": "cell selection driven from the frozen dataset instead of upstream build()'s hardcoded p3_pm_gemma4-31b-q4_v{n} names",
+        "path_in_repo": "tooling/correct_gemma4_project_mgmt_grades.py",
+        "reused": "read_archived_report + apply_correction (not reimplemented)",
+        "sha256": "86eeec68b6c7114fb0672566220938e35fa605cd1b89ac4b0863f7cfe305f581"
+      }
+    }
+  },
+  "family": "p3_pm",
+  "frozen_dataset": {
+    "graded_at_freeze": true,
+    "matches_on_disk": true,
+    "verdict_at_freeze": "FAIL"
+  },
+  "grade_json_sha256": "7ce5d8f00250b40628a5dcfbb5f64caa6705e432d491c4dfe613c70fb10cd155",
+  "identity": {
+    "arm": "qwen36-think-offspec",
+    "mode": "think",
+    "model": "3.6",
+    "quant": "UD-Q4_K_XL",
+    "regime": "T0.3/p0.8/pp0",
+    "replicate": "8",
+    "source": "cell identity, model and sampler are taken verbatim from the frozen dataset; never recomputed from directory names"
+  },
+  "original_verdict": "FAIL",
+  "policy": "grade.json, task briefs and ground truth are immutable run evidence; this overlay modifies no run artifact and no raw verdict",
+  "repo": "mmbt-qwen36-compare",
+  "schema_version": "mmbt-grade-correction-overlay/2",
+  "task": "project_mgmt",
+  "verdict_changed": true
+}

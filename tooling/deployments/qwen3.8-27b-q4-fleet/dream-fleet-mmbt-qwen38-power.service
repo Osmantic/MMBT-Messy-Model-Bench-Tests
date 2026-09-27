@@ -1,0 +1,14 @@
+[Unit]
+Description=Dream Fleet Qwen3.8 MMBT GPU telemetry
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/%u/.local/lib/dream-fleet/mmbt-qwen38-power-logger.sh
+Restart=always
+RestartSec=2
+NoNewPrivileges=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=default.target

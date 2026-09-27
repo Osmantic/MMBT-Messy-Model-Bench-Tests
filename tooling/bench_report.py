@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """bench_report — standalone MMBT findings-markdown generator.
 
-Reads ~/bench/logs/<task>_<label>_v<N>/{grade.json,summary.json} for both arms
-(397b-nothink / 397b-think) up to --n (default 20) and emits a complete MMBT
+Reads <checkout>/logs/<task>_<label>_v<N>/{grade.json,summary.json} for two arms
+selected by --config/--arm up to --n (default 20) and emits a complete MMBT
 findings markdown to stdout (or --out FILE). It does NOT touch the live run's
 status.json, the autopilot, or the dashboard — it only reads the per-cell logs,
 so it is safe to run against a run in progress (partial data is fine; missing
@@ -29,8 +29,8 @@ from __future__ import annotations
 import argparse, json, os, sys
 from pathlib import Path
 
-HOME = Path(os.path.expanduser("~"))
-DEFAULT_LOGS = HOME / "bench" / "logs"
+REPO = Path(__file__).resolve().parent.parent
+DEFAULT_LOGS = REPO / "logs"
 
 # Canonical task order (matches autopilot / dashboard).
 TASKS = ["p1_bugfix", "p1_testwrite", "p1_refactor", "p2_extract", "p2_ci",
@@ -41,11 +41,54 @@ TASKS = ["p1_bugfix", "p1_testwrite", "p1_refactor", "p2_extract", "p2_ci",
 ARMS = [("397b-nothink", "397B no-think"), ("397b-think", "397B think")]
 NOTHINK_LABEL = "397b-nothink"
 THINK_LABEL = "397b-think"
+MODEL_NAME = "Qwen3.5-397B-A17B (GGUF, llama.cpp)"
+SETUP_MODEL = ("Qwen3.5-397B-A17B, unsloth UD-Q3_K_XL GGUF (5 shards), "
+               "2x RTX PRO 6000 Blackwell, llama.cpp")
 
 PASS_VERDICTS = ("PASS", "STRUCTURAL_PASS")
 
 # Stability windows for the "what N reveals" section.
 WINDOWS = [3, 5, 10, 20]
+
+
+def configure_campaign(*, config=None, arm_specs=None, model_name=None):
+    """Configure report labels without changing historical CLI defaults."""
+    global ARMS, NOTHINK_LABEL, THINK_LABEL, MODEL_NAME, SETUP_MODEL
+    arm_specs = list(arm_specs or [])
+    payload = None
+    if config:
+        payload = json.loads(Path(config).read_text())
+        if not arm_specs:
+            for arm in payload.get("arms", []):
+                arm_specs.append({
+                    "label": arm["label"],
+                    "pretty": arm.get("pretty") or arm["label"],
+                    "thinking": arm.get("thinking"),
+                })
+        model_name = model_name or payload.get("model")
+    normalized = []
+    for arm in arm_specs:
+        if isinstance(arm, str):
+            label, sep, pretty = arm.partition("=")
+            arm = {"label": label, "pretty": pretty if sep else label, "thinking": None}
+        normalized.append(arm)
+    if normalized:
+        if len(normalized) != 2:
+            raise ValueError("bench_report requires exactly two think/no-think arms")
+        nothink = next((arm for arm in normalized if arm.get("thinking") == "off"), None)
+        think = next((arm for arm in normalized if arm.get("thinking") == "on"), None)
+        nothink = nothink or next((arm for arm in normalized if "nothink" in arm["label"]), None)
+        think = think or next((arm for arm in normalized
+                               if "think" in arm["label"] and "nothink" not in arm["label"]), None)
+        if nothink is None or think is None:
+            raise ValueError("could not identify thinking=off/on arms from config or labels")
+        NOTHINK_LABEL, THINK_LABEL = nothink["label"], think["label"]
+        ARMS = [(NOTHINK_LABEL, nothink.get("pretty") or NOTHINK_LABEL),
+                (THINK_LABEL, think.get("pretty") or THINK_LABEL)]
+    if model_name:
+        MODEL_NAME = model_name
+        SETUP_MODEL = model_name
+    return {"model": MODEL_NAME, "arms": ARMS}
 
 # ---------------------------------------------------------------------------
 # Static reference columns (carried from the published N=3 entry; these are the
@@ -160,9 +203,11 @@ def majority_pass(cells):
 # ---------------------------------------------------------------------------
 def section_scorecard(logs: Path, n: int):
     L = []
+    nothink_pretty = dict(ARMS)[NOTHINK_LABEL]
+    think_pretty = dict(ARMS)[THINK_LABEL]
     L.append(f"## Scorecard (N={n}, pass count per cell)")
     L.append("")
-    L.append("| task | 397B no-think | 397B think | Step low/med/high | 27B (ref) | Coder (ref) |")
+    L.append(f"| task | {nothink_pretty} | {think_pretty} | Step low/med/high | 27B (ref) | Coder (ref) |")
     L.append("|---|:--:|:--:|:--:|:--:|:--:|")
     tot = {NOTHINK_LABEL: [0, 0], THINK_LABEL: [0, 0]}
     for t in TASKS:
@@ -377,7 +422,7 @@ def section_finish_reasons(logs: Path, n: int):
 # ---------------------------------------------------------------------------
 def build_report(logs: Path, n: int):
     parts = []
-    parts.append(f"# Qwen3.5-397B-A17B (GGUF, llama.cpp) — microbench N={n}, "
+    parts.append(f"# {MODEL_NAME} — microbench N={n}, "
                  f"two arms (think / no-think)")
     parts.append("")
     parts.append(f"**N={n}** scorecard, replicate-stability analysis, think-vs-no-think "
@@ -387,9 +432,8 @@ def build_report(logs: Path, n: int):
                  "target N).")
     parts.append("")
     parts.append("## Setup")
-    parts.append("- **Model:** Qwen3.5-397B-A17B, unsloth UD-Q3_K_XL GGUF (5 shards), "
-                 "2× RTX PRO 6000 Blackwell, llama.cpp pipeline-parallel "
-                 "(`-sm layer -ngl 999 -fa on -c 131072 --jinja --reasoning-format none`).")
+    parts.append(f"- **Model:** {SETUP_MODEL}. Exact model/runtime hashes and lane topology are "
+                 "recorded in each run's serving manifest.")
     parts.append("- **Two arms:** `enable_thinking` off (no-think) and on (think).")
     parts.append("- **Comparators:** Step-3.7-Flash-NVFP4 low/med/high, and the published 27B / "
                  "Coder reference columns (carried from the N=3 entry).")
@@ -412,9 +456,22 @@ def build_report(logs: Path, n: int):
 def main():
     ap = argparse.ArgumentParser(description="MMBT findings-markdown generator (read-only).")
     ap.add_argument("--n", type=int, default=20, help="target N (max replicate per cell); default 20")
-    ap.add_argument("--logs", default=str(DEFAULT_LOGS), help="bench logs dir (default ~/bench/logs)")
+    ap.add_argument("--logs", default=str(DEFAULT_LOGS),
+                    help="bench logs dir (default: logs in this checkout)")
+    ap.add_argument("--config", default=None,
+                    help="campaign JSON supplying model and exactly two arm labels")
+    ap.add_argument("--arm", action="append", default=[], metavar="LABEL=PRETTY",
+                    help="explicit arm label/title; pass exactly twice when --config is omitted")
+    ap.add_argument("--model-name", default=None,
+                    help="report display name; overrides the config model")
     ap.add_argument("--out", default=None, help="write markdown to FILE instead of stdout")
     args = ap.parse_args()
+    try:
+        configure_campaign(config=args.config, arm_specs=args.arm,
+                           model_name=args.model_name)
+    except (OSError, json.JSONDecodeError, KeyError, ValueError) as exc:
+        print(f"error: invalid campaign configuration: {exc}", file=sys.stderr)
+        sys.exit(2)
     logs = Path(os.path.expanduser(args.logs))
     if not logs.exists():
         print(f"error: logs dir not found: {logs}", file=sys.stderr)

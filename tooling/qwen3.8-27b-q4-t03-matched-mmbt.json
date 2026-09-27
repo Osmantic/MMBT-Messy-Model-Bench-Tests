@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "preset": "qwen38-27b-ud-q4-k-xl-t1-t3-t03-matched",
+  "engine": "external",
+  "model": "Qwen3.8-27B-UD-Q4_K_XL",
+  "port": 18101,
+  "lane_ports": [
+    18101,
+    18105
+  ],
+  "max_model_len": 262144,
+  "benchmark_max_output_tokens_cap": 262144,
+  "benchmark_seed": 42,
+  "benchmark_sandbox_gpus": "none",
+  "services": [
+    "dream-fleet-tunnel-tower1.service"
+  ],
+  "launcher": "/home/michael/mmbt-qwen38-eaaa8ca/tooling/deployments/qwen3.8-27b-q4-fleet/ensure-q38-tower1-only.sh",
+  "serving_manifest": "/home/michael/mmbt-qwen38-eaaa8ca/tooling/deployments/qwen3.8-27b-q4-fleet/benchmark-serving-manifest.json",
+  "_method_note": "Matched-sampler thinking ablation. Both arms are IDENTICAL apart from enable_thinking/reasoning_effort. Mirrors the Qwen3.6-27B-FP8 manifest method ('Cross-model bench default temp=0.3; --thinking toggled via the Qwen template enable_thinking var'), so this pair is comparable to the historical corpus AND isolates the thinking effect. It is deliberately NOT the model-card operating point - see the qwen3.8-27b-q4-t1-t3 campaign for that.",
+  "arms": [
+    {
+      "label": "qwen38-27b-udq4xl-t03-nothink",
+      "pretty": "Qwen3.8 27B Q4 no-think @ t=0.3 (matched)",
+      "thinking": "off",
+      "preserve_thinking": true,
+      "benchmark_temperature": 0.3,
+      "benchmark_top_p": 0.8,
+      "benchmark_top_k": 20,
+      "benchmark_min_p": 0.0,
+      "benchmark_presence_penalty": 0.0,
+      "benchmark_repeat_penalty": 1.0
+    },
+    {
+      "label": "qwen38-27b-udq4xl-t03-think-xhigh",
+      "pretty": "Qwen3.8 27B Q4 think xhigh @ t=0.3 (matched)",
+      "thinking": "on",
+      "preserve_thinking": true,
+      "reasoning_effort": "xhigh",
+      "reasoning_effort_location": "top_level",
+      "benchmark_temperature": 0.3,
+      "benchmark_top_p": 0.8,
+      "benchmark_top_k": 20,
+      "benchmark_min_p": 0.0,
+      "benchmark_presence_penalty": 0.0,
+      "benchmark_repeat_penalty": 1.0
+    }
+  ],
+  "canonical_n": 3,
+  "variance_expansion_n": 20,
+  "variance_expansion_scope": "all_12_families",
+  "stuck_secs": 1200,
+  "tool_stuck_secs": 3900,
+  "endpoint_grace_secs": 600,
+  "_lane_note": "18101 tower1 RTX5090 + 18105 tower2 GPU0 RTX PRO 6000. DSV4 evicted for the run."
+}

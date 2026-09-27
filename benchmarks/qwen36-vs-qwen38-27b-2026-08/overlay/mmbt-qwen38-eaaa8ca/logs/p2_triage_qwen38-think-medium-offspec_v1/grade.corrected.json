@@ -1,0 +1,99 @@
+{
+  "cell": "p2_triage_qwen38-think-medium-offspec_v1",
+  "corrected_verdict": "PASS",
+  "defects_applied": [
+    "D3"
+  ],
+  "evidence": {
+    "D3": {
+      "applies": true,
+      "brief": {
+        "brief_path_in_repo": "tooling/tasks/task_triage.md",
+        "category_vocabulary": [
+          "bug-report",
+          "billing-refund",
+          "billing-other",
+          "feature-request",
+          "incident-active",
+          "account-management",
+          "auth-permissions",
+          "general-question",
+          "spam-or-noise",
+          "security-incident",
+          "external-business",
+          "legal-compliance"
+        ],
+        "noise_categories": [
+          "spam-or-noise"
+        ],
+        "noise_urgency_brief_line": "- `n/a` — for noise/spam where urgency doesn't apply",
+        "noise_urgency_brief_line_number": 27,
+        "noise_urgency_value": "n/a",
+        "urgency_vocabulary": [
+          "urgent",
+          "normal",
+          "low",
+          "n/a"
+        ]
+      },
+      "category_accuracy": 0.867,
+      "contradiction": "brief line 27 defines urgency 'n/a' for noise/spam; the ground truth labels those same tickets differently, and the grader does exact string match",
+      "corrected_verdict": "PASS",
+      "credited_count": 3,
+      "credited_tickets": [
+        {
+          "authorised_by_brief_line": 27,
+          "ground_truth_category": "spam-or-noise",
+          "ground_truth_label": "low",
+          "model_answer": "n/a",
+          "ticket_id": "004"
+        },
+        {
+          "authorised_by_brief_line": 27,
+          "ground_truth_category": "spam-or-noise",
+          "ground_truth_label": "low",
+          "model_answer": "n/a",
+          "ticket_id": "009"
+        },
+        {
+          "authorised_by_brief_line": 27,
+          "ground_truth_category": "spam-or-noise",
+          "ground_truth_label": "low",
+          "model_answer": "n/a",
+          "ticket_id": "021"
+        }
+      ],
+      "defect": "D3",
+      "duplicate_recall": 1.0,
+      "grader_arithmetic_reproduced": true,
+      "ground_truth_path_in_repo": "tooling/graders/ground_truth/phase2_triage.json",
+      "tickets_total": 30,
+      "title": "p2_triage brief / ground-truth contradiction",
+      "urgency_accuracy_corrected": 0.867,
+      "urgency_accuracy_original": 0.767,
+      "urgency_threshold": 0.7
+    }
+  },
+  "family": "p2_triage",
+  "frozen_dataset": {
+    "graded_at_freeze": true,
+    "matches_on_disk": true,
+    "verdict_at_freeze": "PASS"
+  },
+  "grade_json_sha256": "0e0940ea885d2d528b31a7bf6d7f1f0b466847cd30fc73f17b011bffec1c7638",
+  "identity": {
+    "arm": "qwen38-think-medium-offspec",
+    "mode": "think",
+    "model": "3.8",
+    "quant": "UD-Q4_K_XL",
+    "regime": "T0.3/p0.8/pp0",
+    "replicate": "1",
+    "source": "cell identity, model and sampler are taken verbatim from the frozen dataset; never recomputed from directory names"
+  },
+  "original_verdict": "PASS",
+  "policy": "grade.json, task briefs and ground truth are immutable run evidence; this overlay modifies no run artifact and no raw verdict",
+  "repo": "mmbt-qwen38-eaaa8ca",
+  "schema_version": "mmbt-grade-correction-overlay/2",
+  "task": "triage",
+  "verdict_changed": false
+}

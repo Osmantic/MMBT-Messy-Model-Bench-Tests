@@ -93,7 +93,19 @@ for run_dir in "${LOGS_DIR}"/p[1-3]_*_${LABEL}_v*/; do
   # "Permission denied" and (under set -e) aborts the whole grade pass. Fall back
   # to sudo so re-grades are clean.
   workspace="/tmp/grade_${run}"
-  rm -rf "$workspace" 2>/dev/null || sudo rm -rf "$workspace"
+  if ! rm -rf "$workspace" 2>/dev/null; then
+    workspace_parent=$(dirname "$workspace")
+    workspace_name=$(basename "$workspace")
+    case "$workspace_name" in
+      grade_[A-Za-z0-9._-]*) ;;
+      *) echo "unsafe grade workspace name: $workspace_name" >&2; exit 2 ;;
+    esac
+    docker run --rm --network none --read-only \
+      -e "CLEANUP_NAME=$workspace_name" \
+      -v "$workspace_parent:/cleanup:rw" \
+      sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662 \
+      sh -c 'rm -rf -- "/cleanup/$CLEANUP_NAME"'
+  fi
   mkdir -p "$workspace"
   tar -xzf "$tarball" -C "$workspace"
 

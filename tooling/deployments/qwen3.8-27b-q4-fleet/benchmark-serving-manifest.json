@@ -1,0 +1,211 @@
+{
+  "schema_version": 2,
+  "status": "prepared_not_started",
+  "prepared_at": "2026-08-14T23:30:00Z",
+  "campaign": {
+    "name": "qwen3.8-27b-q4-tower1-tower3",
+    "upstream_mmbt_commit": "eaaa8ca5c8164cdccc42b5ad6b4c83ca1f33ffe6",
+    "compatibility_commit": "8701ccb9847ca2437220dacae03773eef0b20736",
+    "config": "tooling/qwen3.8-27b-q4-t1-t3-mmbt.json",
+    "config_sha256": "f39903e988e064e909c9b6e2bce3ecda9938f5c3e02538cd1b513cce0992880f",
+    "autopilot_sha256": "b5ed5df96fdcefa70580e214b6c9566eb8b5422185c2a400fe17019a68a2573b",
+    "harness_sha256": "b6656a23737ef89e32b9ce419fcc83d6f268704e0158fab9175402674011f9aa",
+    "run_microbench_sha256": "a0bb5b67428c2d5d2697994891d489bfd848e42669153e1711b4255a1731b34d",
+    "grade_microbench_sha256": "49a1e6458e223740e924974ef33e383854fbbce3e2a28057be3633865c9e0862"
+  },
+  "model": {
+    "served_alias": "Qwen3.8-27B-UD-Q4_K_XL",
+    "base_repository": "Qwen/Qwen3.8-27B",
+    "base_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "quant_repository": "unsloth/Qwen3.8-27B-GGUF",
+    "quant_revision": "fe1e2a23d973adb629709749dc4f6756df66ef10",
+    "quantization": "Unsloth Dynamic V3 UD-Q4_K_XL GGUF",
+    "filename": "Qwen3.8-27B-UD-Q4_K_XL.gguf",
+    "byte_size": 17923394624,
+    "sha256": "bee238bbeb3dc0a34bde4d0dedbaee1f98c009e8bb4226f03070054c12fb1372",
+    "native_context_tokens": 262144,
+    "parameter_count_from_live_metadata": 27320697856
+  },
+  "runtime": {
+    "engine": "llama.cpp",
+    "image_tag": "dream-fleet/llama.cpp:server-cuda-9d57ce-sm120",
+    "image_reference": "dream-fleet/llama.cpp@sha256:0c8dc7c0954fe5e1d75118a4f880f17252f62d1d01e24716b172afe9fafd85a1",
+    "image_id": "sha256:0c8dc7c0954fe5e1d75118a4f880f17252f62d1d01e24716b172afe9fafd85a1",
+    "image_created": "2026-08-14T19:14:14.179913414-04:00",
+    "image_byte_size": 2478324926,
+    "llama_cpp_commit": "9d57ce456c94d241dde672b2db9cf18879766568",
+    "llama_cpp_version": "b10435-dreamfleet",
+    "llama_server_version_output": "0.1.0-dev build 100 commit 9d57ce456",
+    "llama_server_sha256": "fc6a6a15230a2dd6c56aae913e6d0d1b4913015e0966d800c08da8dce57b376e",
+    "compiler": "GNU 14.2.0",
+    "cuda_toolkit": "12.8",
+    "blackwell_target": "sm_120",
+    "driver_version": "595.84"
+  },
+  "topology": {
+    "kind": "two independent remote full-offload replicas through Tower2 loopback SSH tunnels",
+    "coordinator_host": "Tower2",
+    "lane_ports": [18101, 18103],
+    "remote_loopback_port": 11434,
+    "slots_per_replica": 1,
+    "context_tokens_per_slot": 262144,
+    "lanes": [
+      {
+        "lane_index": 0,
+        "coordinator_port": 18101,
+        "tunnel_unit": "dream-fleet-tunnel-tower1.service",
+        "tunnel_unit_fragment": "/home/michael/.config/systemd/user/dream-fleet-tunnel-tower1.service",
+        "tunnel_unit_sha256": "f096ffcfbe17c5875f9fc8df01612f559d3439646c4d5ef47d810fd3918b163c",
+        "ssh_alias": "tower1",
+        "inference_host": "tower1",
+        "inference_user": "tower1",
+        "remote_port": 11434,
+        "container": "mmbt-qwen38-bench",
+        "model_path": "/home/tower1/ods/data/models/qwen3.8-27b-ud-q4-k-xl/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+        "gpu_name": "NVIDIA GeForce RTX 5090",
+        "gpu_uuid": "GPU-6cbecbd9-9b89-e7b4-c8e7-2ac63f4dcc44",
+        "gpu_memory_mib": 32607,
+        "gpu_power_limit_w": 500,
+        "kernel": "7.0.0-29-generic"
+      },
+      {
+        "lane_index": 1,
+        "coordinator_port": 18103,
+        "tunnel_unit": "dream-fleet-tunnel-tower3.service",
+        "tunnel_unit_fragment": "/home/michael/.config/systemd/user/dream-fleet-tunnel-tower3.service",
+        "tunnel_unit_sha256": "13796b4386dca90d2c1f2806e8ed0314321758ab8e891e41d4203450e5728a2f",
+        "ssh_alias": "tower3",
+        "inference_host": "tower3",
+        "inference_user": "tower3",
+        "remote_port": 11434,
+        "container": "mmbt-qwen38-bench",
+        "model_path": "/home/tower3/ods/data/models/qwen3.8-27b-ud-q4-k-xl/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+        "gpu_name": "NVIDIA GeForce RTX 5090",
+        "gpu_uuid": "GPU-e0311306-9389-a863-fc29-dfed7d0e97c3",
+        "gpu_memory_mib": 32607,
+        "gpu_power_limit_w": 500,
+        "kernel": "7.0.0-29-generic"
+      }
+    ]
+  },
+  "serving": {
+    "full_gpu_offload": true,
+    "context_tokens": 262144,
+    "parallel_slots": 1,
+    "batch_size": 2048,
+    "threads": 4,
+    "flash_attention": true,
+    "kv_cache_k": "q8_0",
+    "kv_cache_v": "q8_0",
+    "jinja": true,
+    "reasoning_format": "none",
+    "context_shift": false,
+    "mtp_speculative_decoding": "disabled_pending_quality_parity_evidence",
+    "container_command": [
+      "--model", "/models/qwen3.8-27b-ud-q4-k-xl/Qwen3.8-27B-UD-Q4_K_XL.gguf",
+      "--alias", "Qwen3.8-27B-UD-Q4_K_XL",
+      "--host", "0.0.0.0",
+      "--port", "8080",
+      "--n-gpu-layers", "999",
+      "--ctx-size", "262144",
+      "--batch-size", "2048",
+      "--threads", "4",
+      "--parallel", "1",
+      "--flash-attn", "on",
+      "--cache-type-k", "q8_0",
+      "--cache-type-v", "q8_0",
+      "--jinja",
+      "--reasoning-format", "none",
+      "--no-context-shift",
+      "--metrics"
+    ]
+  },
+  "sampling": {
+    "seed": 42,
+    "thinking": {
+      "enable_thinking": true,
+      "preserve_thinking": true,
+      "reasoning_effort": "xhigh",
+      "reasoning_effort_location": "top_level",
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 0.0,
+      "repeat_penalty": 1.0
+    },
+    "non_thinking": {
+      "enable_thinking": false,
+      "preserve_thinking": true,
+      "temperature": 0.7,
+      "top_p": 0.8,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 1.5,
+      "repeat_penalty": 1.0
+    }
+  },
+  "safety": {
+    "production_container": "ods-llama-server",
+    "production_must_be_drained_and_stopped": true,
+    "launcher_never_stops_production": true,
+    "launcher_never_mutates_existing_tunnels": true,
+    "production_and_benchmark_share_remote_loopback_port": 11434,
+    "launcher_refuses_gpu_memory_used_mib_at_or_above": 4096,
+    "listeners": "loopback only",
+    "launcher_check_mode": "read-only",
+    "publish": false,
+    "supervisor_watchdog": {
+      "inference_or_idle_stuck_seconds": 1200,
+      "pending_tool_stuck_seconds": 3900,
+      "basis": "The harness permits a documented 3600-second call and owns in-container timeout cleanup; pending tool execution cannot be inferred from transcript mtime or inference-slot movement.",
+      "excluded_receipt": "logs/p1_bugfix_qwen38-27b-udq4xl-nothink_v2/label.json",
+      "workspace_progress_excludes": [
+        ".git/objects",
+        "__pycache__",
+        ".pytest_cache",
+        "*.pyc",
+        "*.pyo",
+        ".coverage",
+        ".coverage.*"
+      ]
+    }
+  },
+  "telemetry": {
+    "required_cadence_seconds": 5,
+    "service": "dream-fleet-mmbt-qwen38-power.service",
+    "service_source": "tooling/deployments/qwen3.8-27b-q4-fleet/dream-fleet-mmbt-qwen38-power.service",
+    "service_sha256": "b961bd76aeaa00242b7027710a8670e171ec53d69ab25cdc8df11a9379bd4fc6",
+    "logger_source": "tooling/deployments/qwen3.8-27b-q4-fleet/mmbt-qwen38-power-logger.sh",
+    "logger_sha256": "28088b2fede1ef70baba5382b6a11e4a0a8808a945bba1c223892a46422d794e",
+    "raw_path_per_worker": "/home/<worker>/.local/state/dream-fleet/mmbt/qwen38-27b-q4-n20/power.csv",
+    "required_fields": [
+      "timestamp", "host", "gpu_uuid", "power.draw", "power.limit",
+      "temperature.gpu", "memory.used", "memory.total", "utilization.gpu",
+      "clocks.current.graphics"
+    ],
+    "note": "The same pinned 5-second logger runs independently on Tower1 and Tower3 for canonical N=3 and N=20 expansion."
+  },
+  "prepared_artifacts": [
+    {
+      "path": "tooling/deployments/qwen3.8-27b-q4-fleet/ensure-qwen38-lanes.sh",
+      "sha256": "119e80c05c4ee2258444fea095cedab4e9d5de368378eddb64a64dc3fcfa4ba8"
+    },
+    {
+      "path": "tooling/deployments/qwen3.8-27b-q4-fleet/validate_campaign_deployment.py",
+      "sha256": "a44daff1ffa65cc5da96ae00a5768e35617b5042a577c45499c6860d6ec6d382"
+    },
+    {
+      "path": "tooling/deployments/qwen3.8-27b-q4-fleet/README.md",
+      "sha256": "dd6514d0557167d0d03f46535d422d5341d07d0520829caf71ea4c75898773eb"
+    },
+    {
+      "path": "tooling/deployments/qwen3.8-27b-q4-fleet/mmbt-qwen38-power-logger.sh",
+      "sha256": "28088b2fede1ef70baba5382b6a11e4a0a8808a945bba1c223892a46422d794e"
+    },
+    {
+      "path": "tooling/deployments/qwen3.8-27b-q4-fleet/dream-fleet-mmbt-qwen38-power.service",
+      "sha256": "b961bd76aeaa00242b7027710a8670e171ec53d69ab25cdc8df11a9379bd4fc6"
+    }
+  ]
+}

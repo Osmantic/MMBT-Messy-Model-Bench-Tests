@@ -1,0 +1,85 @@
+{
+  "schema_version": 2,
+  "preset": "qwen38-nothink-offspec",
+  "engine": "external",
+  "model": "Qwen3.8-27B-UD-Q4_K_XL",
+  "port": 18105,
+  "lane_ports": [
+    18105
+  ],
+  "max_model_len": 262144,
+  "benchmark_max_output_tokens_cap": 262144,
+  "benchmark_seed": 42,
+  "benchmark_sandbox_gpus": "none",
+  "serving_manifest": "/home/michael/mmbt-qwen38-eaaa8ca/tooling/deployments/qwen3.8-27b-q4-fleet/benchmark-serving-manifest.json",
+  "_method_note": "ROBUSTNESS, NOT a fair judgement. temp 0.3 with presence_penalty 0.0 is OUTSIDE 3.8's recommended no-think settings. Documents degeneration behaviour off-spec.",
+  "arms": [
+    {
+      "label": "qwen38-nothink-offspec",
+      "pretty": "qwen38-nothink-offspec",
+      "thinking": "off",
+      "preserve_thinking": true,
+      "benchmark_temperature": 0.3,
+      "benchmark_top_p": 0.8,
+      "benchmark_top_k": 20,
+      "benchmark_min_p": 0.0,
+      "benchmark_presence_penalty": 0.0,
+      "benchmark_repeat_penalty": 1.0
+    }
+  ],
+  "canonical_n": 3,
+  "variance_expansion_n": 20,
+  "variance_expansion_scope": "all_12_families",
+  "stuck_secs": 1200,
+  "tool_stuck_secs": 3900,
+  "endpoint_grace_secs": 600,
+  "_lane_note": "Tower2-local lane on :18105; no SSH tunnel and no launcher (lane is managed manually).",
+  "_arm_note": "Arm 1 no-think, arm 2 thinking. Qwen3.6's template has no reasoning_effort (binary enable_thinking only), so its think arm carries no effort key; Qwen3.8's think arm uses xhigh, its DEFAULT. 3.6-think vs 3.8-think-xhigh is therefore default-vs-default.",
+  "_effort_ladder_note": "Qwen3.8 effort ladder: xhigh (default) / medium / low. 'high' is an alias for xhigh (verified byte-identical at seed 42) and is NOT run as a separate cell. Only xhigh and low inject reasoning_instructions; medium injects none, making it the no-steer control rather than a midpoint. All three arms share one sampling point so the effort token is the only variable. Qwen3.6 has no reasoning_effort at all, so these arms have no 3.6 counterpart and map 3.8's internal ladder only.",
+  "_arm_order_note": "nothink is FIRST deliberately. Arms run sequentially within a lap and xhigh costs ~47k completion tokens/cell, so a trailing nothink arm was being starved of replicates - the exact arm the 3.6-vs-3.8 question depends on. Order is throughput policy only and does not affect the configuration of any cell.",
+  "_parked_arms": [
+    {
+      "label": "qwen38-think-medium-offspec",
+      "pretty": "Qwen3.8 27B Q4 think medium",
+      "thinking": "on",
+      "preserve_thinking": true,
+      "reasoning_effort": "medium",
+      "reasoning_effort_location": "top_level",
+      "benchmark_temperature": 0.3,
+      "benchmark_top_p": 0.8,
+      "benchmark_top_k": 20,
+      "benchmark_min_p": 0.0,
+      "benchmark_presence_penalty": 0.0,
+      "benchmark_repeat_penalty": 1.0
+    },
+    {
+      "label": "qwen38-think-low-offspec",
+      "pretty": "Qwen3.8 27B Q4 think low",
+      "thinking": "on",
+      "preserve_thinking": true,
+      "reasoning_effort": "low",
+      "reasoning_effort_location": "top_level",
+      "benchmark_temperature": 0.3,
+      "benchmark_top_p": 0.8,
+      "benchmark_top_k": 20,
+      "benchmark_min_p": 0.0,
+      "benchmark_presence_penalty": 0.0,
+      "benchmark_repeat_penalty": 1.0
+    },
+    {
+      "label": "qwen38-think-xhigh-offspec",
+      "pretty": "qwen38-think-xhigh-offspec",
+      "thinking": "on",
+      "preserve_thinking": true,
+      "reasoning_effort": "xhigh",
+      "reasoning_effort_location": "top_level",
+      "benchmark_temperature": 0.3,
+      "benchmark_top_p": 0.8,
+      "benchmark_top_k": 20,
+      "benchmark_min_p": 0.0,
+      "benchmark_presence_penalty": 0.0,
+      "benchmark_repeat_penalty": 1.0
+    }
+  ],
+  "_parked_note": "Think arms parked to concentrate both 3.8 lanes on the no-think arm, which is the load-bearing comparison against Qwen3.6 and was running at a ~4:1 denominator disadvantage. The effort-ladder question is already answered (xhigh/medium/low all have 24-32 cells). Parked arms are preserved verbatim in _parked_arms and every think cell already on disk is untouched. Restore with park_think_arms.py --restore."
+}

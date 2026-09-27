@@ -1,0 +1,66 @@
+{
+  "cell": "p3_doc_qwen38-27b-udq4xl-think-xhigh_v2",
+  "defects_applied": [
+    "D1"
+  ],
+  "evidence": {
+    "D1": {
+      "all_deliverables_within_ceiling_by_wc_w": true,
+      "any_deliverable_over_ceiling_by_grader_regex": true,
+      "applies": true,
+      "defect": "D1",
+      "extraction_verified": true,
+      "framing": "neither counter is ground truth: wc -w counts markdown punctuation as words, the grader regex splits hyphenated tokens. Two reasonable counters disagree by more than the margin at a hard threshold.",
+      "gate_source": "phase3_doc_synthesis_grade.py:70",
+      "length_attributable_fail": true,
+      "measurements": [
+        {
+          "bytes": 4220,
+          "ceiling": 700,
+          "counter_delta": 30,
+          "grader_recount_matches_stored": true,
+          "grader_regex_word_count": 719,
+          "over_ceiling_by_grader_regex": true,
+          "relname": "brief.md",
+          "sha256": "6a66e60af97a7813ca36e430cd5a632835ac0841f30157979451cacbb11a5cc6",
+          "stored_grader_count": 719,
+          "wc_w_count": 689,
+          "wc_w_counters_agree": true,
+          "wc_w_locale": "C.UTF-8",
+          "wc_w_locale_provenance": "bench-sandbox:latest Config.Env LANG=C.UTF-8; verified by running wc -w inside that image against an extracted deliverable",
+          "wc_w_pure_python": 689,
+          "wc_w_shell": 689,
+          "wc_w_source": "shell wc -w under LC_ALL=C.UTF-8",
+          "within_ceiling_by_wc_w": true
+        }
+      ],
+      "model_wc_w_calls_in_transcript": 18,
+      "non_length_gates_pass": true,
+      "title": "word-gate tokenizer mismatch"
+    }
+  },
+  "family": "p3_doc",
+  "frozen_dataset": {
+    "graded_at_freeze": true,
+    "matches_on_disk": true,
+    "verdict_at_freeze": "FAIL"
+  },
+  "gate_invalidated": true,
+  "gate_invalidated_meaning": "the original FAIL is attributable solely to the length gate, where two reasonable word counters disagree across the threshold; read this cell as NOT A VALID FAIL, not as a verified PASS (grader-defects doc, D1 correction limits)",
+  "grade_json_sha256": "bc954de64249ce81db3b22ca116f8524a85fd9d4294d268bbae9b7c44e090750",
+  "identity": {
+    "arm": "qwen38-27b-udq4xl-think-xhigh",
+    "mode": "think",
+    "model": "3.8",
+    "quant": "UD-Q4_K_XL",
+    "regime": "T1/p0.95/pp0",
+    "replicate": "2",
+    "source": "cell identity, model and sampler are taken verbatim from the frozen dataset; never recomputed from directory names"
+  },
+  "original_verdict": "FAIL",
+  "policy": "grade.json, task briefs and ground truth are immutable run evidence; this overlay modifies no run artifact and no raw verdict",
+  "repo": "mmbt-qwen38-eaaa8ca",
+  "schema_version": "mmbt-grade-correction-overlay/2",
+  "task": "doc_synthesis",
+  "verdict_without_length_gate": "PASS"
+}

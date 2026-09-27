@@ -35,3 +35,7 @@ power.csv    binary
 thermals.csv binary
 gpu-nvml-clock.csv binary
 *.gz         binary
+
+# Frozen benchmark extracts - SHA-pinned; bytes must survive verbatim
+# (python csv.writer emits CRLF; the stamped sha256 covers those bytes).
+benchmarks/qwen36-vs-qwen38-27b-2026-08/data/mmbt-frozen-dataset-v2.csv binary

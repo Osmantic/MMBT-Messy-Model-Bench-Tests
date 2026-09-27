@@ -137,11 +137,49 @@ def _endpoint_models(api_url):
         return {"url": models_url, "error": f"{type(exc).__name__}: {exc}"}
 
 
+def _manifest_lane_provenance(manifest_payload, api_url):
+    """Resolve a coordinator endpoint port to its remote inference lane.
+
+    External-engine campaigns commonly expose remote llama.cpp servers through
+    Tower2-local SSH tunnels.  In that topology local process and nvidia-smi
+    inspection describe the coordinator, not the inference node.  Accept either
+    a top-level ``lanes`` list or ``topology.lanes`` and copy the matching lane
+    into every run receipt so host attribution remains explicit and auditable.
+    """
+    port = urlparse(api_url).port
+    result = {"coordinator_port": port, "matched": False, "lane": None}
+    if not isinstance(manifest_payload, dict):
+        return result
+    topology = manifest_payload.get("topology")
+    lane_sets = [manifest_payload.get("lanes")]
+    if isinstance(topology, dict):
+        lane_sets.insert(0, topology.get("lanes"))
+    port_fields = ("coordinator_port", "local_port", "tunnel_local_port", "port")
+    for lanes in lane_sets:
+        if not isinstance(lanes, list):
+            continue
+        for lane in lanes:
+            if not isinstance(lane, dict):
+                continue
+            candidate = next((lane.get(key) for key in port_fields if lane.get(key) is not None), None)
+            try:
+                matches = int(candidate) == int(port)
+            except (TypeError, ValueError):
+                matches = False
+            if matches:
+                result.update(matched=True, lane=lane)
+                return result
+    return result
+
+
 def record_environment(run_name, model, api_url, task_file, log_dir, *,
                        sandbox_runtime=None, temperature=0.0, stuck_threshold=30,
                        max_iters=10000, reasoning_effort=None, enable_thinking=None,
                        max_model_len=262144, max_output_tokens_cap=180000,
-                       top_p=None, top_k=None, serving_manifest=None):
+                       top_p=None, top_k=None, min_p=None, presence_penalty=None,
+                       repeat_penalty=None, seed=42, preserve_thinking=None,
+                       reasoning_effort_location="chat_template_kwargs",
+                       serving_manifest=None):
     """Capture everything needed to reproduce the run. Written before the loop starts.
 
     sandbox_runtime: dict of per-run sandbox flags (gh_token_set, docker_socket,
@@ -193,6 +231,8 @@ def record_environment(run_name, model, api_url, task_file, log_dir, *,
         "manifest": None,
         "endpoint_models": _endpoint_models(api_url),
         "host_processes": _host_server_processes(api_url),
+        "host_processes_scope": "coordinator",
+        "inference_lane": _manifest_lane_provenance(None, api_url),
     }
     if serving_manifest:
         manifest_path = Path(serving_manifest).resolve()
@@ -206,6 +246,9 @@ def record_environment(run_name, model, api_url, task_file, log_dir, *,
         except (OSError, json.JSONDecodeError) as exc:
             manifest["read_error"] = f"{type(exc).__name__}: {exc}"
         receipt["serving"]["manifest"] = manifest
+        receipt["serving"]["inference_lane"] = _manifest_lane_provenance(
+            manifest.get("payload"), api_url
+        )
 
     # Best-effort: identify running vLLM containers either by the historical
     # ``vllm-*`` naming convention or by the exact served model name in the
@@ -299,13 +342,20 @@ def record_environment(run_name, model, api_url, task_file, log_dir, *,
          "--format=csv,noheader"],
         capture_output=True, text=True,
     )
-    receipt["hardware"] = {"nvidia_smi": nvs.stdout.strip().splitlines()}
+    receipt["hardware"] = {
+        "scope": "coordinator_host_snapshot",
+        "nvidia_smi": nvs.stdout.strip().splitlines(),
+    }
 
     # Inference request defaults (the constants used in the loop body)
     receipt["inference_request_defaults"] = {
         "temperature": temperature,
         "top_p": top_p,
         "top_k": top_k,
+        "min_p": min_p,
+        "presence_penalty": presence_penalty,
+        "repeat_penalty": repeat_penalty,
+        "seed": seed,
         "max_tokens_strategy": (
             f"min({max_output_tokens_cap}, max(2048, max_model_len - "
             "max(last_prompt_tokens + 12000, 8000) - 2048))"
@@ -320,7 +370,9 @@ def record_environment(run_name, model, api_url, task_file, log_dir, *,
         "tool_choice": "auto",
         "tools": [t["function"]["name"] for t in TOOLS],
         "reasoning_effort": reasoning_effort,
+        "reasoning_effort_location": reasoning_effort_location,
         "enable_thinking": enable_thinking,
+        "preserve_thinking": preserve_thinking,
     }
 
     receipt["harness_loop_config"] = {
@@ -334,14 +386,28 @@ def record_environment(run_name, model, api_url, task_file, log_dir, *,
     return receipt
 
 
+WORKSPACE_HASH_COMMAND = (
+    "find /workspace "
+    "\\( -path '*/.git/objects' -o -path '*/__pycache__' "
+    "-o -path '*/.pytest_cache' \\) -prune -o "
+    "-type f ! -name '*.pyc' ! -name '*.pyo' "
+    "! -name '.coverage' ! -name '.coverage.*' -print0 2>/dev/null "
+    "| sort -z | xargs -0 -r sha1sum 2>/dev/null "
+    "| sha1sum | awk '{print $1}'"
+)
+
+
 def workspace_state_hash():
-    """Hash of workspace file contents (skipping .git/objects for speed).
-    Detects: file writes, file mods, file deletes, new commits (refs change)."""
-    cmd = (
-        "find /workspace -path '*/.git/objects' -prune -o -type f -print 2>/dev/null "
-        "| sort | xargs -r sha1sum 2>/dev/null | sha1sum | awk '{print $1}'"
-    )
-    p = subprocess.run(["docker", "exec", SANDBOX, "bash", "-c", cmd],
+    """Hash meaningful workspace state while ignoring test-runtime churn.
+
+    Python bytecode, pytest's cache, and coverage databases are execution
+    byproducts rather than model-authored progress.  Including them lets an
+    otherwise read-only pytest loop reset the no-progress detector forever.
+    Git metadata other than object storage and all ordinary source/artifact
+    files remain covered, so edits, deletes, untracked deliverables, refs, and
+    commits still advance the state hash.
+    """
+    p = subprocess.run(["docker", "exec", SANDBOX, "bash", "-c", WORKSPACE_HASH_COMMAND],
                        capture_output=True, text=True, timeout=30)
     return p.stdout.strip()
 
@@ -699,11 +765,58 @@ def execute_tool(name, args, log_dir, require_files=None, require_git_tag=False)
 
 # ----- Agent loop --------------------------------------------------------
 
+def build_chat_payload(model, messages, max_tokens, *, temperature=0.0,
+                       top_p=None, top_k=None, min_p=None,
+                       presence_penalty=None, repeat_penalty=None, seed=42,
+                       reasoning_effort=None,
+                       reasoning_effort_location="chat_template_kwargs",
+                       enable_thinking=None, preserve_thinking=None):
+    """Build one OpenAI-compatible request with explicit model-card controls."""
+    payload = {
+        "model": model,
+        "messages": messages,
+        "tools": TOOLS,
+        "tool_choice": "auto",
+        "temperature": temperature,
+        "seed": seed,
+        "max_tokens": max_tokens,
+        "stream": False,
+    }
+    optional_sampling = {
+        "top_p": top_p,
+        "top_k": top_k,
+        "min_p": min_p,
+        "presence_penalty": presence_penalty,
+        # llama.cpp's OpenAI-compatible server names this repeat_penalty.
+        "repeat_penalty": repeat_penalty,
+    }
+    payload.update({key: value for key, value in optional_sampling.items() if value is not None})
+
+    ctk = {}
+    if reasoning_effort:
+        if reasoning_effort_location == "top_level":
+            payload["reasoning_effort"] = reasoning_effort
+        elif reasoning_effort_location == "chat_template_kwargs":
+            ctk["reasoning_effort"] = reasoning_effort
+        else:
+            raise ValueError(f"unsupported reasoning_effort_location: {reasoning_effort_location}")
+    if enable_thinking is not None:
+        ctk["enable_thinking"] = enable_thinking
+    if preserve_thinking is not None:
+        ctk["preserve_thinking"] = preserve_thinking
+    if ctk:
+        payload["chat_template_kwargs"] = ctk
+    return payload
+
+
 def agent_loop(api_url, model, system_prompt, task, log_dir, max_iters=10000,
                max_completion_total=10**12, max_model_len=262144,
                stuck_threshold=30, temperature=0.0, top_p=None, top_k=None,
+               min_p=None, presence_penalty=None, repeat_penalty=None, seed=42,
                require_files=None, require_git_tag=False, reasoning_effort=None,
-               enable_thinking=None, max_output_tokens_cap=180000):
+               reasoning_effort_location="chat_template_kwargs",
+               enable_thinking=None, preserve_thinking=None,
+               max_output_tokens_cap=180000):
     """Run the agent until done() or limits hit. Returns final state dict."""
     log_path = Path(log_dir) / "transcript.jsonl"
     summary_path = Path(log_dir) / "summary.json"
@@ -731,36 +844,16 @@ def agent_loop(api_url, model, system_prompt, task, log_dir, max_iters=10000,
         safety = 2048
         max_tokens_safe = max(2048, max_model_len - estimated_prompt - safety)
         max_tokens_safe = min(max_tokens_safe, max_output_tokens_cap)
-        payload = {
-            "model": model,
-            "messages": messages,
-            "tools": TOOLS,
-            "tool_choice": "auto",
-            "temperature": temperature,
-            "seed": 42,
-            "max_tokens": max_tokens_safe,
-            "stream": False,
-        }
-        # Optional nucleus / top-k sampling. Some models specify a required operating point
-        # (e.g. MiniMax-M2 card: temperature=1.0, top_p=0.95, top_k=40) and degenerate into
-        # repetition loops under greedy decode. Sent only when set; seed=42 keeps it reproducible.
-        if top_p is not None:
-            payload["top_p"] = top_p
-        if top_k is not None:
-            payload["top_k"] = top_k  # vLLM OpenAI server accepts top_k as a top-level sampling param
-        # Top-level chat_template_kwargs are passed through to the template render
-        # (vLLM and llama.cpp --jinja both honor them). Each key is a no-op for
-        # models whose template doesn't reference it.
-        ctk = {}
-        if reasoning_effort:
-            # Step-3.7-Flash: injects "Reasoning: <level>" into the system turn.
-            ctk["reasoning_effort"] = reasoning_effort
-        if enable_thinking is not None:
-            # Qwen3.5 (e.g. 397B-A17B): its template auto-opens a <think> block;
-            # enable_thinking=False suppresses it for no-think runs.
-            ctk["enable_thinking"] = enable_thinking
-        if ctk:
-            payload["chat_template_kwargs"] = ctk
+        payload = build_chat_payload(
+            model, messages, max_tokens_safe,
+            temperature=temperature, top_p=top_p, top_k=top_k,
+            min_p=min_p, presence_penalty=presence_penalty,
+            repeat_penalty=repeat_penalty, seed=seed,
+            reasoning_effort=reasoning_effort,
+            reasoning_effort_location=reasoning_effort_location,
+            enable_thinking=enable_thinking,
+            preserve_thinking=preserve_thinking,
+        )
         body = json.dumps(payload).encode()
         req = urllib.request.Request(api_url, data=body, headers={"Content-Type": "application/json"})
         t0 = time.time()
@@ -920,16 +1013,23 @@ def main():
     ap.add_argument("--max-iters", type=int, default=10000)
     ap.add_argument("--model", default="qwen3-coder-next-awq")
     ap.add_argument("--port", type=int, default=8001)
-    ap.add_argument("--reasoning-effort", default=None, choices=["low", "medium", "high"],
+    ap.add_argument("--reasoning-effort", default=None, choices=["low", "medium", "high", "xhigh"],
                     help="For models whose chat template reads a `reasoning_effort` variable "
                          "(e.g. StepFun Step-3.7-Flash, which has low/medium/high reasoning levels). "
-                         "Sent as top-level chat_template_kwargs on every request and recorded in the "
+                         "Sent at the configured wire location on every request and recorded in the "
                          "receipt. Leave unset for models that don't expose reasoning levels.")
+    ap.add_argument("--reasoning-effort-location", default="chat_template_kwargs",
+                    choices=["chat_template_kwargs", "top_level"],
+                    help="Wire location for reasoning_effort. Historical Step campaigns use "
+                         "chat_template_kwargs; Qwen3.8 requires the OpenAI top-level field.")
     ap.add_argument("--thinking", default=None, choices=["on", "off"],
                     help="For models whose chat template reads an `enable_thinking` variable "
                          "(e.g. Qwen3.5-397B-A17B, whose template auto-opens a <think> block). "
                          "'on'/'off' -> enable_thinking true/false sent as chat_template_kwargs on "
                          "every request and recorded in the receipt. Leave unset for other models.")
+    ap.add_argument("--preserve-thinking", default=None, choices=["on", "off"],
+                    help="Explicit preserve_thinking chat-template control. Qwen3.8 defaults to on; "
+                         "passing it explicitly makes the agent-history contract reproducible.")
     ap.add_argument("--max-model-len", type=int, default=262144,
                     help="The endpoint's context window, used to size each request's max_tokens "
                          "(max_tokens = min(output cap, remaining estimated context)). Default 262144 "
@@ -954,6 +1054,14 @@ def main():
                          "top_k=40). Leave unset to use the server default.")
     ap.add_argument("--top-k", type=int, default=None,
                     help="Top-k sampling, sent only when set (vLLM extension). See --top-p.")
+    ap.add_argument("--min-p", type=float, default=None,
+                    help="Minimum-probability sampling threshold, sent only when set.")
+    ap.add_argument("--presence-penalty", type=float, default=None,
+                    help="OpenAI-compatible presence penalty, sent only when set.")
+    ap.add_argument("--repeat-penalty", type=float, default=None,
+                    help="llama.cpp repeat_penalty value, sent only when set.")
+    ap.add_argument("--seed", type=int, default=42,
+                    help="Deterministic request seed. Default 42 preserves the historical protocol.")
     ap.add_argument("--stuck-threshold", type=int, default=30,
                     help="Iterations of unchanged workspace state hash before the harness aborts the run. "
                          "Default 30 was tuned on the memo/board/code tasks (whole job fits in ~100 iters, "
@@ -994,6 +1102,7 @@ def main():
                          "Beware: the sandbox shares GPUs with the vLLM container hosting the model.")
     args = ap.parse_args()
     enable_thinking = None if args.thinking is None else (args.thinking == "on")
+    preserve_thinking = None if args.preserve_thinking is None else (args.preserve_thinking == "on")
 
     # Resolve --gh-token. Done early so we fail fast if @env/@gh produce nothing.
     gh_token = args.gh_token
@@ -1096,11 +1205,17 @@ def main():
         stuck_threshold=args.stuck_threshold,
         max_iters=args.max_iters,
         reasoning_effort=args.reasoning_effort,
+        reasoning_effort_location=args.reasoning_effort_location,
         enable_thinking=enable_thinking,
+        preserve_thinking=preserve_thinking,
         max_model_len=args.max_model_len,
         max_output_tokens_cap=args.max_output_tokens_cap,
         top_p=args.top_p,
         top_k=args.top_k,
+        min_p=args.min_p,
+        presence_penalty=args.presence_penalty,
+        repeat_penalty=args.repeat_penalty,
+        seed=args.seed,
         serving_manifest=args.serving_manifest,
     )
     print(f"receipt -> {log_dir / 'receipt.json'}  (vllm containers logged: {len(receipt['vllm']['containers'])})")
@@ -1108,11 +1223,15 @@ def main():
     summary = agent_loop(api_url, args.model, system_prompt, task, log_dir,
                          max_iters=args.max_iters, temperature=args.temperature,
                          top_p=args.top_p, top_k=args.top_k,
+                         min_p=args.min_p, presence_penalty=args.presence_penalty,
+                         repeat_penalty=args.repeat_penalty, seed=args.seed,
                          stuck_threshold=args.stuck_threshold,
                          require_files=require_files,
                          require_git_tag=bool(args.require_git_tag),
                          reasoning_effort=args.reasoning_effort,
+                         reasoning_effort_location=args.reasoning_effort_location,
                          enable_thinking=enable_thinking,
+                         preserve_thinking=preserve_thinking,
                          max_model_len=args.max_model_len,
                          max_output_tokens_cap=args.max_output_tokens_cap)
     print("\n=== SUMMARY ===")

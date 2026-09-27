@@ -1,0 +1,289 @@
+{
+  "d2_mechanism": {
+    "matched_spans": [
+      {
+        "cell": "p3_pm_qwen36-nothink-card_v1",
+        "item": "R3",
+        "matched_span": "legal contracts unsigned | private-beta contract",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen36-nothink-card_v10",
+        "item": "R3",
+        "matched_span": "legal has not",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen36-nothink-card_v2",
+        "item": "R3",
+        "matched_span": "legal has not responded to draft [wk6] | | **high** | maevia expectation gap | promised ga at conference; pushback expected [wk6] | | **medium** | iam effort slips | would delay",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen36-nothink-card_v3",
+        "item": "R3",
+        "matched_span": "legal contracts unsigned | private-beta contract",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen36-nothink-card_v5",
+        "item": "R3",
+        "matched_span": "legal contracts | legal (tbd) | draft sent; no response (w6) | yes | --- ## risks | severity | risk | description | |---|---|---| | **high** | legal contracts not finalized | contract",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen36-nothink-card_v6",
+        "item": "R3",
+        "matched_span": "legal; no response yet [wk6] | | **high** | maevia expectation gap | promised ga at conference; will push back on private beta [wk6] | | **medium** | iam delay",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen36-nothink-card_v7",
+        "item": "R3",
+        "matched_span": "legal tbd) | draft sent, no response (w6) | yes | ## risks (by severity) | severity | risk | description | |---|---|---| | high | legal delay",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen36-nothink-card_v8",
+        "item": "R3",
+        "matched_span": "legal has not responded to draft [wk6] | | **high** | maevia expectation gap | promised ga sdk at conference; pushback expected [wk6] | | **medium** | iam 4-week effort | delay",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-card_v10",
+        "item": "R3",
+        "matched_span": "legal contracts pending [w6] | yes | --- ## risks (ordered by severity) | severity | risk | description | |---|---|---| | **high** | legal contract delay | private-beta contracts not finalized; legal has not",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-card_v2",
+        "item": "R3",
+        "matched_span": "legal delay on private-beta contracts | legal has not",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-card_v3",
+        "item": "R3",
+        "matched_span": "legal contract delay | private-beta contracts not yet finalized; legal has not",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-card_v4",
+        "item": "R3",
+        "matched_span": "legal delay on private-beta contracts | legal has not",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-card_v6",
+        "item": "R3",
+        "matched_span": "legal delay on private-beta contracts | legal has not responded to draft. no contracts = no sdk in v1 (w5, w6). | | 🔴 high | no timeline slack | access-control discovery consumed all buffer. any further delay",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-card_v7",
+        "item": "R3",
+        "matched_span": "legal has not yet responded to the private-beta contract",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-card_v8",
+        "item": "R3",
+        "matched_span": "legal contracts pending [w6] | yes — contracts needed before launch | --- ## risks (ordered by severity) | severity | risk | description | |---|---|---| | **high** | legal contract delay",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-card_v9",
+        "item": "R3",
+        "matched_span": "legal delay on private-beta contracts** — legal has not",
+        "repo": "mmbt-q36-card"
+      },
+      {
+        "cell": "p3_pm_qwen38-think-low-card_v1",
+        "item": "R3",
+        "matched_span": "legal has not responded to the private-beta contract",
+        "repo": "mmbt-q38-card"
+      },
+      {
+        "cell": "p3_pm_qwen38-think-medium-card_v1",
+        "item": "R3",
+        "matched_span": "legal has not engaged on the private-beta contract",
+        "repo": "mmbt-q38-card"
+      },
+      {
+        "cell": "p3_pm_qwen38q8-nothink-matched_v1",
+        "item": "R3",
+        "matched_span": "legal has not responded to the access-control contract",
+        "repo": "mmbt-q38-q8"
+      },
+      {
+        "cell": "p3_pm_qwen36-nothink-offspec_v1",
+        "item": "R3",
+        "matched_span": "legal) | sara | draft sent; no response (wk6) | **yes** (sdk portion) | ## risks | severity | risk | description | |---|---|---| | **high** | legal delay",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-nothink-offspec_v2",
+        "item": "R3",
+        "matched_span": "legal contract delay | private-beta contracts drafted; legal has not",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-nothink-offspec_v3",
+        "item": "R3",
+        "matched_span": "legal contract delay | private-beta contracts drafted; legal has not",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-nothink-offspec_v5",
+        "item": "R3",
+        "matched_span": "legal) | sara | draft sent; no response (wk6) | **yes** (sdk portion) | ## risks | severity | risk | description | |---|---|---| | **high** | legal delay",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-nothink-offspec_v6",
+        "item": "R3",
+        "matched_span": "legal contract delay | private-beta contracts drafted; legal has not",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-nothink-offspec_v7",
+        "item": "R3",
+        "matched_span": "legal contract delay | private-beta contracts drafted but legal has not",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-nothink-offspec_v8",
+        "item": "R3",
+        "matched_span": "legal contract delay | private-beta contracts drafted; legal has not",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-nothink-offspec_v9",
+        "item": "R3",
+        "matched_span": "legal contract delay | private-beta contracts drafted; legal has not",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-offspec_v1",
+        "item": "R3",
+        "matched_span": "legal delay on private-beta contracts | legal has not responded to contract",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-offspec_v2",
+        "item": "R3",
+        "matched_span": "legal delay on private-beta contracts | legal has not responded to contract",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-offspec_v3",
+        "item": "R3",
+        "matched_span": "legal delay on private-beta contracts | legal has not responded to contract",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-offspec_v4",
+        "item": "R3",
+        "matched_span": "legal delay on private-beta contracts | legal has not responded to contract",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-offspec_v5",
+        "item": "R3",
+        "matched_span": "legal delay on private-beta contracts | legal has not responded to contract",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-offspec_v6",
+        "item": "R3",
+        "matched_span": "legal delay on private-beta contracts | legal has not",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-offspec_v7",
+        "item": "R3",
+        "matched_span": "legal delay on private-beta contracts | legal has not responded to contract",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-offspec_v8",
+        "item": "R3",
+        "matched_span": "legal has not responded to the private-beta contract",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen36-think-offspec_v9",
+        "item": "R3",
+        "matched_span": "legal delay on private-beta contracts | legal has not responded to contract",
+        "repo": "mmbt-qwen36-compare"
+      },
+      {
+        "cell": "p3_pm_qwen38-think-low-offspec_v1",
+        "item": "R3",
+        "matched_span": "legal dependency** — *med-high.* private-beta contract",
+        "repo": "mmbt-qwen38-eaaa8ca"
+      },
+      {
+        "cell": "p3_pm_qwen38-think-medium-offspec_v1",
+        "item": "R3",
+        "matched_span": "legal not engaged.** private-beta contract",
+        "repo": "mmbt-qwen38-eaaa8ca"
+      },
+      {
+        "cell": "p3_pm_qwen38-think-medium-offspec_v2",
+        "item": "R3",
+        "matched_span": "legal sign-off",
+        "repo": "mmbt-qwen38-eaaa8ca"
+      }
+    ],
+    "note": "the mechanism actually applied is upstream rule R3, an adjacency regex (the word legal within 200 characters of a completion term), which matches strictly more than contractions; matched_span is the exact normalised report text that satisfied the regex in each corrected cell",
+    "patterns": [
+      "\\blegal\\b.{0,200}\\b(?:has\\s+not|not\\s+yet\\s+responded|sign[ -]?off|approval|unresponsive|silent|delay|contract)\\b"
+    ]
+  },
+  "frozen_dataset": "/home/michael/mmbt-frozen-dataset-v2.csv",
+  "frozen_dataset_sha256": "d2ed0beca5b68e9ca63788e452235f23a299af06639893f558bef19f784cf018",
+  "frozen_dataset_stamp": "2026-08-16T14:23:09Z",
+  "generated_at": "2026-08-16T14:35:19.120502+00:00",
+  "invariant_checked": 686,
+  "invariant_violations": [],
+  "note": "overlay_digest excludes generated_at and is stable across runs",
+  "overlay_digest": "e332cd2c78ad94fe264aed7d31e6c64f5273cd9598f889dc1a8fac539e971351",
+  "post_freeze_divergence": [],
+  "schema_version": "mmbt-grade-correction-overlay/2",
+  "skipped": {
+    "no_grade_json": 69,
+    "quarantined": 0,
+    "unreadable_grade_json": 0
+  },
+  "summary": {
+    "by_defect": {
+      "D1": {
+        "3.6": 23,
+        "3.8": 39,
+        "gate_invalidated_3.6": 23,
+        "gate_invalidated_3.8": 39,
+        "gate_invalidated_total": 62,
+        "total": 62
+      },
+      "D2": {
+        "3.6": 33,
+        "3.8": 6,
+        "total": 39,
+        "verdict_changed_3.6": 31,
+        "verdict_changed_3.8": 5,
+        "verdict_changed_total": 36
+      },
+      "D3": {
+        "3.6": 38,
+        "3.8": 26,
+        "total": 64,
+        "verdict_changed_3.6": 21,
+        "verdict_changed_3.8": 3,
+        "verdict_changed_total": 24
+      }
+    },
+    "cells_touched_frozen": 165,
+    "cells_touched_including_post_freeze": 165
+  }
+}

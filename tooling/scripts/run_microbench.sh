@@ -9,7 +9,7 @@
 #   model-label: short tag used in run names (e.g. "qwen2.5-72b" → run names like
 #                p2_extract_qwen2.5-72b_v1). Avoid spaces and slashes.
 #   n: number of runs per cell (default 3). 1 for quick sweep, 3 for canonical.
-#   reasoning-effort: optional low|medium|high for models with reasoning levels
+#   reasoning-effort: optional low|medium|high|xhigh for models with reasoning levels
 #                (e.g. Step-3.7-Flash). IMPORTANT: run names are keyed by label
 #                only, so to sweep multiple efforts for one model you MUST put the
 #                effort in the label (e.g. step3p7-low / -medium / -high) or later
@@ -34,7 +34,7 @@ Args:
   port               vLLM endpoint port (e.g. 8001)
   model-label        short tag for run names (no spaces/slashes; e.g. coder, 27b, llama3-70b)
   n                  N per cell (default 3)
-  reasoning-effort   optional low|medium|high (reasoning models). Run names are keyed
+  reasoning-effort   optional low|medium|high|xhigh (reasoning models). Run names are keyed
                      by label, so the effort MUST be in the label when sweeping
                      efforts (e.g. step3p7-low) or later efforts get skipped.
 
@@ -55,12 +55,23 @@ MODEL="$1"
 PORT="$2"
 LABEL="$3"
 N="${4:-3}"
-REASONING_EFFORT="${5:-}"   # optional: low|medium|high for models with reasoning levels (e.g. Step-3.7-Flash)
+REASONING_EFFORT="${5:-}"   # optional: low|medium|high|xhigh for models with reasoning levels
 REASONING_FLAG=""
 [ -n "$REASONING_EFFORT" ] && REASONING_FLAG="--reasoning-effort $REASONING_EFFORT"
+REASONING_LOCATION_FLAG=()
+if [ -n "$REASONING_EFFORT" ] && [ -n "${BENCH_REASONING_EFFORT_LOCATION:-}" ]; then
+  REASONING_LOCATION_FLAG=(--reasoning-effort-location "$BENCH_REASONING_EFFORT_LOCATION")
+fi
 THINKING="${6:-}"           # optional: on|off for models with an enable_thinking template var (e.g. Qwen3.5-397B)
 THINKING_FLAG=""
 [ -n "$THINKING" ] && THINKING_FLAG="--thinking $THINKING"
+PRESERVE_THINKING_FLAG=()
+case "${BENCH_PRESERVE_THINKING:-}" in
+  1|true|on) PRESERVE_THINKING_FLAG=(--preserve-thinking on) ;;
+  0|false|off) PRESERVE_THINKING_FLAG=(--preserve-thinking off) ;;
+  "") ;;
+  *) echo "ERROR: invalid BENCH_PRESERVE_THINKING=$BENCH_PRESERVE_THINKING" >&2; exit 2 ;;
+esac
 MAXLEN="${7:-}"             # optional: served context window (e.g. 131072 for the 397B GGUF on llama.cpp)
 MAXLEN_FLAG=""
 [ -n "$MAXLEN" ] && MAXLEN_FLAG="--max-model-len $MAXLEN"
@@ -89,8 +100,21 @@ fi
 # temperature=1.0, top_p=0.95, top_k=40. Set BENCH_TEMP / BENCH_TOP_P / BENCH_TOP_K to deviate;
 # the deviation is recorded per-run in receipt.json (temperature) and must be footnoted in findings.
 TEMP="${BENCH_TEMP:-0.3}"
-TOPP_FLAG=""; [ -n "${BENCH_TOP_P:-}" ] && TOPP_FLAG="--top-p $BENCH_TOP_P"
-TOPK_FLAG=""; [ -n "${BENCH_TOP_K:-}" ] && TOPK_FLAG="--top-k $BENCH_TOP_K"
+TOPP_FLAG=(); [ -n "${BENCH_TOP_P:-}" ] && TOPP_FLAG=(--top-p "$BENCH_TOP_P")
+TOPK_FLAG=(); [ -n "${BENCH_TOP_K:-}" ] && TOPK_FLAG=(--top-k "$BENCH_TOP_K")
+MINP_FLAG=(); [ -n "${BENCH_MIN_P:-}" ] && MINP_FLAG=(--min-p "$BENCH_MIN_P")
+PRESENCE_FLAG=(); [ -n "${BENCH_PRESENCE_PENALTY:-}" ] && PRESENCE_FLAG=(--presence-penalty "$BENCH_PRESENCE_PENALTY")
+REPEAT_FLAG=(); [ -n "${BENCH_REPEAT_PENALTY:-}" ] && REPEAT_FLAG=(--repeat-penalty "$BENCH_REPEAT_PENALTY")
+SEED_FLAG=(); [ -n "${BENCH_SEED:-}" ] && SEED_FLAG=(--seed "$BENCH_SEED")
+
+# Historical campaigns exposed every host GPU to task sandboxes. Remote-inference
+# campaigns can set BENCH_SANDBOX_GPUS=none so coordinator GPUs are not attached.
+SANDBOX_GPU_FLAG=(--gpus all)
+case "${BENCH_SANDBOX_GPUS:-all}" in
+  none|off|disabled|"") SANDBOX_GPU_FLAG=() ;;
+  all) ;;
+  *) SANDBOX_GPU_FLAG=(--gpus "$BENCH_SANDBOX_GPUS") ;;
+esac
 
 # Guard: run names + the idempotent skip check are keyed by LABEL only. If an
 # effort is set but not encoded in the label, a later effort would reuse the same
@@ -198,28 +222,51 @@ for entry in "${TASKS[@]}"; do
       continue
     fi
 
-    # Build flag set
-    INPUT_FLAG=""
-    [ -n "$input_dir" ] && INPUT_FLAG="--input-mount $input_dir"
+  # Build flag set
+  INPUT_FLAG=""
+  [ -n "$input_dir" ] && INPUT_FLAG="--input-mount $input_dir"
 
-    echo "[$DONE/$TOTAL_RUNS] $run_name  (started $(date +%H:%M:%S))"
-    if python3 "$TOOLING/harness.py" \
-      "$run_name" \
-      "$TOOLING/tasks/$task_file" \
+  # p1_testwrite requires stricter instructions to force real workspace edits.
+  SYSTEM_FLAG=()
+  STUCK_THRESHOLD=500
+  case "$task_short" in
+    p1_testwrite)
+      SYSTEM_FLAG=(--system "$TOOLING/prompts/p1_testwrite_system.md")
+      REQUIRE_FILES=(--require-files "CHANGELOG.md,decisions.md,research.md")
+      STUCK_THRESHOLD=250
+      # p1_testwrite gets a strict schema to avoid discovery-only loops.
+      ;;
+    *)
+      REQUIRE_FILES=()
+      ;;
+  esac
+
+  echo "[$DONE/$TOTAL_RUNS] $run_name  (started $(date +%H:%M:%S))"
+  if python3 "$TOOLING/harness.py" \
+    "$run_name" \
+    "$TOOLING/tasks/$task_file" \
       --model "$MODEL" \
       --port "$PORT" \
       --temperature "$TEMP" \
-      $TOPP_FLAG \
-      $TOPK_FLAG \
-      --stuck-threshold 500 \
-      $REASONING_FLAG \
-      $THINKING_FLAG \
-      $MAXLEN_FLAG \
-      $MAX_OUTPUT_TOKENS_CAP_FLAG \
-      $SERVING_MANIFEST_FLAG \
-      $INPUT_FLAG \
-      --docker-socket \
-      --gpus all 2>&1 | tail -3
+      "${TOPP_FLAG[@]}" \
+      "${TOPK_FLAG[@]}" \
+    "${MINP_FLAG[@]}" \
+    "${PRESENCE_FLAG[@]}" \
+    "${REPEAT_FLAG[@]}" \
+    "${SEED_FLAG[@]}" \
+    --stuck-threshold "$STUCK_THRESHOLD" \
+    $REASONING_FLAG \
+    "${REASONING_LOCATION_FLAG[@]}" \
+    $THINKING_FLAG \
+    "${PRESERVE_THINKING_FLAG[@]}" \
+    $MAXLEN_FLAG \
+    $MAX_OUTPUT_TOKENS_CAP_FLAG \
+    $SERVING_MANIFEST_FLAG \
+    "${SYSTEM_FLAG[@]}" \
+    "${REQUIRE_FILES[@]}" \
+    $INPUT_FLAG \
+    --docker-socket \
+    "${SANDBOX_GPU_FLAG[@]}" 2>&1 | tail -3
     then
       :
     else

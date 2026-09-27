@@ -19,7 +19,7 @@
 # entry once it's been published.
 
 schema_version: 0.1
-last_updated: "2026-08-02"
+last_updated: "2026-08-16"
 
 claims:
 
@@ -598,6 +598,196 @@ claims:
       - "Small modality-specific N; older local entries have not all received the same strict overlay."
       - "Per-PR factual accuracy is not exhaustively graded; the 75-PR result is artifact completeness and audit substance."
 
+
+  # ─── Qwen3.6-27B vs Qwen3.8-27B, UD-Q4_K_XL GGUF (benchmarks/qwen36-vs-qwen38-27b-2026-08) ───
+
+  - id: bench.qwen38-vs-qwen36.nothink-delivery-regression
+    text: >
+      In no-think mode, Qwen3.8-27B-UD-Q4_K_XL produces a gradeable deliverable
+      markedly less often than Qwen3.6-27B-UD-Q4_K_XL on the same 12-family
+      MMBT suite, same rig, same engine, same quant. With each model at its own
+      vendor sampling point, 3.6 delivers 120/120 cells (100%) at
+      T1/p0.95/pp0 and 3.8 delivers 79/96 (82.3%) at T0.7/p0.8/pp1.5; 3.6's
+      per-family delivery rate is greater than or equal to 3.8's in 12 of 12
+      families (5 strict wins, 7 ties). At the matched off-spec sampler
+      T0.3/p0.8/pp0 the direction is the same and larger: 3.6 114/121 (94.2%)
+      vs 3.8 65/95 (68.4%). The regression is concentrated, not uniform — at
+      the matched sampler 3.8 delivers 1/12 on p1_bugfix and 2/13 on
+      p1_testwrite while matching 3.6 at 100% delivery on all four phase-2
+      families (7/7 each).
+    status: provisional
+    scope: >
+      Single rig (Tower2), llama.cpp GGUF serving, UD-Q4_K_XL only, no-think
+      mode, 12-family MMBT suite, seed=42 throughout.
+    evidence: "benchmarks/qwen36-vs-qwen38-27b-2026-08/data/mmbt-frozen-dataset-v2.csv (802 cells); benchmarks/qwen36-vs-qwen38-27b-2026-08/findings.md § Delivery reliability"
+    caveats:
+      - "Delivery is not quality. A delivered cell can still be wrong; this claim is only about whether a gradeable artifact exists."
+      - "Replicate depth is unbalanced between the arms (3.6 no-think T0.3 carries 9-19 replicates per family, 3.8 7-13; 3.6 think T0.3 carries 9, 3.8 4-6). Per-family rates therefore rest on different denominators, which are printed per family in findings.md rather than pooled silently."
+      - "Non-delivering cells are a mixture of operator-terminated runs and runs that ended non-terminal. Do NOT convert this into an 'abort rate' — see [bench.qwen38.nothink-abort-rate] in the retracted block for why the operator label cannot carry that weight."
+      - "One quant, one engine. Whether the regression survives at FP8/BF16, under vLLM, or at other context settings is uncharacterized."
+    promote_to_strong_when:
+      - "An independent reproducer on different hardware publishes the same direction at both models' vendor sampling points"
+      - "Replicate depth is balanced across arms and per-family rates are recomputed on equal denominators"
+      - "Non-delivery is classified by a deterministic, published rule rather than an operator kill decision"
+
+  - id: bench.qwen38.q8-reproduces-nothink-loop
+    text: >
+      The identical-call-loop failure shape seen in Qwen3.8-27B-UD-Q4_K_XL
+      no-think also occurs at Q8_0, at a provisional rate whose confidence
+      interval excludes zero. In the freeze-2 Q8_0 control arm (19 cells over
+      all 12 families, no-think, matched T0.3/p0.8/pp0), 6 of 19 cells trip the
+      mechanical loop detector (looped_freq30) — 31.6%, Wilson 95% CI
+      [15.4%, 54.0%] — with maximum identical-call runs of 110, 109, 81, 80
+      and 71 consecutive calls (the sixth trips the frequency detector at
+      max_freq 121 without a long run). Because the interval excludes zero,
+      this is now a provisional RATE claim rather than the existence-only
+      observation it was at freeze #1: the loop is not an artifact of the
+      UD-Q4_K_XL quantization. Against 3.8-Q4 at the same sampler over the
+      same 12 families the loop rate is statistically indistinguishable
+      (Q4 29/95, 30.5%, vs Q8_0 6/19, 31.6%; Fisher p = 1.0) — consistent
+      with quantization playing no role in the loop, though the Q8_0 interval
+      is wide.
+    status: provisional
+    scope: >
+      19 cells (2 replicates on the 7 phase-1/phase-2 families, 1 on the 5
+      phase-3 families), Qwen3.8-27B Q8_0, no-think, T0.3/p0.8/pp0, seed=42,
+      single rig.
+    evidence: "benchmarks/qwen36-vs-qwen38-27b-2026-08/data/mmbt-frozen-dataset-v2.csv (rows where quant=Q8_0)"
+    caveats:
+      - "The rate is provisional. n=19 with 1-2 replicates per family; the Wilson interval [15.4%, 54.0%] bounds the rate away from zero and pins down little else."
+      - "Quality stays near-uninformative: 8 of 19 cells are graded at freeze #2 (5 PASS, 3 FAIL; graded-only rate 62.5%, Wilson [30.6%, 86.3%]). Of the three FAILs, two (p3_business, p3_doc) are over-length by BOTH word counters — genuine length overruns D1 does not rescue — and one (p3_pm) is the D2 R3 keyword literalism, corrected to PASS by the overlay. No quality verdict is drawn from n=8, and the vs-Q4 graded-only contrast (78.5% vs 62.5%, Fisher p = 0.38) is underpowered by the PR's own power screen."
+      - "UNSCORED qualitative evidence, excluded from every rate above: p3_doc_qwen38q8-nothink-matched_v2 was quarantined in-flight at freeze #2 (it is not a row in the frozen CSV) after 139 iterations rewriting brief.md with its context grown to ~228k tokens — a REWRITE-loop subclass distinct from the identical-call loop the detector counts. Disclosed because a second loop shape at Q8_0 is qualitatively relevant to the quantization question; it carries no statistical weight anywhere in this PR."
+      - "There is no matched Qwen3.6 Q8_0 arm, so this is not a quant A/B and cannot attribute the delivery regression to quantization or exonerate it."
+    promote_to_strong_when:
+      - "A Q8_0 arm with N>=5 per family, graded, is published alongside a matched UD-Q4_K_XL arm for BOTH models so loop and pass rates can be compared with useful power"
+
+  - id: bench.qwen38-vs-qwen36.equivalent-conditional-on-delivery-matched-sampler
+    text: >
+      Conditional on having produced a gradeable deliverable, and after the
+      three grader corrections published with this PR (D1 word-gate counter
+      disagreement, D2 p3_pm keyword literalism, D3 p2_triage brief/ground-truth
+      contradiction — applied from the shipped correction overlay, with the
+      62 D1 gate-invalidated cells counted as non-failures), the two models
+      score close to each other at the matched sampler T0.3/p0.8/pp0.
+      No-think: 3.6 98/114 (86.0%) vs 3.8 56/65 (86.2%); excluding the
+      p2_triage family entirely, 3.6 89/105 (84.8%) vs 3.8 49/58 (84.5%).
+      Think: 3.6 99/107 (92.5%) vs 3.8 43/48 (89.6%); excluding p2_triage,
+      3.6 90/98 (91.8%) vs 3.8 39/44 (88.6%). All four contrasts sit within
+      about three percentage points — 3.6 nominally ahead in three, behind by
+      0.2 pp in the fourth — and on 3.8-side denominators of 44-65 cells a
+      one-to-two-cell swing reverses any of them: no consistent sign, and a
+      result too small to call in either direction.
+    status: provisional
+    scope: >
+      Matched off-spec sampler T0.3/p0.8/pp0 only, UD-Q4_K_XL, corrected
+      overlay applied non-destructively, conditional on delivery.
+    evidence: "benchmarks/qwen36-vs-qwen38-27b-2026-08/overlay/manifest.json; benchmarks/qwen36-vs-qwen38-27b-2026-08/findings.md § Quality conditional on delivery"
+    caveats:
+      - "THE CONDITIONING IS THE WHOLE PROBLEM. Delivery is exactly where the two models differ, so conditioning on delivery conditions on a non-random subset: 3.8's 65 delivered cells at this sampler are its surviving runs, not a random sample of its attempts. This is survivorship, and it means the claim describes graded work only, never expected outcome per attempt."
+      - "Equivalence does NOT extend to the vendor-point comparison. There, corrected pass-given-delivery is 3.6 110/120 (91.7%) vs 3.8 61/79 (77.2%) — an ~15pp gap that the grader corrections do not explain and this PR does not resolve; excluding the D1 gate-invalidated cells instead of counting them widens it (3.6 106/116, 91.4%, vs 3.8 51/69, 73.9%)."
+      - "The corrections change the numbers substantially (raw pass-given-delivery at matched no-think is 3.6 81/114 and 3.8 51/65), so anyone quoting these figures must state that they are overlay-corrected. Raw grades remain published and unmodified."
+      - "Counting the D1 cells as non-failures is a treatment choice, not a measurement: the overlay marks those 62 verdicts counter-dependent — not a valid FAIL, not a verified PASS. Excluding them from the denominators instead gives no-think 3.6 96/112 (85.7%) vs 3.8 51/60 (85.0%) and think 3.6 85/93 (91.4%) vs 3.8 36/41 (87.8%) — same within-noise margins, so the reading does not hinge on the treatment."
+      - "D1 is a disagreement between two defensible word counters, not a repair of a wrong one. See [bench.grader.word-gate-counter-disagreement]."
+
+  - id: bench.grader.word-gate-counter-disagreement
+    text: >
+      The four length-gated phase-3 graders (business_memo, doc_synthesis,
+      project_mgmt, writing_editing) count words as
+      len(re.findall(r"\b\w+\b", text)), which splits hyphenated compounds and
+      comma-grouped numerals into multiple words. Both models budget with shell
+      `wc -w`: a literal `wc -w` call appears in 152 of 152 Qwen3.6 and 93 of 95
+      Qwen3.8 length-gated phase-3 transcripts. Across the frozen corpus,
+      71 cells fail on length alone (every non-length criterion satisfied) —
+      by family, p3_doc 26, p3_writing 24, p3_business 21; by model, 3.8 47
+      and 3.6 24. 62 of those 71 have every gated deliverable at or under its
+      ceiling by `wc -w` (by family, p3_doc 24, p3_writing 23, p3_business 15;
+      by model, 3.8 39 and 3.6 23); the overlay marks exactly these 62 as
+      gate-invalidated — not a valid FAIL, not a verified PASS — and the other
+      9, over by both counters (the Q8_0 control's two length FAILs among
+      them), keep their FAILs. Neither counter is
+      ground truth: `wc -w` counts markdown bullets
+      and table pipes as words, the regex counts "mobile-responsive" as two.
+      The finding is that two reasonable counters disagree by more than the
+      margin at a hard threshold, not that one of them is wrong.
+    status: provisional
+    scope: >
+      4 length-gated phase-3 graders, both models, all sampler arms in the
+      frozen dataset.
+    evidence: "tooling/graders/phase3_{business_memo,doc_synthesis,project_mgmt,writing_editing}_grade.py; benchmarks/qwen36-vs-qwen38-27b-2026-08/overlay/manifest.json"
+    caveats:
+      - "The overlay's recount runs shell GNU `wc -w` pinned to LC_ALL=C.UTF-8 (the sandbox image's locale) and records a pure-Python recount beside it for every measured deliverable; the two agree on all 147 measurements in the shipped overlay. It is not otherwise validated against other wc implementations or locales."
+      - "Overshoot on the 39 gate-invalidated single-deliverable cells (24 p3_doc, 15 p3_business) ranges from 1 to 54 words by the grader's own counter, so this is not uniformly a hairline effect."
+      - "Correcting the counter does not make a length gate a good measure of writing discipline. A model that lands at exactly 700 by the counter it was told to use has satisfied the instruction, not demonstrated concision."
+    promote_to_strong_when:
+      - "The task briefs specify the counter explicitly and a re-run under the specified counter reproduces the gate behavior"
+
+  - id: bench.qwen38.thinking-restores-delivery
+    text: >
+      Enabling thinking mode removes most of Qwen3.8-27B's no-think delivery
+      regression. At the matched sampler T0.3/p0.8/pp0, 3.8 delivers 48/51
+      (94.1%) in think mode against 65/95 (68.4%) in no-think; at T1/p0.95/pp0
+      it delivers 72/72 (100%) in think mode against 79/96 (82.3%) no-think at
+      its own vendor point. Qwen3.6 delivers at or near ceiling in think mode at
+      both samplers (107/108 and 120/120), so thinking closes a gap that only
+      one of the two models had.
+    status: provisional
+    scope: >
+      UD-Q4_K_XL, think vs no-think within Qwen3.8 at T0.3/p0.8/pp0 and
+      T1/p0.95/pp0; single rig.
+    evidence: "benchmarks/qwen36-vs-qwen38-27b-2026-08/data/mmbt-frozen-dataset-v2.csv; benchmarks/qwen36-vs-qwen38-27b-2026-08/findings.md § Delivery reliability"
+    caveats:
+      - "The think-vs-no-think contrast at T1/p0.95/pp0 crosses a sampler boundary for 3.8 (its no-think vendor point is T0.7/p0.8/pp1.5, its think cells at T0.7 do not exist), so the cleanest within-model contrast is the matched T0.3 pair: 48/51 vs 65/95."
+      - "Every Qwen3.8 think cell carries a reasoning_effort setting; the 51 matched-sampler think cells are a mixture of 14 low, 24 medium and 13 xhigh. This arm is a mixture, not a single configuration."
+      - "Thinking is not free — see [bench.qwen38.reasoning-effort-cost-ladder] for the token cost, which is substantial and is not netted against the delivery gain anywhere in this PR."
+
+  - id: bench.qwen38-vs-qwen36.thinking-quality-head-to-head.held
+    text: >
+      A cross-model thinking-mode quality comparison is held. The only sampler
+      at which both models have think cells and could be compared directly is
+      T1/p0.95/pp0, which is Qwen3.6's vendor sampling point and not Qwen3.8's;
+      the corpus contains zero Qwen3.8 think cells at Qwen3.8's own vendor point
+      (T0.7/p0.8/pp1.5). The two think arms are also not the same kind of
+      object: every Qwen3.8 think cell carries a reasoning_effort setting and is
+      therefore an effort mixture, while Qwen3.6's shipped chat template
+      contains no reasoning_effort variable at all, so its think arm is a single
+      configuration. The underlying numbers are published (corrected
+      pass-given-delivery at T1/p0.95/pp0, with D1 gate-invalidated cells
+      counted as non-failures: 3.6 116/120, 3.8 72/72) but no
+      conclusion is drawn from them.
+    status: held
+    scope: think mode, cross-model, UD-Q4_K_XL
+    evidence: "benchmarks/qwen36-vs-qwen38-27b-2026-08/data/mmbt-frozen-dataset-v2.csv; benchmarks/qwen36-vs-qwen38-27b-2026-08/findings.md § What we did not run"
+
+  - id: bench.qwen38.reasoning-effort-cost-ladder
+    text: >
+      Qwen3.8-27B's reasoning_effort ladder is not monotone in cost. Pooled over
+      the families that carry all three effort levels, median completion tokens
+      at T0.3/p0.8/pp0 are low 17,246 (n=13), medium 10,898 (n=22) and
+      xhigh 29,744 (n=11) across 11 families — low costs roughly 58% more median
+      tokens than medium, and exceeds medium in 9 of those 11 families. The
+      mechanism is visible in the shipped Qwen3.8 chat template: it initializes
+      reasoning_instructions to the empty string, sets a "think carefully,
+      validate key assumptions, consider plausible alternatives" instruction for
+      xhigh and a "keep your thinking brief and focused, moving directly to the
+      conclusion" instruction for low, and sets NOTHING for medium. "Medium" is
+      the un-instructed baseline; "low" is the baseline plus an injected brevity
+      instruction that does not, in these runs, buy brevity. xhigh is the
+      template's default when reasoning_effort is unset, and "high" is aliased
+      to xhigh.
+    status: provisional
+    scope: >
+      Qwen3.8-27B-UD-Q4_K_XL think mode only, 123 effort-labelled cells
+      (26 low / 36 medium / 61 xhigh), 1-4 replicates per family per level.
+    evidence: "benchmarks/qwen36-vs-qwen38-27b-2026-08/data/mmbt-frozen-dataset-v2.csv (effort column); Qwen3.8-27B chat template, reasoning_instructions block; tooling/harness.py --reasoning-effort (wired via chat_template_kwargs)"
+    caveats:
+      - "THE NON-MONOTONICITY DOES NOT REPRODUCE AT THE SECOND SAMPLER. At T1/p0.95/pp0 the pooled medians are low 14,514 and medium 14,358 across 12 families — within 1% — and low exceeds medium in only 7 of 12 families. The effect is established at T0.3/p0.8/pp0 and is absent at T1/p0.95/pp0."
+      - "Replicate depth is 1-2 cells per family per effort level at T0.3 and 1 per family at T1 for low/medium. Family-matched medians were used precisely because pooled means are dominated by a handful of runaway cells, but the underlying n is thin and this claim should not be quoted as a measured cost multiplier."
+      - "The template reading is a source-level mechanism, not a controlled ablation. No run in this corpus toggles the injected instruction text while holding reasoning_effort fixed, so 'low costs more because of the brevity instruction' is the most parsimonious reading of the template, not a demonstrated cause."
+      - "xhigh is monotonically the most expensive level at both samplers (median 29,744 and 38,506 tokens), which is the one part of the ladder that behaves as its name suggests."
+    promote_to_strong_when:
+      - "An ablation holds reasoning_effort at medium while injecting the low-effort instruction text, and reproduces the cost inversion"
+      - "The T0.3 result reproduces at N>=5 per family per effort level, and the T1 null is either reproduced or resolved"
+
 retracted:
 
   - id: hw.q8.27b.tower2-decode-narrows-at-long-ctx
@@ -623,3 +813,139 @@ retracted:
       mostly-prefill work, total-tok/s lands near the prefill rate (~187)
       even though decode-streaming is ~48 tok/s. Replaced by the three-column
       headline (prefill / decode / TTFT) with no composite. See AUDIT B19.
+
+  - id: bench.qwen38.nothink-abort-rate
+    text: >
+      There is no defensible per-model "abort rate" in this corpus. Runs that
+      did not deliver are counted and reported as a delivery rate instead — see
+      [bench.qwen38-vs-qwen36.nothink-delivery-regression] — with the mixture of
+      end states described rather than collapsed into a single figure.
+    formerly_claimed: >
+      A per-model no-think "abort rate", computed as the fraction of cells
+      carrying the identical-call-loop operator label.
+    status: retracted
+    retracted_in: "benchmarks/qwen36-vs-qwen38-27b-2026-08 (replaced by the delivery-rate framing)"
+    reason: >
+      The label is an operator kill decision, not a consistent rule, so a rate
+      built on it measures operator intervention as much as model behavior. All
+      58 cells carrying the identical-call-loop label have a label.json and no
+      summary.json and no workspace_final.tar.gz — they were terminated before
+      the harness wrote one. Cross-tabbed against the mechanical repetition
+      signal recorded in the frozen dataset (looped_freq30 / looped_run30), the
+      label and the signal disagree on 24 of 802 cells: 19 cells show the
+      mechanical signal yet ran to completion, were graded, and carry no label
+      (p1_bugfix_qwen38-nothink-card_v2 reaches a maximum identical-call
+      frequency of 332 and is graded), while 5 labelled cells show no
+      repetition at all (p3_market_qwen36-nothink-offspec_v9 has max_freq 1
+      and max_run 1). Both error directions are present, so the label is
+      neither a superset nor a subset of the mechanical signal and cannot be
+      treated as either.
+
+  - id: bench.p3_pm.qwen38-outscores-qwen36
+    text: >
+      p3_pm does not meaningfully separate the two models. Under the repo's
+      own semantic-equivalence rules, applied from the shipped overlay, 61 of
+      the 64 graded p3_pm cells pass — Qwen3.6 35/38 and Qwen3.8 26/26
+      (the Q8_0 control's cell among them). The
+      three residual Qwen3.6 FAILs are content misses (risk/decision recall
+      below threshold even with R3 credited), not lexical artifacts; a
+      three-cell residual is not the 4/38-versus-21/26 separation the raw
+      grades showed, and the family should not appear in any per-family win
+      count built on raw grades.
+    formerly_claimed: >
+      Qwen3.8 materially outscores Qwen3.6 on the p3_pm (project-management)
+      family, 17/21 against 4/37.
+    status: retracted
+    retracted_in: "benchmarks/qwen36-vs-qwen38-27b-2026-08 (grader defect D2)"
+    reason: >
+      The raw gap was lexical, not substantive. phase3_project_mgmt_grade.py
+      matches risk item R3 against the literal strings "legal unresponsive",
+      "legal silent", "legal hasn't" and "blocking on legal". Qwen3.6 writes
+      "legal has not responded" — semantically identical, literally unmatched.
+      The corpus contains its own control: p3_pm_qwen36-nothink-card_v4 writes
+      "legal hasn't responded to draft [wk6]" and PASSES, while card_v2 and
+      card_v8 write "legal has not responded to draft [wk6]" in the same table
+      row of an otherwise equivalent report and FAIL. The repo already shipped
+      the fix — tooling/correct_gemma4_project_mgmt_grades.py, unit-tested,
+      whose R3 rule is described as "legal/private-beta contract delay uses an
+      equivalent non-contracted phrase" — but hardcoded to gemma4 cell names, so
+      it never ran on these cells. Applying those same published rules
+      unmodified credits R3 on 39 cells and flips 36 verdicts, taking the
+      family from 25/64 (3.6 4/38, 3.8 21/26) to 61/64 (3.6 35/38,
+      3.8 26/26); the three cells still failing miss on risk/decision recall
+      even with R3 credited. Raw grade.json files are unchanged and remain
+      the primary record.
+
+  - id: bench.p2_triage.family-result
+    text: >
+      p2_triage carries no signal in this campaign in either direction. Once
+      the brief/ground-truth contradiction is repaired, every frozen graded
+      cell passes (64/64), and category accuracy is identical (0.867) in all
+      64 cells regardless of model, quant, mode or sampler. The family is
+      reported as instrument-limited and excluded from aggregate comparisons.
+    formerly_claimed: >
+      A p2_triage family result separating the models, with Qwen3.8 passing
+      19/22 against Qwen3.6's 16/37.
+    status: retracted
+    retracted_in: "benchmarks/qwen36-vs-qwen38-27b-2026-08 (grader defect D3)"
+    reason: >
+      The task brief and the ground truth contradict each other, and the models
+      were penalized for obeying the brief. tooling/tasks/task_triage.md defines
+      urgency "n/a" for noise/spam; ground_truth/phase2_triage.json labels the
+      three spam tickets (004, 009, 021) "low"; phase2_triage_grade.py compares
+      by exact string. All 64 frozen graded p2_triage cells answered "n/a"
+      for all three tickets — both models, every quant (the Q8_0 control cell
+      included, admitted as graded at freeze #2), every mode, every sampler —
+      and every one therefore lost exactly 0.100 of a 30-ticket urgency
+      accuracy scored against a 0.700 threshold. Crediting the
+      three brief-compliant answers moves every cell over the line: 64/64
+      PASS, 24 verdict flips, Qwen3.6 17 to 38 and Qwen3.8 23 to 26. Whether
+      a cell landed above or below threshold was decided by a uniform defect,
+      not by triage skill.
+
+  - id: bench.family-paired.nine-three
+    text: >
+      No family-paired win count is published. The per-family rates are printed
+      with their denominators in findings.md and are left as twelve separate
+      small results.
+    formerly_claimed: >
+      A 9-3 family-paired split between the two models.
+    status: retracted
+    retracted_in: "benchmarks/qwen36-vs-qwen38-27b-2026-08"
+    reason: >
+      The count is not reproducible from the frozen dataset at any sampler and
+      is not stable under correction. At the matched sampler T0.3/p0.8/pp0
+      the family-level win count on raw grades is 4 (3.6) / 5 (3.8) / 3 tied
+      (all twelve computable at freeze #2 — 3.8 now has a graded p1_bugfix
+      cell), and 4 / 3 / 5 after correction; in
+      think mode at the same sampler it is 4 / 5 / 3 raw and 4 / 2 / 6
+      corrected. Two of the twelve families were contributing wins largely on
+      the strength of the grader defects retracted
+      above ([bench.p3_pm.qwen38-outscores-qwen36] and
+      [bench.p2_triage.family-result]). Beyond irreproducibility, a win count
+      over 12 families discards every denominator — cells per family range from
+      4 to 19 across the arms — and converts twelve small, differently-powered
+      results into one number that looks decisive and is not.
+
+  - id: bench.thinking.default-vs-default
+    text: >
+      There is no default-versus-default thinking comparison in this corpus. The
+      cross-model thinking question is held — see
+      [bench.qwen38-vs-qwen36.thinking-quality-head-to-head.held].
+    formerly_claimed: >
+      A thinking-mode head-to-head between the two models described as
+      "default vs default".
+    status: retracted
+    retracted_in: "benchmarks/qwen36-vs-qwen38-27b-2026-08"
+    reason: >
+      The label misdescribes what was run. The only sampler at which both models
+      have think cells is T1/p0.95/pp0, which is Qwen3.6's vendor sampling point
+      and not Qwen3.8's. Qwen3.8's vendor sampler is T0.7/p0.8/pp1.5, and the
+      corpus contains zero Qwen3.8 think cells there — its think arms exist only
+      at T0.3/p0.8/pp0 (51 cells) and T1/p0.95/pp0 (72 cells). Calling that
+      comparison "default vs default" reads as both models at their own vendor
+      settings, when in fact it is both models at one model's settings.
+      Separately, the two arms are not the same kind of configuration: every
+      Qwen3.8 think cell carries a reasoning_effort value, so that arm is a
+      mixture of low/medium/xhigh, while Qwen3.6's chat template has no
+      reasoning_effort variable at all.

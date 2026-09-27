@@ -51,6 +51,24 @@ while byte-for-byte replay of every model turn requires the external archives.
 
 Source bench repo has full receipts + transcripts + workspaces for every attempted run (success and failure). MMBT publishes receipts + transcripts only for the single representative run per entry. The 5 failed runs across the local models (`27b_invest_memo_v3`, `27b_invest_memo_v4`, `coder_invest_memo_v6`, `coder_invest_memo_v7`, `n1_coder_v1`, `n1_coder_v3`, all three 27B PR-audit canonicals' "secondary" runs, and the 35B-A3B failure runs) have receipts and transcripts in the private bench repo but not here. A more rigorous audit of variance would need those.
 
+### The Qwen3.6-vs-3.8 numbers come from a frozen extract, not a live re-scan
+
+Every headline figure in this entry is computed from a single frozen extract of the run corpus — `mmbt-frozen-dataset-v2.csv` (freeze #2), 802 cells, frozen `2026-08-16T14:23:09Z` — and **not** from a live re-scan of the five run checkouts. That is deliberate. The corpus was still accumulating cells while the freeze-1 analysis was underway, and live re-scans moved headline percentages by 4-9 points between passes purely because more cells had landed. Freeze #2 ends that: every campaign process is stopped, in-flight cells are quarantined out of the extract, and the on-disk verdict now agrees with the frozen verdict for all 733 graded rows (the overlay manifest's `post_freeze_divergence` ledger is empty).
+
+Two consequences a replicator should plan for. First, the frozen extract is the citable object: model and sampler identity in it were read from each cell's `receipt.json`, never inferred from directory names, and re-deriving identity from names will not reproduce the arm assignments. Second, the freeze boundary still hides real objects: quarantined in-flight cells are not rows in the extract at all — the clearest instance is `p3_doc_qwen38q8-nothink-matched_v2`, a Q8_0 run quarantined mid-flight in a rewrite loop (139 iterations rewriting `brief.md`, context grown to ~228k tokens), which this entry cites only as unscored qualitative evidence and excludes from every rate. A reader who finds such directories on disk has found something real that the extract deliberately does not count. (The freeze-1 version of this entry disclosed 7 unreconciled Q8_0 grades; freeze #2 admits them — the Q8_0 arm now carries 8 graded cells — so that particular discrepancy no longer exists.)
+
+### Replicate depth is unbalanced across the compared arms
+
+The arms are not equal-sized, and the imbalance runs the same direction as the headline. Per family, Qwen3.6 no-think at `T0.3/p0.8/pp0` carries 9-19 replicates, Qwen3.8 at the same sampler 7-13; in think mode at that sampler Qwen3.6 carries 9 per family against Qwen3.8's 4-6. At the vendor points the gap is smaller but present (10 per family for 3.6, 8 for 3.8). Aggregate arm sizes are 121 vs 95 (no-think matched), 120 vs 96 (no-think vendor), 108 vs 51 and 120 vs 72 (think).
+
+This means pooled percentages weight the two models' family mixes differently, and a family where one model happens to have twice the replicates pulls the pooled number toward that family's behavior. Per-family rates with their own denominators are printed in `benchmarks/qwen36-vs-qwen38-27b-2026-08/findings.md` for exactly this reason. **Do not compute a pooled model-level rate from this data without checking whether the family weighting is doing the work.** Confidence intervals are correspondingly wide: several per-family cells rest on 4-6 runs.
+
+### Replicates share a seed and are not fully independent draws
+
+Every one of the 802 cells ran at `seed=42`. Sampling temperature breaks strict determinism, so replicates do differ — of the duplicate-length sibling pairs we checked, **none** had byte-identical transcripts (8 of 8 sets checked, all distinct SHA-256). But the replicates are visibly correlated rather than independent. Within same-arm same-family replicate sets, the share of cells landing on an exactly identical total completion-token count as a sibling is 5.4% (17/316) at `T0.3/p0.8/pp0`, 3.6% (10/276) at `T1/p0.95/pp0`, and 0% (0/76) at `T0.7/p0.8/pp1.5`, the one sampler carrying a presence penalty. Concrete example: five `p2_extract` replicates in one Qwen3.6 arm all finished at exactly 1,515 completion tokens.
+
+The honest reading is narrower than "the runs are near-deterministic": they are not, and the transcripts prove it. The reading that survives is that **effective n is somewhat below nominal n at the low-temperature samplers**, that the correlation is not uniform across samplers, and that this entry does not quantify how much statistical power is lost. Varying the seed across replicates is the obvious fix and was not done here.
+
 ## Methodology caveats
 
 ### No formal scoring rubric
@@ -109,6 +127,26 @@ marathon reliability.
 
 Tasks that reference real public state (DreamServer PRs, SEC filings, market prices) will see that state drift over time. The DreamServer PR audit task pins to a specific baseline commit (`d5154c37...`) but PR comments accumulate, contributors close PRs, the issue tracker moves. The wallstreet task has no such anchor — the company-pick is the agent's decision and the analyzed material may have been updated since extraction. Take time-of-run into account when comparing across replicates.
 
+### No thinking-mode arm exists at Qwen3.8's own vendor sampler
+
+This is the largest hole in the comparison and it cannot be patched by re-analysis. Qwen3.8's vendor sampling point is `T0.7/p0.8/pp1.5`; the corpus contains **zero** Qwen3.8 think cells there. Its think arms exist only at `T0.3/p0.8/pp0` (51 cells) and `T1/p0.95/pp0` (72 cells), and `T1/p0.95/pp0` is *Qwen3.6's* vendor point. So the only sampler at which both models have think cells is one model's home turf, and no run in this repository shows Qwen3.8 thinking at the settings its own model card recommends.
+
+Any cross-model thinking comparison drawn from this entry is therefore both-models-at-3.6's-settings, and this repo declines to label it otherwise. The gap compounds with a second asymmetry: every Qwen3.8 think cell carries a `reasoning_effort` value, so those arms are mixtures of `low`/`medium`/`xhigh` (14/24/13 at the matched sampler, 12/12/48 at `T1`), while Qwen3.6's shipped chat template contains no `reasoning_effort` variable at all and its think arm is a single configuration. **A mixture compared against a point is not a like-for-like comparison**, whatever the sampler. Running Qwen3.8 think at `T0.7/p0.8/pp1.5` at a fixed effort level is the single highest-value follow-up to this entry.
+
+### No phase-3 grader checks fabrication, factual accuracy, or quality — and the hand-rating slots are empty
+
+Every phase-3 grader in `tooling/graders/` is a keyword-recall and word-count instrument. `phase3_project_mgmt_grade.py` asks whether literal strings appear; `phase3_doc_synthesis_grade.py` and `phase3_business_memo_grade.py` count matched fact keywords against a threshold and check a word ceiling; `phase3_writing_editing_grade.py` checks must-include and must-not-include strings plus a per-audience ceiling; `phase3_market_research_grade.py` emits `STRUCTURAL_PASS`/`STRUCTURAL_FAIL` on counts of products named and URLs cited. **None of them reads the deliverable for whether it is true.** A confidently fabricated status report that uses the right vocabulary and lands under 700 words passes every automated gate in this entry.
+
+The graders were designed knowing this — they carry `hand_rating_placeholders` blocks for exactly the dimensions the automation cannot reach (fabrication count, faithfulness, citation validity, stance and structure quality). Those blocks are empty corpus-wide. Of the 733 `grade.json` files read (one per frozen graded cell), 441 have no placeholder block at all (the phase-1 and phase-2 graders), 292 carry one, and **every numeric or free-text rating field in all 292 is null**. The only non-null entries anywhere are 46 `p3_market` cells carrying a boilerplate `_HAND_VERIFICATION_REQUIRED_` note that says the structural pass is necessary but not sufficient — a marker that the work is outstanding, not a rating.
+
+So: read every phase-3 result in this entry as *"produced an artifact with the expected shape and vocabulary."* It is not a quality score, and the corrected pass rates published here inherit that limit in full. The 39 `p3_market` `STRUCTURAL_PASS` verdicts in particular assert structure only and prove no citation.
+
+### `p3_market` is a live-internet task and its results are not replayable
+
+The `p3_market` family sends the agent to the live public web. Its inputs are whatever the internet returned at run time, so unlike the other eleven families it has no fixed fixture and no possibility of a byte-identical replay. Cells run on different days saw different pages; cells run against sources that have since changed cannot be re-graded against what the model actually read.
+
+It is also the family most distorted by the run-length pathologies described in this entry — of its 64 cells, 18 are loop-labelled and only 46 are graded, the worst delivery of any family — which means its aggregate is computed on a smaller and differently-selected subset than its neighbors. Treat `p3_market` as a qualitative probe. **Do not include it in cross-model aggregates without saying so**, and do not read a difference in its pass counts as a difference in market-research ability.
+
 ## Hardware and platform caveats
 
 ### Single-workstation hardware specificity
@@ -136,6 +174,12 @@ What this means for the data here:
 - **The ranking of cells where models tie at this quant could shift at FP8.** The both-ship cells (p2_ci, p2_extract, p2_triage) are the most likely to be sensitive.
 
 The FP8 re-run of the same 12-cell grid is the highest-priority follow-up — see [`ROADMAP.md`](ROADMAP.md). Contributors with FP8-capable hardware are welcome to PR results via the [`tooling/ADDING-A-MODEL.md`](tooling/ADDING-A-MODEL.md) flow (which now explicitly covers the "same model, different quant" contribution path).
+
+### Quantization specificity — the Qwen3.6-vs-3.8 comparison does not settle the quant question
+
+The head-to-head runs entirely on Unsloth UD-Q4_K_XL GGUFs for both models. The one quantization control in the corpus is a 19-cell Qwen3.8 Q8_0 arm at the matched sampler (2 replicates on the 7 phase-1/phase-2 families, 1 on the 5 phase-3 families), and at freeze #2 it establishes one thing at provisional-rate strength: the identical-call-loop failure shape occurs at Q8_0 at a real, non-negligible rate — 6 of 19 cells trip `looped_freq30` (31.6%, Wilson 95% CI [15.4%, 54.0%], excluding zero), with maximum identical-call runs of 110, 109, 81, 80 and 71. Against 3.8 at UD-Q4_K_XL, same sampler, same 12 families, the loop rate is statistically indistinguishable (29/95, 30.5%, vs 6/19; Fisher p = 1.0). **The loop is not an artifact of UD-Q4_K_XL alone.** A quarantined in-flight Q8_0 cell (`p3_doc_qwen38q8-nothink-matched_v2`, 139 iterations rewriting `brief.md`, ~228k context) additionally shows a rewrite-loop subclass at Q8_0 — unscored qualitative evidence only, excluded from every rate.
+
+What the control cannot do is still more important than what it can. The graded subset is 8 of 19 cells (5 PASS, 3 FAIL; 62.5%, Wilson [30.6%, 86.3%]) — published as provisional data, and far too thin for any quality verdict: the vs-Q4 graded-only contrast (78.5% vs 62.5%, Fisher p = 0.38) fails this PR's own power screen. And there is **no matched Qwen3.6 Q8_0 arm at all**, so this is not a quant A/B: it can neither attribute the Qwen3.8 delivery regression to quantization nor rule quantization out. Whether Qwen3.8's no-think delivery gap narrows, holds, or disappears at Q8_0, FP8, or BF16 is open, and a Q8_0 arm at N>=5 per family for *both* models — graded — is the experiment that would close it.
 
 ### Cloud-LLM hardware is different
 
