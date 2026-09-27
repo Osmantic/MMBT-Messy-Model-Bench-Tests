@@ -1,5 +1,15 @@
 # Tower2 controller operations
 
+## Everyday DSV use
+
+Run DSV normally. Leave `mmbt-gpu-control.service`, `mmbt-native-watchdog.service` and the independent275W cap enforcement enabled. No manual fan setting, per-session fan script, card-order selection or periodic retuning is required. The controller raises the shared eight-fan target when the hottest card needs cooling and reduces it toward quiet idle when work ends. DSV model, prompt, batching and performance experiments can proceed with this cooling configuration active.
+
+Both cooling services start at boot, use six-second systemd watchdogs, restart automatically after two seconds and have no restart-limit lockout. Independent observation verifies current fan/cap behavior; a failed custom controller uses verified automatic restoration as a bounded bridge while supervision recovers it. If protection cannot recover, the system suspends the owned model rather than requiring the operator to improvise fan control. A critical latch requires deliberate investigation and is not silently cleared. This is the abnormal-fault path, not a step required for ordinary inference.
+
+Owner handoff on2026-09-27: cooling is an installed operating component. Do not reopen the fan-tuning campaign as part of future DSV optimization or routine preflight. The owner explicitly ended further qualification and waived the soak; the recorded limitations below remain unchanged. Keep this configuration and its source hashes as the reference unless hardware, driver or cooling requirements materially change.
+
+The [read-only durability handoff](evidence/v2-everyday-operation-handoff.json) records the actual active/enabled units, watchdog/restart settings, root-owned protected sources/configuration, independent cap boot enforcement and healthy authenticated DSV route. It performed no additional fan-tuning or load test.
+
 This package targets the exact four RTX PRO 6000 Blackwell Workstation Edition UUIDs in `common.py`. It is not a portable blind installer. Source, configuration, boot behavior and workload performance must be qualified together. Do not reuse the acceptance claim after changing any of those conditions.
 
 The primary controller and independent observer are root systemd services. The primary holds one permanent kernel lease and commands all eight fans equally. The observer reads the GPUs independently. Both services have watchdogs and restart supervision. The owned native model is `mmbt-dsv41`; unrelated containers are outside their control boundary.
